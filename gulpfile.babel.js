@@ -6,12 +6,14 @@ import del from 'del';
 import ts from 'gulp-typescript';
 import Jasmine from 'jasmine';
 import decache from 'decache';
+import Jimp from 'jimp';
 
 const bgSrc = ['src/background.ts', 'src/shared.ts'];
 const csSrc = ['src/content-script.ts', 'src/shared.ts'];
 const testSrc = ['spec/**/*.ts'];
 const assets = ['assets/**/*'];
 const outDir = './extension';
+const originalIconPath = 'assets/images/quill-orange.png'; // png scale better than jpeg for resizing purposes.
 
 const compileBgScript = () => {
     return browserify()
@@ -54,6 +56,26 @@ const watchContentScript = () => {
 
 const watchAssets = () => {
     gulp.watch(assets, copyAssets);
+}
+
+export const generateIcons = () => {
+    return new Promise((resolve, reject) => {
+        Jimp.read(originalIconPath, (err, icon) => {
+            if (err) {
+                reject();
+            }
+            for (let size of [16, 24, 32, 48, 128]) {
+                const colorIcon = icon.clone();
+                colorIcon.resize(size, size)
+                    .write(`assets/images/icon-${size}x${size}.png`);
+                const grayIcon = icon.clone();
+                grayIcon.resize(size, size)
+                    .greyscale()
+                    .write(`assets/images/icon-gray-${size}x${size}.png`);
+            }
+            resolve();
+        });
+    });
 }
 
 export const watchTests = () => {
