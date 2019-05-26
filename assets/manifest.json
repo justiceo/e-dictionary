@@ -1,44 +1,37 @@
 {
-    "name": "Write Better",
-    "version": "0.0.6",
-    "description": "English grammar suggestions for better writing",
+    "name": "Chrome Extension Starter",
+    "version": "0.1.0",
+    "description": "Chrome extension starter kit (boilerplate) with Typescript, Gulp and E2E tests",
     "manifest_version": 2,
-    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAg/wAu86aayfkDEvVAGgdtl8FS2/axn1JqdDl9awFDUdSLZrCNJ/7vMJBEUp3IpgzBMF+qFH9UZFQJIuyo2vRHnmIXDMVXEfYLmIJ9WfMYQnu8sUvcTilj7zCzaWSyo1/VqGeahsRX18VZBaMyOc4vauSojZFi66ZkR+dd9JoPhbxFFAMrcZkYeoIL27+ofKRy01gCBN/p3kQtowfvQtxGA+5irSqspXPtFIeTY20ZBhGaYR1KXu9wwa9ghtuQPf00Gy8+FyDzFwemawJ3KjlATokTjqEw9Z8ZM1kB6sS0q50xSJUhlbQ+/FMFN0owm7K5UHTSXGOALS8YPnHASeP3wIDAQAB",
+    "key": "For key, visit https://developer.chrome.com/apps/manifest/key",
     "permissions": [
-        "https://docs.google.com/*",
         "storage"
     ],
     "page_action": {
         "default_icon": {
-            "16": "images/quill-orange16.png",
-            "24": "images/quill-orange24.png",
-            "32": "images/quill-orange32.png"
+            "16": "images/icon-16x16.png",
+            "24": "images/icon-24x24.png",
+            "32": "images/icon-32x32.png"
         },
-        "default_title": "Write Better",
+        "default_title": "Chrome Extension Starter",
         "default_popup": ""
     },
     "content_scripts": [
         {
             "all_frames": true,
-            "matches": [
-                "https://docs.google.com/*"
-            ],
-            "include_globs": [
-                "https://docs.google.com/document/d/*"
-            ],
             "js": [
                 "content-script.js"
             ],
             "css": [
-                "highlight.css"
+                "content-script-style.css"
             ]
         }
     ],
     "icons": {
-        "16": "images/quill-orange16.png",
-        "32": "images/quill-orange32.png",
-        "48": "images/quill-orange48.png",
-        "128": "images/quill-orange128.png"
+        "16": "images/icon-16x16.png",
+        "32": "images/icon-32x32.png",
+        "48": "images/icon-48x48.png",
+        "128": "images/icon-128x128.png"
     },
     "background": {
         "scripts": [

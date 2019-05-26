@@ -1,24 +1,10 @@
-export class Message {
-    type: 'analyze_doc' | 'cleanup';
+export class Message {    
+    type: MessageType;
     value: any;
 }
 
-const gDocsUrl = 'docs.google.com';
-
-export const enableOnDocs = (callback: () => void) => {
-    let save: any = {}
-    save[gDocsUrl] = true
-    chrome.storage.sync.set(save, callback);
-}
-
-export const isEnabledOnDocs = (callback: (isEnabled: boolean) => void) => {
-    chrome.storage.sync.get(gDocsUrl, (data) => {
-        if (data[gDocsUrl]) {
-            callback(true);
-        } else {
-            callback(false);
-        }
-    })
+export enum MessageType {
+    Install = 1
 }
 
 export const loadExtensionFile = (fileName: string, callback: (fileContents: string) => void) => {

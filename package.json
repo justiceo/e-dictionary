@@ -1,16 +1,14 @@
 {
-  "name": "write-better",
+  "name": "chrome-extension-starter",
   "version": "0.1.0",
-  "description": "Grammar and writing style suggestions to improve the quality of your writings",
+  "description": "Chrome extension starter kit (boilerplate) with Typescript, Gulp and E2E tests",
   "scripts": {
     "test": "gulp test",
     "build": "gulp build"
   },
   "author": "Justice Ogbonna",
   "license": "MIT",
-  "dependencies": {
-    "write-good": "^1.0.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.4.0",
     "@babel/preset-env": "^7.4.2",

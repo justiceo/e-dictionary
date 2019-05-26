@@ -8,7 +8,7 @@ import Jasmine from 'jasmine';
 import decache from 'decache';
 
 const bgSrc = ['src/background.ts', 'src/shared.ts'];
-const csSrc = ['src/content-script.ts', 'src/model.ts', 'src/shared.ts', 'src/ui.ts'];
+const csSrc = ['src/content-script.ts', 'src/shared.ts'];
 const testSrc = ['spec/**/*.ts'];
 const assets = ['assets/**/*'];
 const outDir = './extension';
