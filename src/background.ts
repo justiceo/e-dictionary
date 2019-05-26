@@ -1,5 +1,5 @@
 
-const how_to_link = 'https://docs.google.com/document/d/1pobtU3ZX0eJkMGXBa0dcH8LkJB3jRFt31dZwY3ozeLM';
+const how_to_link = 'https://www.wikihow.com/Hang-a-Bear-Bag';
 chrome.runtime.onInstalled.addListener((details: chrome.runtime.InstalledDetails) => {
     // On fresh install, open page how to use extension.
     if (details.reason === 'install') {
