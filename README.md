@@ -1,4 +1,4 @@
-# ![logo](assets/images/icon.png) Chrome Extension Starter
+# ![logo](assets/images/icon-24x24.png) Chrome Extension Starter
 
 [![Build Status](https://travis-ci.org/justiceo/chrome-extension-starter.svg?branch=master)](https://travis-ci.org/justiceo/chrome-extension-starter)
 
