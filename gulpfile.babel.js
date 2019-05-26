@@ -13,7 +13,7 @@ const csSrc = ['src/content-script.ts', 'src/shared.ts'];
 const testSrc = ['spec/**/*.ts'];
 const assets = ['assets/**/*'];
 const outDir = './extension';
-const originalIconPath = 'assets/images/quill-orange.png'; // png scale better than jpeg for resizing purposes.
+const originalIconPath = 'assets/images/icon.png'; // png scale better than jpeg for resizing purposes.
 
 const compileBgScript = () => {
     return browserify()
@@ -42,14 +42,10 @@ const compileTests = () => {
         .pipe(gulp.dest('spec'));
 }
 
-export const copyAssets = () => {
-    return gulp.src(assets)
-        .pipe(gulp.dest(outDir));
-}
-
 const watchBackgroundScript = () => {
     gulp.watch(bgSrc, gulp.parallel(compileBgScript));
 }
+
 const watchContentScript = () => {
     gulp.watch(csSrc, gulp.parallel(compileContentScript));
 }
@@ -76,6 +72,11 @@ export const generateIcons = () => {
             resolve();
         });
     });
+}
+
+export const copyAssets = () => {
+    return gulp.src(assets)
+        .pipe(gulp.dest(outDir));
 }
 
 export const watchTests = () => {
