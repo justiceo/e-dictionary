@@ -3,7 +3,6 @@
     "version": "0.1.0",
     "description": "Chrome extension starter kit (boilerplate) with Typescript, Gulp and E2E tests",
     "manifest_version": 2,
-    "key": "For key, visit https://developer.chrome.com/apps/manifest/key",
     "permissions": [
         "storage"
     ],
@@ -18,6 +17,9 @@
     },
     "content_scripts": [
         {
+            "matches": [
+                "http://*/*"
+            ],
             "all_frames": true,
             "js": [
                 "content-script.js"
