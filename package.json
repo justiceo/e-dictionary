@@ -4,10 +4,22 @@
   "description": "Chrome extension starter kit (boilerplate) with Typescript, Gulp and E2E tests",
   "scripts": {
     "test": "gulp test",
-    "build": "gulp build"
+    "build": "gulp build",
+    "start:chrome": "gulp chromeDemo",
+    "start:firefox": "web-ext run --source-dir ./extension/"
   },
   "author": "Justice Ogbonna",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/justiceo/chrome-extension-starter"
+  },
+  "keywords": [
+    "chrome",
+    "extension",
+    "starter",
+    "boilerplate"
+  ],
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.4.0",
@@ -19,16 +31,17 @@
     "@types/node": "^11.11.6",
     "@types/puppeteer": "^1.12.3",
     "browserify": "^16.2.3",
-    "chromedriver": "^2.46.0",
+    "chromedriver": "^98.0.1",
     "decache": "^4.5.1",
     "del": "^4.0.0",
     "gulp": "^4.0.0",
     "gulp-typescript": "^5.0.1",
     "jasmine": "^3.4.0",
-    "jimp": "^0.6.4",
-    "puppeteer": "^1.14.0",
+    "jimp": "^0.16.1",
+    "puppeteer": "^13.4.0",
     "tsify": "^4.0.1",
     "typescript": "^3.3.4000",
-    "vinyl-source-stream": "^2.0.0"
+    "vinyl-source-stream": "^2.0.0",
+    "web-ext": "^6.7.0"
   }
 }

@@ -7,9 +7,12 @@ import ts from 'gulp-typescript';
 import Jasmine from 'jasmine';
 import decache from 'decache';
 import Jimp from 'jimp';
+import puppeteer from 'puppeteer';
+import webExt from 'web-ext';
 
 const bgSrc = ['src/background.ts', 'src/shared.ts'];
 const csSrc = ['src/content-script.ts', 'src/shared.ts'];
+const popupScript = [];
 const testSrc = ['spec/**/*.ts'];
 const assets = ['assets/**/*'];
 const outDir = './extension';
@@ -34,6 +37,16 @@ const compileContentScript = () => {
         .pipe(gulp.dest(outDir))
 }
 
+const compilePopupScript = () => {
+    return browserify()
+        .add(popupScript)
+        .plugin(tsify, { noImplicitAny: true, target: 'es6' })
+        .bundle()
+        .on('error', (err) => { console.error(err) })
+        .pipe(source('popup.js'))
+        .pipe(gulp.dest(outDir))
+}
+
 const compileTests = () => {
     return gulp.src(testSrc)
         .pipe(ts({
@@ -48,6 +61,10 @@ const watchBackgroundScript = () => {
 
 const watchContentScript = () => {
     gulp.watch(csSrc, gulp.parallel(compileContentScript));
+}
+
+const watchPopupScript = () => {
+    gulp.watch(popupScript, gulp.parallel(compilePopupScript));
 }
 
 const watchAssets = () => {
@@ -102,11 +119,26 @@ export const runTest = () => {
 export const clean = () => del([outDir]);
 clean.description = 'clean the output directory'
 
-export const build = gulp.parallel(copyAssets, compileBgScript, compileContentScript);
+export const build = gulp.parallel(copyAssets, compileBgScript, compileContentScript, compilePopupScript);
 build.description = 'compile all sources'
 
 export const test = gulp.series(compileTests, runTest);
 
-const defaultTask = gulp.series(clean, build, gulp.parallel(watchBackgroundScript, watchContentScript, watchAssets))
+export const chromeDemo = () => {
+    puppeteer.launch({
+        headless: false,
+        ignoreDefaultArgs: ["--disable-extensions", "--enable-automation"],
+        args: [
+            `--disable-extensions-except=${process.env.PWD}/extension`,
+            `--load-extension=${process.env.PWD}/extension`,
+        ]
+    });
+}
+
+export const firefoxDemo = () => {
+    webExt.cmd.run({ sourceDir: `${process.env.PWD}/extension` }, { shouldExitProgram: true });
+}
+
+const defaultTask = gulp.series(clean, build, gulp.parallel(watchBackgroundScript, watchContentScript, watchAssets, watchPopupScript))
 defaultTask.description = 'start watching for changes to all source'
 export default defaultTask
