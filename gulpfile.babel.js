@@ -8,7 +8,6 @@ import Jasmine from 'jasmine';
 import decache from 'decache';
 import Jimp from 'jimp';
 import puppeteer from 'puppeteer';
-import webExt from 'web-ext';
 
 const bgSrc = ['src/background.ts', 'src/shared.ts'];
 const csSrc = ['src/content-script.ts', 'src/shared.ts'];
@@ -133,10 +132,6 @@ export const chromeDemo = () => {
             `--load-extension=${process.env.PWD}/extension`,
         ]
     });
-}
-
-export const firefoxDemo = () => {
-    webExt.cmd.run({ sourceDir: `${process.env.PWD}/extension` }, { shouldExitProgram: true });
 }
 
 const defaultTask = gulp.series(clean, build, gulp.parallel(watchBackgroundScript, watchContentScript, watchAssets, watchPopupScript))
