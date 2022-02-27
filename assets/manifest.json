@@ -2,11 +2,17 @@
     "name": "Chrome Extension Starter",
     "version": "0.1.0",
     "description": "Chrome extension starter kit (boilerplate) with Typescript, Gulp and E2E tests",
-    "manifest_version": 2,
+    "manifest_version": 3,
     "permissions": [
         "storage"
     ],
-    "browser_action": {
+    "optional_permissions": [
+        "unlimitedStorage"
+    ],
+    "host_permissions": [
+        "*://*/*"
+    ],
+    "action": {
         "default_icon": {
             "16": "images/icon-16x16.png",
             "24": "images/icon-24x24.png",
@@ -18,7 +24,8 @@
     "content_scripts": [
         {
             "matches": [
-                "http://*/*"
+                "http://*/*",
+                "https://*/*"
             ],
             "all_frames": true,
             "js": [
@@ -36,9 +43,6 @@
         "128": "images/icon-128x128.png"
     },
     "background": {
-        "scripts": [
-            "background.js"
-        ],
-        "persistent": false
+        "service_worker": "background.js"
     }
 }
