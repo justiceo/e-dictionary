@@ -1,3 +1,9 @@
+name: Deploy to GitHub Pages
+on:
+  push:	
+    branches:	
+      - master
+
 jobs:
   deploy:
     name: Github-Pages-Deploy
