@@ -38,9 +38,13 @@ zip -r extension.zip extension
 Extension directory would be in write-better/extension. See how to [load an unpacked extension](https://developer.chrome.com/extensions/getstarted#manifest) in chrome.
 
 
-# "Management" Permission
+### Customizing
 
-The "management" permission in the manifest is only necessary to enable easy-reloading of the extension. Feel free to remove before publishing.
+* Update the post-install welcome page and the post-uninstall goodbye page URLS.
+
+### Pre-Publish
+
+* The "management" permission in the manifest is only necessary to enable easy-reloading of the extension. Feel free to remove before publishing.
 
 
 ### Ref
