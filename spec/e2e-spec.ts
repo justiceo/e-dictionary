@@ -5,9 +5,10 @@ describe('Browser test suite', () => {
   beforeAll(async () => {
     browser = await puppeteer.launch({
       headless: false,
+      ignoreDefaultArgs: ["--disable-extensions","--enable-automation"],
       args: [
-        `--disable-extensions-except=/Users/justiceo/code/chrome/write-better/extension`,
-        `--load-extension=/Users/justiceo/code/chrome/write-better/extension`,
+        `--disable-extensions-except=${process.env.PWD}/extension`,
+        `--load-extension=${process.env.PWD}/extension`,
       ]
     });
   });
@@ -21,12 +22,12 @@ describe('Browser test suite', () => {
     it('should have a title', async () => {
       const page = await browser.newPage();
       await page.goto('https://google.com');
-      expect(await page.title()).toBe('WriteBetter Test Doc - Google Docs');
+      expect(await page.title()).toBe('Google');
       await page.close();
     });
 
     // This is useful when for identifying unexpected UI changes even when unit tests pass.
-    xit('should leave a screenshot for me to inspect', async () => {
+    it('should leave a screenshot for me to inspect', async () => {
       const page = await browser.newPage();
       await page.goto('https://google.com');
       await page.screenshot({ path: 'assets/images/screenshot.png' });

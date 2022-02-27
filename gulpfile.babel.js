@@ -9,8 +9,8 @@ import decache from 'decache';
 import Jimp from 'jimp';
 import puppeteer from 'puppeteer';
 
-const bgSrc = ['src/background.ts', 'src/shared.ts'];
-const csSrc = ['src/content-script.ts', 'src/shared.ts'];
+const bgSrc = ['src/background.ts'];
+const csSrc = ['src/content-script.ts'];
 const popupScript = [];
 const testSrc = ['spec/**/*.ts'];
 const assets = ['assets/**/*'];
