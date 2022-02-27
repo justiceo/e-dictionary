@@ -1,8 +1,8 @@
-## Welcome to GitHub Pages
+## ![logo](assets/images/icon-24x24.png) Chrome Extension Starter
 
-You can use the [editor on GitHub](https://github.com/justiceo/chrome-extension-starter/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+[![Build Status](https://travis-ci.org/justiceo/chrome-extension-starter.svg?branch=master)](https://travis-ci.org/justiceo/chrome-extension-starter)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Chrome extension starter kit for an efficient development and deployment of browser extensions. 
 
 ### Markdown
 
