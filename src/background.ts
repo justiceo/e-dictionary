@@ -1,11 +1,11 @@
 
-const postInstallWelcome = 'https://www.google.com/search?q=hello+world';
+const postInstallFeedback = 'https://justiceo.github.io/chrome-extension-starter/uninstall.html';
 const uninstallUrl = 'https://www.youtube.com/watch?v=RgKAFK5djSk';
 chrome.runtime.onInstalled.addListener((details: chrome.runtime.InstalledDetails) => {
     // On fresh install, open page how to use extension.
     if (details.reason === 'install') {
         chrome.tabs.create({
-            url: postInstallWelcome,
+            url: postInstallFeedback,
             active: true
         });
         return false;
