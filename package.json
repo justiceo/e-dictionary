@@ -38,6 +38,7 @@
     "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-typescript": "^5.0.1",
+    "gulp-zip": "^5.1.0",
     "jasmine": "^3.4.0",
     "jimp": "^0.16.1",
     "npm-check-updates": "^12.4.0",
