@@ -1,7 +1,7 @@
 {
-  "name": "chrome-extension-starter",
+  "name": "xtension",
   "version": "0.1.0",
-  "description": "Chrome extension starter kit (boilerplate) with Typescript, Gulp and E2E tests",
+  "description": "Chrome and Firefox extension starter with Typescript, Gulp and E2E tests",
   "scripts": {
     "test": "gulp test",
     "build": "gulp build",
@@ -12,10 +12,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/justiceo/chrome-extension-starter"
+    "url": "https://github.com/justiceo/xtension"
   },
   "keywords": [
     "chrome",
+    "firefox",
+    "addon",
     "extension",
     "starter",
     "boilerplate"

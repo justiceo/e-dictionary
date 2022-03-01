@@ -1,8 +1,8 @@
-# ![logo](assets/images/icon-24x24.png) Chrome Extension Starter
+# ![logo](assets/images/icon-24x24.png) Browser Extension Starter
 
 [![Build Status](https://travis-ci.org/justiceo/chrome-extension-starter.svg?branch=master)](https://travis-ci.org/justiceo/chrome-extension-starter)
 
-Chrome extension starter kit (boilerplate) for Typescript development, Gulp and E2E tests
+Chrome and Firefox extension starter kit (boilerplate) for Typescript development with Gulp and E2E tests
 
 ### Features
 * **Typescript to Js**: Write your entire chrome extension in Typescript and have it transpiled to JavaScript.
@@ -13,8 +13,8 @@ Chrome extension starter kit (boilerplate) for Typescript development, Gulp and 
 
 1. Download the repo and install dependencies (there are only dev dependencies)
 ```
-git clone http://github.com/justiceo/chrome-extension-starter 
-cd chrome-extension-starter  && npm install  
+git clone http://github.com/justiceo/xtension 
+cd xtension  && npm install  
 ```
 
 2. Generate extension icons (copy high-res icon to assets/images/icon.png)
@@ -22,7 +22,7 @@ cd chrome-extension-starter  && npm install
 gulp generateIcons
 ```
 
-3. Watch for changes in src/ and assets/ and update chrome-extension-starter/extension directory
+3. Watch for changes in src/ and assets/ and update xtension/extension directory
 ```
 gulp
 ```
@@ -40,7 +40,10 @@ Extension directory would be in write-better/extension. See how to [load an unpa
 
 ### Customizing
 
-* Update the post-install welcome page and the post-uninstall goodbye page URLS.
+You need
+1. An icon, preferably PNG as it scales better.
+2. A Github repository.
+3. A name for your extension.
 
 ### Pre-Publish
 
