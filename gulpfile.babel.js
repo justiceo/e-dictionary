@@ -35,7 +35,7 @@ const watchBackgroundScript = () => {
 }
 
 // Content Script
-const contentScript = ['src/content-script/content-script.ts'];
+const contentScript = ['src/error-tracker.ts', 'src/content-script/content-script.ts'];
 const compileContentScript = () => {
     return compileTs(contentScript, 'content-script.js');
 }
