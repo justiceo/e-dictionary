@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "description": "Chrome and Firefox extension starter with Typescript, Gulp and E2E tests",
   "scripts": {
-    "test": "gulp test",
-    "build": "gulp build",
-    "start:chrome": "gulp chromeDemo",
+    "test": "gulp Test",
+    "build": "gulp Build",
+    "start:chrome": "gulp ChromeDemo",
     "start:firefox": "web-ext run --source-dir ./extension/"
   },
   "author": "Justice Ogbonna",
