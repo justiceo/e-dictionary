@@ -10,17 +10,17 @@ import decache from 'decache';
 import Jimp from 'jimp';
 import puppeteer from 'puppeteer';
 
-const bgSrc = ['src/background.ts'];
-const csSrc = ['src/content-script.ts'];
+const backgroundScript = ['src/background-script/background.ts'];
+const contentScript = ['src/content-script/content-script.ts'];
 const popupScript = [];
-const testSrc = ['spec/**/*.ts'];
+const testSpecs = ['spec/**/*.ts'];
 const assets = ['assets/**/*'];
 const outDir = './extension';
 const originalIconPath = 'assets/images/icon.png'; // png scale better than jpeg for resizing purposes.
 
-const compileBgScript = () => {
+const compileBackgroundScript = () => {
     return browserify()
-        .add(bgSrc)
+        .add(backgroundScript)
         .plugin(tsify, { noImplicitAny: true, target: 'es6' })
         .bundle()
         .on('error', (err) => { console.error(err) })
@@ -29,7 +29,7 @@ const compileBgScript = () => {
 }
 const compileContentScript = () => {
     return browserify()
-        .add(csSrc)
+        .add(contentScript)
         .plugin(tsify, { noImplicitAny: true, target: 'es6' })
         .bundle()
         .on('error', (err) => { console.error(err) })
@@ -48,7 +48,7 @@ const compilePopupScript = () => {
 }
 
 const compileTests = () => {
-    return gulp.src(testSrc)
+    return gulp.src(testSpecs)
         .pipe(ts({
             noImplicitAny: true,
         }))
@@ -56,11 +56,11 @@ const compileTests = () => {
 }
 
 const watchBackgroundScript = () => {
-    gulp.watch(bgSrc, gulp.parallel(compileBgScript));
+    gulp.watch(backgroundScript, gulp.parallel(compileBackgroundScript));
 }
 
 const watchContentScript = () => {
-    gulp.watch(csSrc, gulp.parallel(compileContentScript));
+    gulp.watch(contentScript, gulp.parallel(compileContentScript));
 }
 
 const watchPopupScript = () => {
@@ -97,7 +97,7 @@ export const copyAssets = () => {
 }
 
 export const watchTests = () => {
-    return gulp.watch(testSrc, gulp.series(compileTests, runTest));
+    return gulp.watch(testSpecs, gulp.series(compileTests, runTest));
 }
 
 export const runTest = () => {
@@ -119,7 +119,7 @@ export const runTest = () => {
 export const clean = () => del([outDir]);
 clean.description = 'clean the output directory'
 
-export const build = gulp.parallel(copyAssets, compileBgScript, compileContentScript, compilePopupScript);
+export const build = gulp.parallel(copyAssets, compileBackgroundScript, compileContentScript, compilePopupScript);
 build.description = 'compile all sources'
 
 export const test = gulp.series(compileTests, runTest);
