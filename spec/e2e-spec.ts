@@ -17,6 +17,13 @@ describe('Browser test suite', () => {
     await browser.close();
   });
 
+  // TODO tests
+  /*
+  1. Welcome page is visible. Exercises the background script.
+  2. Content script is loaded: It should modify the page.
+  3. Popup script works.
+  */
+
   // Run two tests in parallel (on different pages in same browser)
   describe('Google homepage test', () => {
     it('should have a title', async () => {
