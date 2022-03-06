@@ -22,7 +22,10 @@
     "starter",
     "boilerplate"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "@sentry/browser": "^6.18.1",
+    "@sentry/tracing": "^6.18.1"
+  },
   "devDependencies": {
     "@babel/core": "^7.17.5",
     "@babel/preset-env": "^7.16.11",
