@@ -1,7 +1,9 @@
-import { Message, Log } from '../shared';
+import { Message} from '../shared';
+import { Logger } from '../logger';
 
+const L = new Logger("content-script");
 const onMessage = (msg: Message, _: chrome.runtime.MessageSender, callback: (response?: any) => void) => {
-    Log.debug('content-script.js', 'received message: ', msg.type);
+    L.debug('received message: ', msg.type);
     callback();
 }
 
