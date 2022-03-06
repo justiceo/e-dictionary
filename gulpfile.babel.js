@@ -52,35 +52,6 @@ const watchPopupScript = () => {
     gulp.watch(popupScript, gulp.parallel(compilePopupScript));
 }
 
-// Tests
-const testSpecs = ['spec/**/*.ts'];
-const compileTests = () => {
-    return gulp.src(testSpecs)
-        .pipe(ts({
-            noImplicitAny: true,
-        }))
-        .pipe(gulp.dest('spec'));
-}
-const runTest = () => {
-    return new Promise((resolve, reject) => {
-        const jasmine = new Jasmine();
-        jasmine.loadConfig({
-            spec_files: ['spec/**/*.js'],
-            random: false,
-        });
-        jasmine.onComplete(passed => {
-            // multiple execute calls on jasmine env errors. See https://github.com/jasmine/jasmine/issues/1231#issuecomment-26404527
-            jasmine.specFiles.forEach(f => decache(f));
-            resolve();
-        });
-        jasmine.execute();
-    });
-}
-const test = gulp.series(compileTests, runTest);
-const watchTests = () => {
-    return gulp.watch(testSpecs, test);
-}
-
 // Assets
 const assets = ['assets/**/*'];
 const originalIconPath = 'assets/images/icon.png'; // png scale better than jpeg for resizing purposes.
@@ -114,6 +85,7 @@ const generateIcons = () => {
 // Packaging
 const clean = () => del([outDir]);
 const build = gulp.series(clean, gulp.parallel(copyAssets, compileBackgroundScript, compileContentScript, compilePopupScript));
+// TODO: Add a minify task for pack.
 const pack = gulp.series(build, () => {
     return gulp.src('extension/*')
         .pipe(zip('extension.zip'))
@@ -129,6 +101,35 @@ const launchChrome = () => {
         ]
     });
 };
+
+// Tests
+const testSpecs = ['spec/**/*.ts'];
+const compileTests = () => {
+    return gulp.src(testSpecs)
+        .pipe(ts({
+            noImplicitAny: true,
+        }))
+        .pipe(gulp.dest('spec'));
+}
+const runTest = () => {
+    return new Promise((resolve, reject) => {
+        const jasmine = new Jasmine();
+        jasmine.loadConfig({
+            spec_files: ['spec/**/*.js'],
+            random: false,
+        });
+        jasmine.onComplete(passed => {
+            // multiple execute calls on jasmine env errors. See https://github.com/jasmine/jasmine/issues/1231#issuecomment-26404527
+            jasmine.specFiles.forEach(f => decache(f));
+            resolve();
+        });
+        jasmine.execute();
+    });
+}
+const test = gulp.series(build, compileTests, runTest);
+const watchTests = () => {
+    return gulp.watch(testSpecs, test);
+}
 
 // Exported tasks
 // These can be invoked by running: gulp <task>

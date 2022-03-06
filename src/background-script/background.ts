@@ -1,11 +1,11 @@
 
-const postInstallFeedback = 'https://justiceo.github.io/xtension/uninstall.html';
-const uninstallUrl = 'https://www.youtube.com/watch?v=RgKAFK5djSk';
+const uninstallUrl = 'https://justiceo.github.io/xtension/uninstall.html';
+const welcomeUrl = 'https://www.youtube.com/watch?v=k1BneeJTDcU';
 chrome.runtime.onInstalled.addListener((details: chrome.runtime.InstalledDetails) => {
     // On fresh install, open page how to use extension.
     if (details.reason === 'install') {
         chrome.tabs.create({
-            url: postInstallFeedback,
+            url: welcomeUrl,
             active: true
         });
         return false;
