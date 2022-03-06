@@ -9,6 +9,7 @@ import Jasmine from 'jasmine';
 import decache from 'decache';
 import Jimp from 'jimp';
 import puppeteer from 'puppeteer';
+import jsonConcat from 'json-concat';
 
 // The directory where generated extension files are placed.
 // You can load the extension directory from the directory via "Load unpacked".
@@ -69,9 +70,21 @@ const compileOptionsPage = () => {
 }
 
 // Manifests
-const manifests = ['src/manifests/*'];
-const copyManifests = () => {
-    return copy(manifests, outDir);
+const manifest = ['src/manifests/manifest.json'];
+const firefoxManifest = ['src/manifests/manifest.json', 'src/manifests/manifest-firefox.json'];
+const copyManifest = () => {
+    return copy(manifest, outDir);
+}
+// TODO: Add a build variant that uses this manifest.
+const copyFirefoxManifest = () => {
+    return new Promise((resolve, reject) => {
+        jsonConcat({
+            src: firefoxManifest,
+            dest: outDir + "/manifest.json"
+        }, function (json) {
+            resolve();
+        });
+    });
 }
 
 // Assets
@@ -106,12 +119,13 @@ const generateIcons = () => {
 // Packaging
 const clean = () => del([outDir]);
 const build = gulp.series(clean, gulp.parallel(
-    copyAssets, 
-    compileBackgroundScript, 
-    compileContentScript, 
-    compilePopupScript, 
-    compileOptionsPage, 
-    copyManifests));
+    copyAssets,
+    compileBackgroundScript,
+    compileContentScript,
+    compilePopupScript,
+    compileOptionsPage,
+    copyManifest));
+
 // TODO: Add a minify task for pack.
 const pack = gulp.series(build, () => {
     return gulp.src('extension/*')
