@@ -33,7 +33,7 @@
                 "content-script.js"
             ],
             "css": [
-                "content-script-style.css"
+                "content-script.css"
             ]
         }
     ],

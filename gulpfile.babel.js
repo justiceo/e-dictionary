@@ -25,6 +25,12 @@ const compileTs = (srcFiles, outputFile) => {
         .pipe(gulp.dest(outDir))
 }
 
+// Copy files in fromDir to toDir.
+const copy = (fromDir, toDir) => {
+    return gulp.src(fromDir)
+        .pipe(gulp.dest(toDir));
+}
+
 // Background Script
 const backgroundScript = ['src/background-script/background.ts'];
 const compileBackgroundScript = () => {
@@ -36,28 +42,43 @@ const watchBackgroundScript = () => {
 
 // Content Script
 const contentScript = ['src/error-tracker.ts', 'src/content-script/content-script.ts'];
-const compileContentScript = () => {
+const copyContentScriptStyle = () => {
+    return copy('src/content-script/content-script.css', outDir);
+}
+const compileContentScriptTs = () => {
     return compileTs(contentScript, 'content-script.js');
 }
+const compileContentScript = gulp.parallel(compileContentScriptTs, copyContentScriptStyle);
 const watchContentScript = () => {
     gulp.watch(contentScript, gulp.parallel(compileContentScript));
 }
 
 // Popup
-const popupScript = [];
+const popupScript = ['src/popup/*'];
 const compilePopupScript = () => {
-    return compileTs(popupScript, 'popup.js');
+    return copy(popupScript, outDir);
 }
 const watchPopupScript = () => {
     gulp.watch(popupScript, gulp.parallel(compilePopupScript));
+}
+
+// Options Page
+const optionsScript = ['src/options-page/*'];
+const compileOptionsPage = () => {
+    return copy(optionsScript, outDir);
+}
+
+// Manifests
+const manifests = ['src/manifests/*'];
+const copyManifests = () => {
+    return copy(manifests, outDir);
 }
 
 // Assets
 const assets = ['assets/**/*'];
 const originalIconPath = 'assets/images/icon.png'; // png scale better than jpeg for resizing purposes.
 const copyAssets = () => {
-    return gulp.src(assets)
-        .pipe(gulp.dest(outDir));
+    return copy(assets, outDir);
 }
 const watchAssets = () => {
     gulp.watch(assets, copyAssets);
@@ -84,7 +105,13 @@ const generateIcons = () => {
 
 // Packaging
 const clean = () => del([outDir]);
-const build = gulp.series(clean, gulp.parallel(copyAssets, compileBackgroundScript, compileContentScript, compilePopupScript));
+const build = gulp.series(clean, gulp.parallel(
+    copyAssets, 
+    compileBackgroundScript, 
+    compileContentScript, 
+    compilePopupScript, 
+    compileOptionsPage, 
+    copyManifests));
 // TODO: Add a minify task for pack.
 const pack = gulp.series(build, () => {
     return gulp.src('extension/*')
