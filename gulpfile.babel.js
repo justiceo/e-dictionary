@@ -1,3 +1,5 @@
+import 'dotenv/config'
+import fs from 'fs';
 import gulp from 'gulp';
 import zip from 'gulp-zip';
 import tsify from 'tsify';
@@ -10,6 +12,8 @@ import decache from 'decache';
 import Jimp from 'jimp';
 import puppeteer from 'puppeteer';
 import jsonConcat from 'json-concat';
+import calver from 'calver';
+import jeditor from 'gulp-json-editor';
 
 // The directory where generated extension files are placed.
 // You can load the extension directory from the directory via "Load unpacked".
@@ -55,10 +59,14 @@ const watchContentScript = () => {
 }
 
 // Popup
-const popupScript = ['src/popup/*'];
-const compilePopupScript = () => {
-    return copy(popupScript, outDir);
+const popupScript = ['src/popup/popup.ts'];
+const compilePopupScriptTs = () => {
+    return compileTs(popupScript, 'popup.js');
 }
+const copyPopupHtml = () => {
+    return copy('src/popup/popup.html', outDir);
+}
+const compilePopupScript = gulp.parallel(compilePopupScriptTs, copyPopupHtml);
 const watchPopupScript = () => {
     gulp.watch(popupScript, gulp.parallel(compilePopupScript));
 }
@@ -126,8 +134,26 @@ const build = gulp.series(clean, gulp.parallel(
     compileOptionsPage,
     copyManifest));
 
+// Bump package versions
+// To bump to a major version, set the env variable as in `RELEASE=major gulp bumpPackageJson`
+const bump = (jsonFile, dest) => {
+    // Read current version from package.json.
+    // `fs` is used instead of require to prevent caching in watch (require caches)
+    const pkg = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
+
+    const format = '0y.0m.0d'; // 0-padded year, 0-padded month and 0-padded day.
+    const newVer = calver.inc(format, pkg.version, 'patch');
+
+    return gulp.src(jsonFile)
+        .pipe(jeditor({ 'version': newVer }))
+        .pipe(gulp.dest(dest));
+};
+
+export const BumpVersion = gulp.parallel(
+    () => bump('./package.json', './'), () => bump('./src/manifests/manifest.json', './src/manifests/'));
+
 // TODO: Add a minify task for pack.
-const pack = gulp.series(build, () => {
+const pack = gulp.series(BumpVersion, build, () => {
     return gulp.src('extension/*')
         .pipe(zip('extension.zip'))
         .pipe(gulp.dest('dist'))
