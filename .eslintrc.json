@@ -4,10 +4,12 @@
         "webextensions": true,
         "node": true,
         "commonjs": true,
+        "jasmine": true,
         "es2021": true
     },
     "extends": [
         "eslint:recommended",
+        "airbnb-base/legacy",
         "google"
     ],
     "parser": "@typescript-eslint/parser",
@@ -18,10 +20,27 @@
     "plugins": [
         "@typescript-eslint"
     ],
+    "ignorePatterns": [
+        "extension/",
+        "dist/",
+        "spec/*.js"
+    ],
     "rules": {
         "quotes": [
             "error",
             "double"
+        ],
+        "multiline-comment-style": [
+            "warn",
+            "starred-block"
+        ],
+        "no-unused-vars": [
+            "error",
+            {
+                "varsIgnorePattern": "unused",
+                "args": "after-used",
+                "argsIgnorePattern": "unused"
+            }
         ],
         "max-len": [
             "warn"

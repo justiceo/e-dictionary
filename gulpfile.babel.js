@@ -15,17 +15,21 @@ import jsonConcat from "json-concat";
 import calver from "calver";
 import jeditor from "gulp-json-editor";
 
-// The directory where generated extension files are placed.
-// You can load the extension directory from the directory via "Load unpacked".
+/*
+ * The directory where generated extension files are placed.
+ * You can load the extension directory from the directory via "Load unpacked".
+ */
 const outDir = "./extension";
 
 // Compile and bundle a set of TypeScript files into one Js file.
 const compileTs = (srcFiles, outputFile) => {
   return browserify()
       .add(srcFiles)
-      .plugin(tsify, {noImplicitAny: true, target: "es6"})
+      .plugin(tsify, { noImplicitAny: true, target: "es6" })
       .bundle()
       .on("error", (err) => {
+        // TODO: This line may not be useful as gulp doesn't use console.
+        // eslint-disable-next-line no-console
         console.error(err);
       })
       .pipe(source(outputFile))
@@ -48,14 +52,17 @@ const watchBackgroundScript = () => {
 };
 
 // Content Script
-const contentScript = ["src/error-tracker.ts", "src/content-script/content-script.ts"];
+const contentScript = [
+  "src/error-tracker.ts",
+  "src/content-script/content-script.ts"];
 const copyContentScriptStyle = () => {
   return copy("src/content-script/content-script.css", outDir);
 };
 const compileContentScriptTs = () => {
   return compileTs(contentScript, "content-script.js");
 };
-const compileContentScript = gulp.parallel(compileContentScriptTs, copyContentScriptStyle);
+const compileContentScript =
+  gulp.parallel(compileContentScriptTs, copyContentScriptStyle);
 const watchContentScript = () => {
   gulp.watch(contentScript, gulp.parallel(compileContentScript));
 };
@@ -89,13 +96,13 @@ const copyManifest = () => {
   return copy(manifest, outDir);
 };
 // TODO: Add a build variant that uses this manifest.
-const copyFirefoxManifest = () => {
-  return new Promise((resolve, reject) => {
+const unusedCopyFirefoxManifest = () => {
+  return new Promise((resolve) => {
     jsonConcat({
       src: firefoxManifest,
       dest: outDir + "/manifest.json",
-    }, function(json) {
-      resolve();
+    }, (json) => {
+      resolve(json);
     });
   });
 };
@@ -116,7 +123,8 @@ const generateIcons = () => {
       if (err) {
         reject();
       }
-      for (const size of [16, 24, 32, 48, 128]) {
+
+      [16, 24, 32, 48, 128].forEach((size) => {
         const colorIcon = icon.clone();
         colorIcon.resize(size, size)
             .write(`assets/images/icon-${size}x${size}.png`);
@@ -124,7 +132,7 @@ const generateIcons = () => {
         grayIcon.resize(size, size)
             .greyscale()
             .write(`assets/images/icon-gray-${size}x${size}.png`);
-      }
+      });
       resolve();
     });
   });
@@ -138,28 +146,34 @@ const build = gulp.series(clean, gulp.parallel(
     compileContentScript,
     compilePopupScript,
     compileOptionsPage,
-    copyManifest));
+    copyManifest,
+));
 
-// Bump package versions
-// For major version, set the env variable as in:
-// `RELEASE=major gulp bumpPackageJson`
+/*
+ * Bump package versions
+ * For major version, set the env variable as in:
+ * `RELEASE=major gulp bumpPackageJson`
+ */
 const bump = (jsonFile, dest) => {
-  // Read current version from package.json.
-  // `fs` is used instead of require to prevent caching
-  // in watch (require caches)
+  /*
+   * Read current version from package.json.
+   * `fs` is used instead of require to prevent caching
+   * in watch (require caches)
+   */
   const pkg = JSON.parse(fs.readFileSync("./package.json", "utf8"));
 
   const format = "0y.0m.0d"; // 0-padded year, 0-padded month and 0-padded day.
   const newVer = calver.inc(format, pkg.version, "calendar");
 
   return gulp.src(jsonFile)
-      .pipe(jeditor({"version": newVer}))
+      .pipe(jeditor({ "version": newVer }))
       .pipe(gulp.dest(dest));
 };
 
 export const BumpVersion = gulp.parallel(
     () => bump("./package.json", "./"),
-    () => bump("./src/manifests/manifest.json", "./src/manifests/"));
+    () => bump("./src/manifests/manifest.json", "./src/manifests/"),
+);
 
 // TODO: Add a minify task for pack.
 const pack = gulp.series(BumpVersion, build, () => {
@@ -188,7 +202,7 @@ const compileTests = () => {
       .pipe(gulp.dest("spec"));
 };
 const runTest = () => {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     const jasmine = new Jasmine();
     jasmine.loadConfig({
       spec_files: ["spec/**/*.js"],
@@ -197,7 +211,7 @@ const runTest = () => {
     jasmine.onComplete((passed) => {
       // multiple execute calls on jasmine env errors. See https://github.com/jasmine/jasmine/issues/1231#issuecomment-26404527
       jasmine.specFiles.forEach((f) => decache(f));
-      resolve();
+      resolve(passed);
     });
     jasmine.execute();
   });
@@ -207,10 +221,12 @@ const watchTests = () => {
   return gulp.watch(testSpecs, test);
 };
 
-// Exported tasks
-// These can be invoked by running: gulp <task>
+/*
+ * Exported tasks
+ * These can be invoked by running: gulp <task>
+ */
 export const Build = build;
-Build.description = "Clean output directory and re-generate extension files from source.";
+Build.description = "Clean output directory and re-generate extension files.";
 
 export const Test = test;
 Test.description = "Compile and run all tests in the /spec directory";
@@ -222,18 +238,21 @@ export const ChromeDemo = gulp.series(build, launchChrome);
 ChromeDemo.description = "Start a chrome instance with the extension installed";
 
 export const Pack = pack;
-Pack.description = "Create a .zip file that can be uploaded to extension stores (Chrome or Firefox)";
+Pack.description = "Create a .zip file for extension store upload.";
 
 export const GenerateIcons = generateIcons;
-GenerateIcons.description = "Use assets/images/icon.png to generate the set of required icons";
+GenerateIcons.description = "[Re]generate the set of required icons from base";
 
-export const DefaultTask = gulp.series(build,
+export const DefaultTask = gulp.series(
+    build,
     gulp.parallel(
         watchBackgroundScript,
         watchContentScript,
         watchAssets,
-        watchPopupScript));
-DefaultTask.description = "Generate extension files, watch for changes and regenerate";
+        watchPopupScript,
+    ),
+);
+DefaultTask.description = "Generate extension files, watch for changes";
 
 // The default task is what runs when you run `gulp` without any arguments.
 export default DefaultTask;

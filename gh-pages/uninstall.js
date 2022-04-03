@@ -5,12 +5,11 @@ const form = document.forms["google-sheet"];
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  console.log(new FormData(form));
   fetch(scriptURL, {
     method: "POST",
     body: new FormData(form),
-  }).then((response) => {
+  }).then((unusedResponse) => {
     form.reset();
     window.location.href = extensionUrl;
-  }).catch((error) => console.error("Error!", error.message));
+  }).catch((error) => console.error("Error: ", error.message));
 });

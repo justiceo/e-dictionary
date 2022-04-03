@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable require-jsdoc */
 /**
  * Simple util for logging to console.
@@ -6,7 +7,9 @@
  */
 export class Logger {
   static debugMode = true;
+
   tag: string = "";
+
   constructor(tag: string) {
     this.tag = tag;
   }
@@ -16,10 +19,13 @@ export class Logger {
       return;
     }
     const d = new Date(Date.now());
-    console.debug("%c%s %s", "color: blue",
+    console.debug(
+        "%c%s %s",
+        "color: blue",
         `[${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}]`,
         this.tag,
-        ...logs);
+        ...logs,
+    );
   }
 
   log(...logs: any[]) {
@@ -27,10 +33,13 @@ export class Logger {
       return;
     }
     const d = new Date(Date.now());
-    console.log("%c%s %s", "color: blue",
+    console.log(
+        "%c%s %s",
+        "color: blue",
         `[${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}]`,
         this.tag,
-        ...logs);
+        ...logs,
+    );
   }
 
   warn(...logs: any[]) {
@@ -38,10 +47,13 @@ export class Logger {
       return;
     }
     const d = new Date(Date.now());
-    console.warn("%c%s %s", "color: blue",
+    console.warn(
+        "%c%s %s",
+        "color: blue",
         `[${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}]`,
         this.tag,
-        ...logs);
+        ...logs,
+    );
   }
 
   error(...logs: any[]) {
@@ -49,9 +61,12 @@ export class Logger {
       return;
     }
     const d = new Date(Date.now());
-    console.error("%c%s %s", "color: blue",
+    console.error(
+        "%c%s %s",
+        "color: blue",
         `[${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}]`,
         this.tag,
-        ...logs);
+        ...logs,
+    );
   }
 }
