@@ -60,3 +60,25 @@ gulp Pack
 ### Example Code
 1. https://github.com/mdn/webextensions-examples
 2. https://github.com/orbitbot/chrome-extensions-examples
+
+
+### Staying up-to-date with this repo after a fork:
+1. Click "Use template", don't fork it. It would create a new repositories without history.
+2. Add this repository as a remote to the new repo
+`git remote add xtension git@github.com:justiceo/xtension.git`
+3. Fetch the latest updates from the xtension repo (template).
+`git fetch xtension`
+4. Create a local branch to track xtension repo.
+`git checkout -B xtension && git branch -u xtension/master`
+5. There should be two divergent histories now. `master -> origin/master` and `xtension -> xtension/master`.
+6. Copy the changes from xtension to master without a commit.
+`git checkout xtension -- .` 
+7. Fix any changes then commit
+`git commit -m "merged updates from xtension"`.
+
+
+### Pushing changes upstream to the template after a fork:
+1. Go through steps 1-5 in the above steps.
+2. Copy the specific files you want from master to xtension. U
+`git checkout master -- <path/to/file>`
+3. Make changes in xtension and commit. Push to xtension/master.
