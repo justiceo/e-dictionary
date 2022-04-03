@@ -61,7 +61,7 @@ const watchContentScript = () => {
 };
 
 // Popup
-const popupScript = ["src/popup/popup.ts"];
+const popupScript = ["src/popup/popup.ts", "src/popup/auto-reload.ts"];
 const compilePopupScriptTs = () => {
   return compileTs(popupScript, "popup.js");
 };
