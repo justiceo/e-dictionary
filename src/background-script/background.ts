@@ -9,7 +9,6 @@ const onInstalled = (details: chrome.runtime.InstalledDetails) => {
       url: welcomeUrl,
       active: true,
     });
-    return false;
   }
 
   // Set url to take users upon uninstall.

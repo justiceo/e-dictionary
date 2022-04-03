@@ -8,13 +8,13 @@
 export class Logger {
   static debugMode = true;
 
-  tag: string = "";
+  tag = "";
 
   constructor(tag: string) {
     this.tag = tag;
   }
 
-  debug(...logs: any[]) {
+  debug(...logs: unknown[]) {
     if (!Logger.debugMode) {
       return;
     }
@@ -28,7 +28,7 @@ export class Logger {
     );
   }
 
-  log(...logs: any[]) {
+  log(...logs: unknown[]) {
     if (!Logger.debugMode) {
       return;
     }
@@ -42,7 +42,7 @@ export class Logger {
     );
   }
 
-  warn(...logs: any[]) {
+  warn(...logs: unknown[]) {
     if (!Logger.debugMode) {
       return;
     }
@@ -56,7 +56,7 @@ export class Logger {
     );
   }
 
-  error(...logs: any[]) {
+  error(...logs: unknown[]) {
     if (!Logger.debugMode) {
       return;
     }

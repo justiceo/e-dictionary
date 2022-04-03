@@ -9,6 +9,7 @@
     },
     "extends": [
         "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
         "airbnb-base/legacy",
         "google"
     ],
@@ -34,13 +35,17 @@
             "warn",
             "starred-block"
         ],
-        "no-unused-vars": [
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": [
             "error",
             {
                 "varsIgnorePattern": "unused",
-                "args": "after-used",
                 "argsIgnorePattern": "unused"
             }
+        ],
+        "no-shadow": "off",
+        "@typescript-eslint/no-shadow": [
+            "error"
         ],
         "max-len": [
             "warn"

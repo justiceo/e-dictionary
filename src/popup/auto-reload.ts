@@ -1,4 +1,5 @@
-/** Inserts a "Reload" button for reloading the extension.
+/**
+ * Inserts a "Reload" button for reloading the extension.
  *
  * Currently only works with popup. Alternatives considered:
  * 1. Insert the button directly into the page, onclick content-script
@@ -9,7 +10,9 @@
 const p = document.createElement("p");
 p.innerHTML = "<button id=\"reload-extension\">Reload xtension</button>";
 document.querySelector("body").appendChild(p);
-document.querySelector("#reload-extension").addEventListener("click",
-    function() {
+document.querySelector("#reload-extension").addEventListener(
+    "click",
+    () => {
       chrome.runtime.reload();
-    });
+    },
+);
