@@ -56,3 +56,7 @@ gulp Pack
 
 1. http://www.adambarth.com/experimental/crx/docs/manifest.html
 2. https://developer.chrome.com/extensions/manifest
+
+### Example Code
+1. https://github.com/mdn/webextensions-examples
+2. https://github.com/orbitbot/chrome-extensions-examples
