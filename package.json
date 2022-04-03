@@ -1,6 +1,6 @@
 {
   "name": "xtension",
-  "version": "0.1.0",
+  "version": "22.04.03",
   "description": "Chrome and Firefox extension starter with Typescript, Gulp and E2E tests",
   "scripts": {
     "test": "gulp Test",
@@ -14,14 +14,7 @@
     "type": "git",
     "url": "https://github.com/justiceo/xtension"
   },
-  "keywords": [
-    "chrome",
-    "firefox",
-    "addon",
-    "extension",
-    "starter",
-    "boilerplate"
-  ],
+  "keywords": ["chrome", "firefox", "addon", "extension", "starter", "boilerplate"],
   "dependencies": {
     "@sentry/browser": "^6.18.1",
     "@sentry/tracing": "^6.18.1"
