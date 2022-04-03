@@ -1,6 +1,6 @@
 
 const uninstallUrl = "https://justiceo.github.io/xtension/uninstall.html";
-const welcomeUrl = "https://www.youtube.com/watch?v=k1BneeJTDcU";
+const welcomeUrl = "https://justiceo.github.io/xtension/uninstall.html";
 
 const onInstalled = (details: chrome.runtime.InstalledDetails) => {
   // On fresh install, open page how to use extension.
