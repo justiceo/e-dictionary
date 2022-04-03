@@ -1,128 +1,134 @@
-import 'dotenv/config'
-import fs from 'fs';
-import gulp from 'gulp';
-import zip from 'gulp-zip';
-import tsify from 'tsify';
-import browserify from 'browserify';
-import source from 'vinyl-source-stream';
-import del from 'del';
-import ts from 'gulp-typescript';
-import Jasmine from 'jasmine';
-import decache from 'decache';
-import Jimp from 'jimp';
-import puppeteer from 'puppeteer';
-import jsonConcat from 'json-concat';
-import calver from 'calver';
-import jeditor from 'gulp-json-editor';
+import "dotenv/config";
+import fs from "fs";
+import gulp from "gulp";
+import zip from "gulp-zip";
+import tsify from "tsify";
+import browserify from "browserify";
+import source from "vinyl-source-stream";
+import del from "del";
+import ts from "gulp-typescript";
+import Jasmine from "jasmine";
+import decache from "decache";
+import Jimp from "jimp";
+import puppeteer from "puppeteer";
+import jsonConcat from "json-concat";
+import calver from "calver";
+import jeditor from "gulp-json-editor";
 
 // The directory where generated extension files are placed.
 // You can load the extension directory from the directory via "Load unpacked".
-const outDir = './extension';
+const outDir = "./extension";
 
 // Compile and bundle a set of TypeScript files into one Js file.
 const compileTs = (srcFiles, outputFile) => {
-    return browserify()
-        .add(srcFiles)
-        .plugin(tsify, { noImplicitAny: true, target: 'es6' })
-        .bundle()
-        .on('error', (err) => { console.error(err) })
-        .pipe(source(outputFile))
-        .pipe(gulp.dest(outDir))
-}
+  return browserify()
+      .add(srcFiles)
+      .plugin(tsify, {noImplicitAny: true, target: "es6"})
+      .bundle()
+      .on("error", (err) => {
+        console.error(err);
+      })
+      .pipe(source(outputFile))
+      .pipe(gulp.dest(outDir));
+};
 
 // Copy files in fromDir to toDir.
 const copy = (fromDir, toDir) => {
-    return gulp.src(fromDir)
-        .pipe(gulp.dest(toDir));
-}
+  return gulp.src(fromDir)
+      .pipe(gulp.dest(toDir));
+};
 
 // Background Script
-const backgroundScript = ['src/background-script/background.ts'];
+const backgroundScript = ["src/background-script/background.ts"];
 const compileBackgroundScript = () => {
-    return compileTs(backgroundScript, 'background.js');
-}
+  return compileTs(backgroundScript, "background.js");
+};
 const watchBackgroundScript = () => {
-    gulp.watch(backgroundScript, gulp.parallel(compileBackgroundScript));
-}
+  gulp.watch(backgroundScript, gulp.parallel(compileBackgroundScript));
+};
 
 // Content Script
-const contentScript = ['src/error-tracker.ts', 'src/content-script/content-script.ts'];
+const contentScript = ["src/error-tracker.ts", "src/content-script/content-script.ts"];
 const copyContentScriptStyle = () => {
-    return copy('src/content-script/content-script.css', outDir);
-}
+  return copy("src/content-script/content-script.css", outDir);
+};
 const compileContentScriptTs = () => {
-    return compileTs(contentScript, 'content-script.js');
-}
+  return compileTs(contentScript, "content-script.js");
+};
 const compileContentScript = gulp.parallel(compileContentScriptTs, copyContentScriptStyle);
 const watchContentScript = () => {
-    gulp.watch(contentScript, gulp.parallel(compileContentScript));
-}
+  gulp.watch(contentScript, gulp.parallel(compileContentScript));
+};
 
 // Popup
-const popupScript = ['src/popup/popup.ts'];
+const popupScript = ["src/popup/popup.ts"];
 const compilePopupScriptTs = () => {
-    return compileTs(popupScript, 'popup.js');
-}
+  return compileTs(popupScript, "popup.js");
+};
 const copyPopupHtml = () => {
-    return copy('src/popup/popup.html', outDir);
-}
+  return copy("src/popup/popup.html", outDir);
+};
 const compilePopupScript = gulp.parallel(compilePopupScriptTs, copyPopupHtml);
 const watchPopupScript = () => {
-    gulp.watch(popupScript, gulp.parallel(compilePopupScript));
-}
+  gulp.watch(popupScript, gulp.parallel(compilePopupScript));
+};
 
 // Options Page
-const optionsScript = ['src/options-page/*'];
+const optionsScript = ["src/options-page/*"];
 const compileOptionsPage = () => {
-    return copy(optionsScript, outDir);
-}
+  return copy(optionsScript, outDir);
+};
 
 // Manifests
-const manifest = ['src/manifests/manifest.json'];
-const firefoxManifest = ['src/manifests/manifest.json', 'src/manifests/manifest-firefox.json'];
+const manifest = ["src/manifests/manifest.json"];
+const firefoxManifest = [
+  "src/manifests/manifest.json",
+  "src/manifests/manifest-firefox.json",
+];
 const copyManifest = () => {
-    return copy(manifest, outDir);
-}
+  return copy(manifest, outDir);
+};
 // TODO: Add a build variant that uses this manifest.
 const copyFirefoxManifest = () => {
-    return new Promise((resolve, reject) => {
-        jsonConcat({
-            src: firefoxManifest,
-            dest: outDir + "/manifest.json"
-        }, function (json) {
-            resolve();
-        });
+  return new Promise((resolve, reject) => {
+    jsonConcat({
+      src: firefoxManifest,
+      dest: outDir + "/manifest.json",
+    }, function(json) {
+      resolve();
     });
-}
+  });
+};
 
 // Assets
-const assets = ['assets/**/*'];
-const originalIconPath = 'assets/images/icon.png'; // png scale better than jpeg for resizing purposes.
+const assets = ["assets/**/*"];
+// Prefer png, it scales better than jpeg for resizing purposes.
+const originalIconPath = "assets/images/icon.png";
 const copyAssets = () => {
-    return copy(assets, outDir);
-}
+  return copy(assets, outDir);
+};
 const watchAssets = () => {
-    gulp.watch(assets, copyAssets);
-}
+  gulp.watch(assets, copyAssets);
+};
 const generateIcons = () => {
-    return new Promise((resolve, reject) => {
-        Jimp.read(originalIconPath, (err, icon) => {
-            if (err) {
-                reject();
-            }
-            for (let size of [16, 24, 32, 48, 128]) {
-                const colorIcon = icon.clone();
-                colorIcon.resize(size, size)
-                    .write(`assets/images/icon-${size}x${size}.png`);
-                const grayIcon = icon.clone();
-                grayIcon.resize(size, size)
-                    .greyscale()
-                    .write(`assets/images/icon-gray-${size}x${size}.png`);
-            }
-            resolve();
-        });
+  return new Promise((resolve, reject) => {
+    Jimp.read(originalIconPath, (err, icon) => {
+      if (err) {
+        reject();
+      }
+      for (const size of [16, 24, 32, 48, 128]) {
+        const colorIcon = icon.clone();
+        colorIcon.resize(size, size)
+            .write(`assets/images/icon-${size}x${size}.png`);
+        const grayIcon = icon.clone();
+        grayIcon.resize(size, size)
+            .greyscale()
+            .write(`assets/images/icon-gray-${size}x${size}.png`);
+      }
+      resolve();
     });
-}
+  });
+};
 
 // Packaging
 const clean = () => del([outDir]);
@@ -135,68 +141,71 @@ const build = gulp.series(clean, gulp.parallel(
     copyManifest));
 
 // Bump package versions
-// To bump to a major version, set the env variable as in `RELEASE=major gulp bumpPackageJson`
+// For major version, set the env variable as in:
+// `RELEASE=major gulp bumpPackageJson`
 const bump = (jsonFile, dest) => {
-    // Read current version from package.json.
-    // `fs` is used instead of require to prevent caching in watch (require caches)
-    const pkg = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
+  // Read current version from package.json.
+  // `fs` is used instead of require to prevent caching
+  // in watch (require caches)
+  const pkg = JSON.parse(fs.readFileSync("./package.json", "utf8"));
 
-    const format = '0y.0m.0d'; // 0-padded year, 0-padded month and 0-padded day.
-    const newVer = calver.inc(format, pkg.version, 'calendar');
+  const format = "0y.0m.0d"; // 0-padded year, 0-padded month and 0-padded day.
+  const newVer = calver.inc(format, pkg.version, "calendar");
 
-    return gulp.src(jsonFile)
-        .pipe(jeditor({ 'version': newVer }))
-        .pipe(gulp.dest(dest));
+  return gulp.src(jsonFile)
+      .pipe(jeditor({"version": newVer}))
+      .pipe(gulp.dest(dest));
 };
 
 export const BumpVersion = gulp.parallel(
-    () => bump('./package.json', './'), () => bump('./src/manifests/manifest.json', './src/manifests/'));
+    () => bump("./package.json", "./"),
+    () => bump("./src/manifests/manifest.json", "./src/manifests/"));
 
 // TODO: Add a minify task for pack.
 const pack = gulp.series(BumpVersion, build, () => {
-    return gulp.src('extension/*')
-        .pipe(zip('extension.zip'))
-        .pipe(gulp.dest('dist'))
+  return gulp.src("extension/*")
+      .pipe(zip("extension.zip"))
+      .pipe(gulp.dest("dist"));
 });
 const launchChrome = () => {
-    puppeteer.launch({
-        headless: false,
-        ignoreDefaultArgs: ["--disable-extensions", "--enable-automation"],
-        args: [
-            `--disable-extensions-except=${process.env.PWD}/extension`,
-            `--load-extension=${process.env.PWD}/extension`,
-        ]
-    });
+  puppeteer.launch({
+    headless: false,
+    ignoreDefaultArgs: ["--disable-extensions", "--enable-automation"],
+    args: [
+      `--disable-extensions-except=${process.env.PWD}/extension`,
+      `--load-extension=${process.env.PWD}/extension`,
+    ],
+  });
 };
 
 // Tests
-const testSpecs = ['spec/**/*.ts'];
+const testSpecs = ["spec/**/*.ts"];
 const compileTests = () => {
-    return gulp.src(testSpecs)
-        .pipe(ts({
-            noImplicitAny: true,
-        }))
-        .pipe(gulp.dest('spec'));
-}
+  return gulp.src(testSpecs)
+      .pipe(ts({
+        noImplicitAny: true,
+      }))
+      .pipe(gulp.dest("spec"));
+};
 const runTest = () => {
-    return new Promise((resolve, reject) => {
-        const jasmine = new Jasmine();
-        jasmine.loadConfig({
-            spec_files: ['spec/**/*.js'],
-            random: false,
-        });
-        jasmine.onComplete(passed => {
-            // multiple execute calls on jasmine env errors. See https://github.com/jasmine/jasmine/issues/1231#issuecomment-26404527
-            jasmine.specFiles.forEach(f => decache(f));
-            resolve();
-        });
-        jasmine.execute();
+  return new Promise((resolve, reject) => {
+    const jasmine = new Jasmine();
+    jasmine.loadConfig({
+      spec_files: ["spec/**/*.js"],
+      random: false,
     });
-}
+    jasmine.onComplete((passed) => {
+      // multiple execute calls on jasmine env errors. See https://github.com/jasmine/jasmine/issues/1231#issuecomment-26404527
+      jasmine.specFiles.forEach((f) => decache(f));
+      resolve();
+    });
+    jasmine.execute();
+  });
+};
 const test = gulp.series(build, compileTests, runTest);
 const watchTests = () => {
-    return gulp.watch(testSpecs, test);
-}
+  return gulp.watch(testSpecs, test);
+};
 
 // Exported tasks
 // These can be invoked by running: gulp <task>
@@ -218,8 +227,13 @@ Pack.description = "Create a .zip file that can be uploaded to extension stores 
 export const GenerateIcons = generateIcons;
 GenerateIcons.description = "Use assets/images/icon.png to generate the set of required icons";
 
-export const DefaultTask = gulp.series(build, gulp.parallel(watchBackgroundScript, watchContentScript, watchAssets, watchPopupScript))
-DefaultTask.description = 'Generate extension files, watch for changes and regenerate'
+export const DefaultTask = gulp.series(build,
+    gulp.parallel(
+        watchBackgroundScript,
+        watchContentScript,
+        watchAssets,
+        watchPopupScript));
+DefaultTask.description = "Generate extension files, watch for changes and regenerate";
 
-// The default task is what runs when you simply run `gulp` without any arguments.
+// The default task is what runs when you run `gulp` without any arguments.
 export default DefaultTask;

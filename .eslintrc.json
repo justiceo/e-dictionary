@@ -1,9 +1,13 @@
 {
     "env": {
         "browser": true,
+        "webextensions": true,
+        "node": true,
+        "commonjs": true,
         "es2021": true
     },
     "extends": [
+        "eslint:recommended",
         "google"
     ],
     "parser": "@typescript-eslint/parser",
@@ -15,5 +19,12 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "quotes": [
+            "error",
+            "double"
+        ],
+        "max-len": [
+            "warn"
+        ]
     }
 }

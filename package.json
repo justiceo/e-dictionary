@@ -4,7 +4,8 @@
   "description": "Chrome and Firefox extension starter with Typescript, Gulp and E2E tests",
   "scripts": {
     "lint": "eslint ./ --fix",
-    "test": "gulp Test",
+    "test": "npm run lint && gulp Test",
+    "test-only": "gulp Test",
     "build": "gulp Build",
     "start:chrome": "gulp ChromeDemo",
     "start:firefox": "web-ext run --source-dir ./extension/"
