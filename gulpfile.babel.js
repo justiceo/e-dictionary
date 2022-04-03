@@ -194,6 +194,7 @@ const launchChrome = () => {
 
 // Tests
 const testSpecs = ["spec/**/*.ts"];
+const compiledTestSpecs = ["spec/**/*.js"];
 const compileTests = () => {
   return gulp.src(testSpecs)
       .pipe(ts({
@@ -205,15 +206,16 @@ const runTest = () => {
   return new Promise((resolve) => {
     const jasmine = new Jasmine();
     jasmine.loadConfig({
-      spec_files: ["spec/**/*.js"],
+      spec_files: compiledTestSpecs,
       random: false,
     });
-    jasmine.onComplete((passed) => {
+    jasmine.exitOnCompletion = false;
+
+    jasmine.execute().then((doneInfo) => {
       // multiple execute calls on jasmine env errors. See https://github.com/jasmine/jasmine/issues/1231#issuecomment-26404527
-      jasmine.specFiles.forEach((f) => decache(f));
-      resolve(passed);
+      compiledTestSpecs.forEach((f) => decache(f));
+      resolve(doneInfo);
     });
-    jasmine.execute();
   });
 };
 const test = gulp.series(build, compileTests, runTest);
