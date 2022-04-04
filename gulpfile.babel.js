@@ -43,7 +43,10 @@ const copy = (fromDir, toDir) => {
 };
 
 // Background Script
-const backgroundScript = ["src/background-script/background.ts"];
+const backgroundScript = [
+  "src/background-script/background.ts",
+  "src/background-script/context-menus.ts",
+];
 const compileBackgroundScript = () => {
   return compileTs(backgroundScript, "background.js");
 };

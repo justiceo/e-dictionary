@@ -3,7 +3,7 @@
   "version": "22.04.03",
   "description": "Chrome extension starter kit (boilerplate) with Typescript, Gulp and E2E tests",
   "manifest_version": 3,
-  "permissions": ["storage", "management"],
+  "permissions": ["contextMenus", "storage", "management"],
   "host_permissions": ["*://*/*"],
   "action": {
     "default_icon": {
