@@ -1,4 +1,4 @@
-# ![logo](assets/images/icon-24x24.png) Browser Extension Starter
+# ![logo](src/assets/icon.png) Browser Extension Starter
 
 [![Build Status](https://travis-ci.org/justiceo/chrome-extension-starter.svg?branch=master)](https://travis-ci.org/justiceo/chrome-extension-starter)
 
@@ -24,12 +24,12 @@ cd xtension  && npm install
 
 2. Generate extension icons (copy high-res icon to assets/images/icon.png)
 ```
-gulp GenerateIcons
+node generateIcons.js
 ```
 
 3. Watch for changes in src/ and assets/ and update xtension/extension directory
 ```
-gulp
+node build.js
 ```
 Open chrome://extensions and load the extension directory as an unpacked chrome extension.
 
@@ -46,10 +46,6 @@ npm run start:firefox   # for Firefox
 ```
 gulp Pack 
 ```
-
-### Pre-Publish
-
-* The "management" permission in the manifest is only necessary to enable easy-reloading of the extension. Feel free to remove before publishing.
 
 
 ### Ref

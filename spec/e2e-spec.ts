@@ -1,5 +1,7 @@
 import * as puppeteer from "puppeteer";
 
+const outDir=process.env.OUT_DIR || "build/";
+
 describe("Browser test suite", () => {
   let browser: puppeteer.Browser;
   beforeAll(async () => {
@@ -7,8 +9,8 @@ describe("Browser test suite", () => {
       headless: false,
       ignoreDefaultArgs: ["--disable-extensions", "--enable-automation"],
       args: [
-        `--disable-extensions-except=${process.env.PWD}/extension`,
-        `--load-extension=${process.env.PWD}/extension`,
+        `--disable-extensions-except=${process.env.PWD}/${outDir}`,
+        `--load-extension=${process.env.PWD}/${outDir}`,
       ],
     });
   });
@@ -40,7 +42,7 @@ describe("Browser test suite", () => {
     it("should leave a screenshot for me to inspect", async () => {
       const page = await browser.newPage();
       await page.goto("https://google.com");
-      await page.screenshot({ path: "assets/images/screenshot.png" });
+      await page.screenshot({ path: "src/assets/screenshot.png" });
       await page.close();
     });
   });
