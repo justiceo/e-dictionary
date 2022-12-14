@@ -2,15 +2,15 @@
 
 [![Build Status](https://travis-ci.org/justiceo/chrome-extension-starter.svg?branch=master)](https://travis-ci.org/justiceo/chrome-extension-starter)
 
-Chrome and Firefox extension starter kit (boilerplate) for Typescript development with Gulp and E2E tests
+Chrome and Firefox extension starter kit (boilerplate) for Typescript development with ESBuild and E2E tests.
+
+The earlier version of the template used gulp, you can see this version in the "v1-gulp" branch of this repository.
 
 ### Features
 * **Automatic Github Pages generation**: Files added in the `gh-pages` sub-directory are branched to create a Github page automatically. This is useful for static pages like help, welcome and feedback pages.
 * **Typescript to Js**: Write your entire chrome extension in Typescript and have it transpiled to JavaScript.
 * **E2E extension test**: Start up a chrome browser with your extension installed, write your tests in Jasmine.
 * **Generate extension icons**: Forget the pain of generating icons of different size to meet icons requirements.
-* **Automatic Deployment**: Either using a Github action or Shipit.
-* **Crash reporting**: See uncaught exceptions in Sentry.io.
 * **Manifest V3 Compatible**: Easier submission to the Chrome Webstore.
 * **Uninstall Feedback page**: Boostrap form with data saved to Google sheets via Google forms.
 
@@ -44,14 +44,24 @@ node index.js
 Open chrome://extensions and load the extension directory `build/chrome-dev` as an unpacked chrome extension.
 See how to [load an unpacked extension](https://developer.chrome.com/extensions/getstarted#manifest) in chrome.
 
-3. To generate prod builds for different browsers, specify the PROD and BROWSER environment variables, e.g.
+4. Run tests: the command below installs your extension in a browser and performs E2E tests.
+```
+node index.js test
+```
+
+To test against firefox, use:
+```
+node index.js test --browser=firefox
+```
+
+5. To generate prod builds for different browsers, specify the PROD and BROWSER environment variables, e.g.
 ```
 node index.js --prod --browser=chrome
 ```
 
 This would create the prod directory `build/chrome-prod` and a zip file `build/chrome-prod.zip`, which you can upload to the chrome webstore.
 
-4. You can also start a new browser instance with only the extension installed:
+6. You can also start a new browser instance with only the extension installed:
 
 ```
 npm run start:chrome    # for Chrome
