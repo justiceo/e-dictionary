@@ -3,6 +3,11 @@
 "version": "1.0.0",
 "description": "Chrome and Firefox extension starter with Typescript, ESBuild and E2E tests",
 "scripts": {
+  "build": "node index.js",
+  "test": "node index.js test",
+  "start": "node index.js start",
+  "start:firefox": "node index.js start --browser=firefox",
+  "generateIcons": "node index.js generateIcons"
 },
 "author": "Justice Ogbonna",
 "license": "MIT",

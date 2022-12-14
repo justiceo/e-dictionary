@@ -10,6 +10,7 @@ class Build {
   browser = "chrome";
   isProd = false;
   outDir = "build/chrome-dev";
+  maybeTask = "build";
 
   testSpecs = ["spec/e2e-spec.ts"];
   compiledTestSpecs = ["spec/e2e-spec.js"];
@@ -18,23 +19,37 @@ class Build {
   constructor() {
     const args = this.parse(process.argv);
 
-    if(args.output_base) {
+    if (args.output_base) {
       this.outputBase = args.output_base;
     }
-    
+
     if (args.prod) {
       this.isProd = true;
     }
 
     // Ensure browser is lowercase.
-    if(args.browser) {
-    this.browser = args.browser.toLowerCase();
+    if (args.browser) {
+      this.browser = args.browser.toLowerCase();
     }
 
     // Set the output directory
     this.outDir = `${this.outputBase}/${this.browser}-${
       this.isProd ? "prod" : "dev"
     }/`;
+
+    switch (this.maybeTask) {
+      case "generateIcons":
+        this.generateIcons();
+        break;
+      case "start":
+        this.launchBrowser();
+        break;
+      case "test":
+        this.test();
+        break;
+      default:
+        this.buildExtension();
+    }
   }
 
   /* Straight-forward node.js arguments parser.
@@ -48,6 +63,10 @@ class Build {
 
     const parsedArgs = {};
     let argName, argValue;
+
+    if (argv.length > 0) {
+      this.maybeTask = argv[0];
+    }
 
     argv.forEach(function (arg) {
       // Separate argument for a key/value return
@@ -273,34 +292,30 @@ class Build {
     });
   }
 
-  async launchChrome() {
-    await puppeteer.launch({
+  async launchBrowser() {
+    const launchOptions = {
       headless: false,
       ignoreDefaultArgs: ["--disable-extensions", "--enable-automation"],
       args: [
         `--disable-extensions-except=${process.env.PWD}/${this.outDir}`,
         `--load-extension=${process.env.PWD}/${this.outDir}`,
       ],
-    });
-  }
-
-  /* If this command fails with firefox not found, run:
-   * `PUPPETEER_PRODUCT=firefox npm i -D puppeteer --prefix ./node_modules/firefox-puppeteer`
-   */
-  async launchFirefox() {
-    await puppeteer.launch({
-      product: "firefox",
-      headless: false,
-      ignoreDefaultArgs: ["--disable-extensions", "--enable-automation"],
-      args: [
-        `--disable-extensions-except=${process.env.PWD}/${this.outDir}`,
-        `--load-extension=${process.env.PWD}/${this.outDir}`,
-      ],
-    });
+    };
+    if (this.browser === "firefox") {
+      /* If this command fails with firefox not found, run:
+       * `PUPPETEER_PRODUCT=firefox npm i -D puppeteer --prefix ./node_modules/firefox-puppeteer`
+       */
+      launchOptions.product = "firefox";
+    }
+    await puppeteer.launch(launchOptions);
   }
 
   test() {
     this.buildExtension().then(() => {
+      // Set output dir for test environment.
+      process.env["XTENSION_OUTPUT_DIR"] = this.outDir;
+
+      // Build and run tests.
       this.buildAndExecuteTests();
     });
   }
@@ -311,4 +326,4 @@ class Build {
   }
 }
 
-new Build().buildExtension();
+new Build();
