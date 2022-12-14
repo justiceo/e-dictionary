@@ -1,4 +1,4 @@
-# ![logo](src/assets/icon.png) Browser Extension Starter
+# ![logo](build/chrome-prod/assets/icon-24x24.png) Browser Extension Starter
 
 [![Build Status](https://travis-ci.org/justiceo/chrome-extension-starter.svg?branch=master)](https://travis-ci.org/justiceo/chrome-extension-starter)
 
@@ -22,44 +22,50 @@ git clone http://github.com/justiceo/xtension
 cd xtension  && npm install  
 ```
 
-2. Generate extension icons (copy high-res icon to assets/images/icon.png)
+2. Install Firefox for Puppeteer.
+
+By default, puppeteer only downloads Chromium, run the command below to install Firefox's equivalent of chromium:
+
 ```
-node generateIcons.js
+PUPPETEER_PRODUCT=firefox npm i -D puppeteer --prefix ./node_modules/firefox-puppeteer
 ```
 
-3. Watch for changes in src/ and assets/ and update xtension/extension directory
-```
-node build.js
-```
-Open chrome://extensions and load the extension directory as an unpacked chrome extension.
+`PUPPETEER_PRODUCT=firefox` tells puppeteer to download firefox.
 
-Extension directory would be in write-better/extension. See how to [load an unpacked extension](https://developer.chrome.com/extensions/getstarted#manifest) in chrome.
+`--prefix ./node_modules/firefox-puppeteer` forces a new fetch of puppeteer. This is necessary since `node_modules/puppeteer` already exists (for chromium). The actual value of the prefix doesn't matter, just don't overwrite an actual package. 
 
-4. Or load directory in a custom browser instance
+*NB:* After running the above command, they will no be update to package.json or package-lock.json... since package "puppeteer" already exists.
+
+3. Generate extension icons, manifest, scripts and other files
+```
+node index.js
+```
+
+Open chrome://extensions and load the extension directory `build/chrome-dev` as an unpacked chrome extension.
+See how to [load an unpacked extension](https://developer.chrome.com/extensions/getstarted#manifest) in chrome.
+
+3. To generate prod builds for different browsers, specify the PROD and BROWSER environment variables, e.g.
+```
+PROD=true BROWSER=chrome node index.js
+```
+
+This would create the prod directory `build/chrome-prod` and a zip file `build/chrome-prod.zip`, which you can upload to the chrome webstore.
+
+4. You can also start a new browser instance with only the extension installed:
 
 ```
 npm run start:chrome    # for Chrome
 npm run start:firefox   # for Firefox
 ```
 
-5. Prepare a marketplace release, generates a .zip file of extension in `/dist` sub-directory.
-```
-gulp Pack 
-```
-
-
-### Ref
-
-1. http://www.adambarth.com/experimental/crx/docs/manifest.html
-2. https://developer.chrome.com/extensions/manifest
-
-### Example Code
+### Examples of chrome extensions for inspirations
 1. https://github.com/mdn/webextensions-examples
 2. https://github.com/orbitbot/chrome-extensions-examples
 
 
-### Staying up-to-date with this repo after a fork:
-1. Click "Use template", don't fork it. It would create a new repositories without history.
+### Keeping up with changes.
+#### Staying up-to-date with this repo after a fork:
+1. Click "Use template", the experience might be better than "fork"ing it. With template, you would create a new repositories without history.
 2. Add this repository as a remote to the new repo
 `git remote add xtension git@github.com:justiceo/xtension.git`
 3. Fetch the latest updates from the xtension repo (template).
@@ -73,7 +79,7 @@ gulp Pack
 `git commit -m "merged updates from xtension"`.
 
 
-### Pushing changes upstream to the template after a fork:
+#### Pushing changes upstream to the template after a fork:
 1. Go through steps 1-5 in the above steps.
 2. Copy the specific files you want from master to xtension. U
 `git checkout master -- <path/to/file>`
