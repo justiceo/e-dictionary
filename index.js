@@ -3,6 +3,7 @@ const { exec } = require("child_process");
 const esbuild = require("esbuild");
 const Jimp = require("jimp");
 const Jasmine = require("jasmine");
+const puppeteer = require('puppeteer');
 
 class Build {
   outputBase = process.env.OUT_BASE || "build";
@@ -223,6 +224,32 @@ class Build {
           });
         });
       });
+    });
+  }
+
+  async launchChrome() {
+    await puppeteer.launch({
+      headless: false,
+      ignoreDefaultArgs: ["--disable-extensions", "--enable-automation"],
+      args: [
+        `--disable-extensions-except=${process.env.PWD}/${this.outDir}`,
+        `--load-extension=${process.env.PWD}/${this.outDir}`,
+      ],
+    });
+  }
+
+  /* If this command fails with firefox not found, run:
+   * `PUPPETEER_PRODUCT=firefox npm i -D puppeteer --prefix ./node_modules/firefox-puppeteer`
+   */
+  async launchFirefox() {
+    await puppeteer.launch({
+      product: "firefox",
+      headless: false,
+      ignoreDefaultArgs: ["--disable-extensions", "--enable-automation"],
+      args: [
+        `--disable-extensions-except=${process.env.PWD}/${this.outDir}`,
+        `--load-extension=${process.env.PWD}/${this.outDir}`,
+      ],
     });
   }
 
