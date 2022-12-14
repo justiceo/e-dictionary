@@ -3,31 +3,77 @@ const { exec } = require("child_process");
 const esbuild = require("esbuild");
 const Jimp = require("jimp");
 const Jasmine = require("jasmine");
-const puppeteer = require('puppeteer');
+const puppeteer = require("puppeteer");
 
 class Build {
-  outputBase = process.env.OUT_BASE || "build";
-  browser = process.env.BROWSER || "chrome";
-  isProd = process.env.PROD || false;
-  outDir = "";
+  outputBase = "build";
+  browser = "chrome";
+  isProd = false;
+  outDir = "build/chrome-dev";
 
   testSpecs = ["spec/e2e-spec.ts"];
   compiledTestSpecs = ["spec/e2e-spec.js"];
   originalIconPath = "src/assets/icon.png";
 
   constructor() {
-    // Change string value to boolean.
-    if (this.isProd && this.isProd.toLowerCase() === "true") {
+    const args = this.parse(process.argv);
+
+    if(args.output_base) {
+      this.outputBase = args.output_base;
+    }
+    
+    if (args.prod) {
       this.isProd = true;
     }
 
     // Ensure browser is lowercase.
-    this.browser = this.browser.toLowerCase();
+    if(args.browser) {
+    this.browser = args.browser.toLowerCase();
+    }
 
     // Set the output directory
     this.outDir = `${this.outputBase}/${this.browser}-${
       this.isProd ? "prod" : "dev"
     }/`;
+  }
+
+  /* Straight-forward node.js arguments parser.
+   * From https://github.com/eveningkid/args-parser/blob/master/parse.js
+   */
+  parse(argv) {
+    const ARGUMENT_SEPARATION_REGEX = /([^=\s]+)=?\s*(.*)/;
+
+    // Removing node/bin and called script name
+    argv = argv.slice(2);
+
+    const parsedArgs = {};
+    let argName, argValue;
+
+    argv.forEach(function (arg) {
+      // Separate argument for a key/value return
+      arg = arg.match(ARGUMENT_SEPARATION_REGEX);
+      arg.splice(0, 1);
+
+      // Retrieve the argument name
+      argName = arg[0];
+
+      // Remove "--" or "-"
+      if (argName.indexOf("-") === 0) {
+        argName = argName.slice(argName.slice(0, 2).lastIndexOf("-") + 1);
+      }
+
+      // Parse argument value or set it to `true` if empty
+      argValue =
+        arg[1] !== ""
+          ? parseFloat(arg[1]).toString() === arg[1]
+            ? +arg[1]
+            : arg[1]
+          : true;
+
+      parsedArgs[argName] = argValue;
+    });
+
+    return parsedArgs;
   }
 
   // Clean output directory

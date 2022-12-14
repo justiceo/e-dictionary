@@ -46,7 +46,7 @@ See how to [load an unpacked extension](https://developer.chrome.com/extensions/
 
 3. To generate prod builds for different browsers, specify the PROD and BROWSER environment variables, e.g.
 ```
-PROD=true BROWSER=chrome node index.js
+node index.js --prod --browser=chrome
 ```
 
 This would create the prod directory `build/chrome-prod` and a zip file `build/chrome-prod.zip`, which you can upload to the chrome webstore.
