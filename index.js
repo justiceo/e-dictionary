@@ -195,6 +195,7 @@ class Build {
       "src/content-script/content-script.css":
         "content-script/content-script.css",
       "src/options-page/options.html": "options-page/options.html",
+      "src/welcome": "welcome",
     };
 
     return new Promise((resolve, reject) => {
