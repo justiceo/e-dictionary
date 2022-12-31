@@ -1,0 +1,6 @@
+{
+    "appName": {
+        "message": "Example Extension",
+        "description": "The name of the extension"
+    }
+}

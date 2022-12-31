@@ -1,36 +1,37 @@
-{ 
-"name": "xtension",
-"version": "1.0.0",
-"description": "Chrome and Firefox extension starter with Typescript, ESBuild and E2E tests",
-"scripts": {
-  "build": "node index.js",
-  "test": "node index.js test",
-  "start": "node index.js start",
-  "start:firefox": "node index.js start --browser=firefox",
-  "generateIcons": "node index.js generateIcons"
-},
-"author": "Justice Ogbonna",
-"license": "MIT",
-"repository": {
-  "type": "git",
-  "url": "https://github.com/justiceo/xtension"
-},
-"keywords": [
-  "chrome",
-  "firefox",
-  "opera",
-  "safari",
-  "addon",
-  "extension",
-  "starter",
-  "boilerplate"
-],
+{
+  "name": "xtension",
+  "version": "1.0.0",
+  "description": "Chrome and Firefox extension starter with Typescript, ESBuild and E2E tests",
+  "scripts": {
+    "build": "node index.js",
+    "test": "node index.js test",
+    "start": "node index.js start",
+    "start:firefox": "node index.js start --browser=firefox",
+    "generateIcons": "node index.js generateIcons"
+  },
+  "author": "Justice Ogbonna",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/justiceo/xtension"
+  },
+  "keywords": [
+    "chrome",
+    "firefox",
+    "opera",
+    "safari",
+    "addon",
+    "extension",
+    "starter",
+    "boilerplate"
+  ],
   "devDependencies": {
     "@types/chrome": "^0.0.204",
     "@types/jasmine": "^4.3.1",
     "@types/node": "^18.11.14",
     "@types/puppeteer": "^7.0.4",
     "esbuild": "0.16.4",
+    "google-translate-api-x": "^10.5.2",
     "jasmine": "^4.5.0",
     "jimp": "^0.16.2",
     "puppeteer": "^19.4.0"
