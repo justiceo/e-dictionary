@@ -1,6 +1,10 @@
 {
     "appName": {
-        "message": "Esempio di estensione",
+        "message": "Starter di estensione del browser",
         "description": "The name of the extension"
+    },
+    "appDesc": {
+        "message": "CHROME e Firefox Extension Plaplate in TypeScript con test E2E e utility come la generazione di icone, i18n automatiche e build veloci utilizzando ESBuild",
+        "description": "The description of your extension"
     }
 }

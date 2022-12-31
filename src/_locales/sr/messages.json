@@ -1,6 +1,10 @@
 {
     "appName": {
-        "message": "Пример продужетка",
+        "message": "Проширење претраживача Стартер",
         "description": "The name of the extension"
+    },
+    "appDesc": {
+        "message": "Цхроме и Фирефок екстензије котар-плоча у уписивању са Е2Е тестовима и услужним програмима попут иконе Генерације, аутоматско И18Н и брзо се гради користећи ЕСБУИД",
+        "description": "The description of your extension"
     }
 }

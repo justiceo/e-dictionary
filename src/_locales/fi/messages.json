@@ -1,6 +1,10 @@
 {
     "appName": {
-        "message": "Esimerkki laajennus",
+        "message": "Selaimen laajennuksen aloittaja",
         "description": "The name of the extension"
+    },
+    "appDesc": {
+        "message": "Chrome- ja Firefox -laajennuskattilalevy tyyppikirjoituksessa E2E -testeillä ja apuohjelmilla, kuten kuvakkeen sukupolvi, automaattinen i18n ja nopea rakennus Esbuildin avulla",
+        "description": "The description of your extension"
     }
 }

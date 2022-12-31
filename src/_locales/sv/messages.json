@@ -1,6 +1,10 @@
 {
     "appName": {
-        "message": "Exempelförlängning",
+        "message": "Webbläsarförlängningsstarter",
         "description": "The name of the extension"
+    },
+    "appDesc": {
+        "message": "Chrome och Firefox -förlängningspannplatta i typskript med E2E -test och verktyg som ikongenerering, automatisk i18n och snabba byggnader med Esbuild",
+        "description": "The description of your extension"
     }
 }

@@ -1,6 +1,10 @@
 {
     "appName": {
-        "message": "Beispielerweiterung",
+        "message": "Browser -Erweiterungsstarter",
         "description": "The name of the extension"
+    },
+    "appDesc": {
+        "message": "Chrome und Firefox Extension Boilerplate in Typenkript mit E2E",
+        "description": "The description of your extension"
     }
 }

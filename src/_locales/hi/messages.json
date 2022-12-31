@@ -1,6 +1,10 @@
 {
     "appName": {
-        "message": "उदाहरण विस्तार",
+        "message": "ब्राउज़र एक्सटेंशन स्टार्टर",
         "description": "The name of the extension"
+    },
+    "appDesc": {
+        "message": "क्रोम और फ़ायरफ़ॉक्स एक्सटेंशन बॉयलरप्लेट टाइपस्क्रिप्ट में E2E परीक्षणों और ICON जनरेशन, ऑटोमैटिक I18N और फास्ट बिल्ड जैसे Esbuild के साथ टाइपस्क्रिप्ट में",
+        "description": "The description of your extension"
     }
 }

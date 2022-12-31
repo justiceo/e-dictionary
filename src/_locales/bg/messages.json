@@ -1,6 +1,10 @@
 {
     "appName": {
-        "message": "Пример за разширение",
+        "message": "Стартер за разширение на браузъра",
         "description": "The name of the extension"
+    },
+    "appDesc": {
+        "message": "Chrome и Firefox Extension Bokerplate в TypeScrip",
+        "description": "The description of your extension"
     }
 }

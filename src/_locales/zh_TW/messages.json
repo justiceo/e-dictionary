@@ -1,6 +1,10 @@
 {
     "appName": {
-        "message": "示例擴展",
+        "message": "瀏覽器擴展入門",
         "description": "The name of the extension"
+    },
+    "appDesc": {
+        "message": "Chrome和Firefox擴展樣本板在打字稿中具有E2E測試以及圖標生成，自動I18N和快速構建等實用程序和實用程序",
+        "description": "The description of your extension"
     }
 }

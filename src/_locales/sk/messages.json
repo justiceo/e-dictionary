@@ -1,6 +1,10 @@
 {
     "appName": {
-        "message": "Príklad rozšírenia",
+        "message": "Predĺženie prehliadača",
         "description": "The name of the extension"
+    },
+    "appDesc": {
+        "message": "Chrome and Firefox Extension Bottleplate v TypeScript s testmi E2E a nástrojmi, ako je generovanie ikon, automatické i18n a rýchle zostavy pomocou ESBuild",
+        "description": "The description of your extension"
     }
 }

@@ -1,6 +1,10 @@
 {
     "appName": {
-        "message": "Extensión de ejemplo",
+        "message": "Arrancador de extensión del navegador",
         "description": "The name of the extension"
+    },
+    "appDesc": {
+        "message": "Corder de extensión Chrome y Firefox en TypeScript con pruebas y utilidades E2E como Generación de Icones, I18N automático y construcciones rápidas utilizando ESBuild",
+        "description": "The description of your extension"
     }
 }

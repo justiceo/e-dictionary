@@ -1,6 +1,10 @@
 {
     "appName": {
-        "message": "ምሳሌ ቅጥያ",
+        "message": "አሳሽ ቅጥያ ጅምር",
         "description": "The name of the extension"
+    },
+    "appDesc": {
+        "message": "እንደ አዶ ትውልድ በሚመስሉ የ E orksrysty ውስጥ የ Chrome እና ፋየርፎክስ ቅጥያ ቦይለር ቅጥያ አውቶማቲክ i18n እና ፈጣን ኤንጂያንን በመጠቀም",
+        "description": "The description of your extension"
     }
 }

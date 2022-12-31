@@ -1,6 +1,10 @@
 {
     "appName": {
-        "message": "উদাহরণ এক্সটেনশন",
+        "message": "ব্রাউজার এক্সটেনশন স্টার্টার",
         "description": "The name of the extension"
+    },
+    "appDesc": {
+        "message": "আইকন জেনারেশন, অটোমেটিক আই 18 এন এবং দ্রুত বিল্ডগুলি এসবুইল্ড ব্যবহার করে ইউটিলিটিগুলির সাথে টাইপস্ক্রিপ্টে ক্রোম এবং ফায়ারফক্স এক্সটেনশন বয়লারপ্লেট",
+        "description": "The description of your extension"
     }
 }

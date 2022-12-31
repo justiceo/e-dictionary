@@ -1,6 +1,10 @@
 {
     "appName": {
-        "message": "Pavyzdys pratęsimas",
+        "message": "Naršyklės plėtinio starteris",
         "description": "The name of the extension"
+    },
+    "appDesc": {
+        "message": "„Chrome“ ir „Firefox“ prailginimo katilinė „TypeScript“ su E2E bandymais ir komunalinėmis paslaugomis, tokiomis kaip piktogramų generavimas, automatinis I18N ir greitas kūrimas naudojant „Esbuild“",
+        "description": "The description of your extension"
     }
 }

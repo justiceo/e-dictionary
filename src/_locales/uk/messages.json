@@ -1,6 +1,10 @@
 {
     "appName": {
-        "message": "Приклад розширення",
+        "message": "Стартер для розширення браузера",
         "description": "The name of the extension"
+    },
+    "appDesc": {
+        "message": "Chrome та Firefox розширення котла в TypeScript з тестами E2E та утилітами, такими як Generation Icon, Automatic I18N та Fast Builds за допомогою Esbuild",
+        "description": "The description of your extension"
     }
 }
