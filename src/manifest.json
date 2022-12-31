@@ -13,7 +13,7 @@
       "32": "assets/icon-32x32.png"
     },
     "default_title": "Chrome Extension Starter",
-    "default_popup": "popup.html"
+    "default_popup": "popup/popup.html"
   },
   "content_scripts": [{
     "matches": ["http://*/*", "https://*/*"],
