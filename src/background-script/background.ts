@@ -1,3 +1,7 @@
+import { ContextMenu } from "./context-menus";
+
+
+new ContextMenu().init();
 
 const uninstallUrl = "https://justiceo.github.io/xtension/uninstall.html";
 const welcomeUrl = chrome.runtime.getURL("welcome/welcome.html");
