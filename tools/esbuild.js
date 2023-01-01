@@ -137,6 +137,7 @@ class Build {
 
   // Generate manifest
   // NB: This function would fail if outDir doesn't exist yet.
+  // For browser manifest.json compatibility see https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Browser_compatibility_for_manifest.json
   generateManifest() {
     return new Promise((resolve, reject) => {
       let rawdata = fs.readFileSync("src/manifest.json");

@@ -4,6 +4,7 @@
   "homepage_url": "https://github.com/justiceo/xtension",
   "version": "22.04.03",
   "manifest_version": 3,
+  "default_locale": "en",
   "permissions": ["contextMenus", "storage"],
   "host_permissions": ["*://*/*"],
   "action": {
@@ -31,6 +32,7 @@
   "background": {
     "service_worker": "background-script/background.js"
   },
+  "author": "Justice Ogbonna",
   "__firefox__key": "",
   "__firefox__browser_specific_settings": {
       "gecko": {

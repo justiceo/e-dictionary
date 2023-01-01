@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/justiceo/chrome-extension-starter.svg?branch=master)](https://travis-ci.org/justiceo/chrome-extension-starter)
 
-Chrome and Firefox extension starter kit (boilerplate) for Typescript development with ESBuild and E2E tests.
+Chrome, Firefox, Opera and Edge browser extension starter kit (boilerplate) for Typescript development with ESBuild and E2E tests.
 
 The earlier version of the template used gulp, you can see this version in the "v1-gulp" branch of this repository.
 
