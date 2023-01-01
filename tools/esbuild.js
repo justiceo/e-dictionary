@@ -192,6 +192,7 @@ class Build {
     // Map of static files/directories to destinations we want to copy them to.
     const fileMap = {
       "src/assets/": "assets",
+      "src/_locales": "_locales",
       "src/popup/popup.html": "popup/popup.html",
       "src/content-script/content-script.css":
         "content-script/content-script.css",
