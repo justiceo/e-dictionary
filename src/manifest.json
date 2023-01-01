@@ -1,6 +1,6 @@
 {
-  "name": "Chrome Extension Starter",
-  "description": "Chrome extension starter kit (boilerplate) with Typescript, Gulp and E2E tests",
+  "name": "Browser Extension Starter",
+  "description": "Browser extension starter kit (boilerplate) with Typescript, ESBuild and E2E tests",
   "homepage_url": "https://github.com/justiceo/xtension",
   "version": "22.04.03",
   "manifest_version": 3,
