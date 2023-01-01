@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "description": "Chrome and Firefox extension starter with Typescript, ESBuild and E2E tests",
   "scripts": {
-    "build": "node esbuild.js",
-    "test": "node esbuild.js test",
-    "start": "node esbuild.js start",
-    "start:firefox": "node esbuild.js start --browser=firefox",
-    "generateIcons": "node esbuild.js generateIcons"
+    "build": "node tools/esbuild.js",
+    "test": "node tools/esbuild.js test",
+    "start": "node tools/esbuild.js start",
+    "start:firefox": "node tools/esbuild.js start --browser=firefox",
+    "generateIcons": "node tools/esbuild.js generateIcons",
+    "updateTranslations": "node tools/translateMessages.js"
   },
   "author": "Justice Ogbonna",
   "license": "MIT",
