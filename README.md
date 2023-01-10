@@ -1,6 +1,6 @@
 # ![logo](build/chrome-prod/assets/icon-24x24.png) Browser Extension Starter
 
-[![Build Status](https://travis-ci.org/justiceo/chrome-extension-starter.svg?branch=master)](https://travis-ci.org/justiceo/chrome-extension-starter)
+[![Build Status](https://travis-ci.com/justiceo/xtension.svg?branch=master)](https://travis-ci.com/justiceo/xtension)
 
 Chrome, Firefox, Opera and Edge browser extension starter kit (boilerplate) for Typescript development with ESBuild and E2E tests.
 
