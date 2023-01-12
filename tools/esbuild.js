@@ -121,13 +121,14 @@ class Build {
           "src/background-script/background.ts",
           "src/content-script/content-script.ts",
           "src/popup/popup.ts",
+          "src/welcome/my-element.ts",
           "src/options-page/options.js",
         ],
         bundle: true,
         minify: this.isProd,
         sourcemap: !this.isProd,
         outdir: this.outDir,
-        target: ["chrome58", "firefox57", "safari11", "edge16"],
+        //target: ["chrome58", "firefox57", "safari11", "edge16"],
       })
       .catch((err) => {
         console.error(err);

@@ -36,5 +36,8 @@
     "jasmine": "^4.5.0",
     "jimp": "^0.16.2",
     "puppeteer": "^19.4.0"
+  },
+  "dependencies": {
+    "lit": "^2.6.0"
   }
 }
