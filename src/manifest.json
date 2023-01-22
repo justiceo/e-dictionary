@@ -2,9 +2,12 @@
   "name": "Browser Extension Starter",
   "description": "Browser extension starter kit (boilerplate) with Typescript, ESBuild and E2E tests",
   "homepage_url": "https://github.com/justiceo/xtension",
-  "version": "22.04.03",
+  "__comment:version__": "Firefox does not support leading zeros in versions",
+  "version": "23.1.21",
   "manifest_version": 3,
   "default_locale": "en",
+  "author": "Justice Ogbonna",
+  "short_name": "Browser Extension Starter",
   "permissions": ["contextMenus", "storage"],
   "host_permissions": ["*://*/*"],
   "action": {
@@ -30,9 +33,9 @@
   },
   "options_page": "options-page/options.html",
   "background": {
-    "service_worker": "background-script/background.js"
+    "service_worker": "background-script/background.js",
+    "__firefox__persistent": "false"
   },
-  "author": "Justice Ogbonna",
   "__firefox__key": "",
   "__firefox__browser_specific_settings": {
       "gecko": {
