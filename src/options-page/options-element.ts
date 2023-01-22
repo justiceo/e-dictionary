@@ -1,5 +1,5 @@
 import "@webcomponents/webcomponentsjs"; // Polyfill for customElements in content scripts, https://stackoverflow.com/q/42800035.
-import { LitElement, css, html, TemplateResult, unsafeCSS } from "lit";
+import { LitElement, css, html, TemplateResult } from "lit";
 import { customElement } from "lit/decorators.js";
 import bootstrap from "./bootstrap.bundle.min.js";
 import { bootstrapCSS, enhancedBootstrapCSS } from "./bootstrap5.css.js";
@@ -61,6 +61,7 @@ export class OptionsElement extends LitElement {
           >
         </div>
         <input
+          @input="${(e) => this.saveChange(configItem.id, e)}"
           class="form-check-input me-1"
           type="checkbox"
           value=""
@@ -184,6 +185,35 @@ export class OptionsElement extends LitElement {
       </li>
     `;
   }
+  toastTemplate() {
+    return html`
+      <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div
+          id="liveToast"
+          class="toast"
+          role="alert"
+          aria-live="assertive"
+          aria-atomic="true"
+        >
+          <div class="toast-header">
+            <img
+              src="../assets/logo-24x24.png"
+              class="rounded me-2"
+              alt="Logo"
+            />
+            <strong class="me-auto">Better Previews</strong>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="toast"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="toast-body">Successfully updated settings</div>
+        </div>
+      </div>
+    `;
+  }
 
   render() {
     const configItemTemplates: TemplateResult[] = [];
@@ -218,12 +248,18 @@ export class OptionsElement extends LitElement {
             </ul>
           </div>
         </div>
+        ${this.toastTemplate()}
       </div>
     `;
   }
 
+  saveChange(fieldId, updatedValue) {
+    console.log("saving: ", fieldId, updatedValue);
+    this.showToast();
+  }
+
   showToast() {
-    const toastLiveExample = document.getElementById("liveToast");
+    const toastLiveExample = this.renderRoot.querySelector("#liveToast");
     const toast = new bootstrap.Toast(toastLiveExample);
     toast.show();
   }
