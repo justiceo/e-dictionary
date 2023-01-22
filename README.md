@@ -1,4 +1,4 @@
-# ![logo](build/chrome-prod/assets/icon-24x24.png) Browser Extension Starter
+# ![logo](src/assets/logo-24x24.png) Browser Extension Starter
 
 [![Build Status](https://travis-ci.com/justiceo/xtension.svg?branch=master)](https://travis-ci.com/justiceo/xtension)
 

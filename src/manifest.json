@@ -8,10 +8,10 @@
   "permissions": ["contextMenus", "storage"],
   "host_permissions": ["*://*/*"],
   "action": {
-    "default_icon": {
-      "16": "assets/icon-16x16.png",
-      "24": "assets/icon-24x24.png",
-      "32": "assets/icon-32x32.png"
+    "default_logo": {
+      "16": "assets/logo-16x16.png",
+      "24": "assets/logo-24x24.png",
+      "32": "assets/logo-32x32.png"
     },
     "default_title": "Chrome Extension Starter",
     "default_popup": "popup/popup.html"
@@ -22,11 +22,11 @@
     "js": ["content-script/content-script.js"],
     "css": ["content-script/content-script.css"]
   }],
-  "icons": {
-    "16": "assets/icon-16x16.png",
-    "32": "assets/icon-32x32.png",
-    "48": "assets/icon-48x48.png",
-    "128": "assets/icon-128x128.png"
+  "logos": {
+    "16": "assets/logo-16x16.png",
+    "32": "assets/logo-32x32.png",
+    "48": "assets/logo-48x48.png",
+    "128": "assets/logo-128x128.png"
   },
   "options_page": "options-page/options.html",
   "background": {

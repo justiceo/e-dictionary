@@ -14,7 +14,7 @@ class Build {
 
   testSpecs = ["spec/e2e-spec.ts"];
   compiledTestSpecs = ["spec/e2e-spec.js"];
-  originalIconPath = "src/assets/icon.png";
+  originalIconPath = "src/assets/logo.png";
 
   constructor() {
     const args = this.parse(process.argv);
@@ -221,12 +221,12 @@ class Build {
           const colorIcon = icon.clone();
           colorIcon
             .resize(size, size)
-            .write(`${this.outDir}assets/icon-${size}x${size}.png`);
+            .write(`src/assets/logo-${size}x${size}.png`);
           const grayIcon = icon.clone();
           grayIcon
             .resize(size, size)
             .greyscale()
-            .write(`${this.outDir}assets/icon-gray-${size}x${size}.png`);
+            .write(`src/assets/logo-gray-${size}x${size}.png`);
         });
         resolve();
       });
