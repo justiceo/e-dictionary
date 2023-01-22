@@ -8,10 +8,16 @@ import { bootstrapCSS, enhancedBootstrapCSS } from "./bootstrap5.css.js";
 export class OptionsElement extends LitElement {
   configItems = [
     {
-      id: "check-id",
+      id: "disable-extension",
       type: "checkbox",
-      title: "Sample checkbox title",
-      description: "The detail information about the checkbox here.",
+      title: "Temporarily disable extension",
+      description: "Turns off the extension on all websites.",
+    },
+    {
+      id: "disable-sync",
+      type: "checkbox",
+      title: "Disable storage sync",
+      description: "Your settings will not propagate to other browsers.",
     },
     {
       id: "radio-id",
@@ -201,7 +207,9 @@ export class OptionsElement extends LitElement {
               class="rounded me-2"
               alt="Logo"
             />
-            <strong class="me-auto">Better Previews</strong>
+            <strong class="me-auto"
+              >${chrome.i18n.getMessage("appName")}</strong
+            >
             <button
               type="button"
               class="btn-close"
