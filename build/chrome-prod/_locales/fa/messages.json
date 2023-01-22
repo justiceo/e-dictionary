@@ -1,0 +1,10 @@
+{
+    "appName": {
+        "message": "استارت پسوند مرورگر",
+        "description": "The name of the extension"
+    },
+    "appDesc": {
+        "message": "دیگ بخار کروم و Firefox در TypeScript با تست های E2E و برنامه های کاربردی مانند تولید نماد ، Automatic I18N و ساخت سریع با استفاده از ESBuild",
+        "description": "The description of your extension"
+    }
+}

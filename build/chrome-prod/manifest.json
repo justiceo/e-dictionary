@@ -1,9 +1,12 @@
 {
-    "name": "Chrome Extension Starter",
-    "description": "Chrome extension starter kit (boilerplate) with Typescript, Gulp and E2E tests",
+    "name": "Browser Extension Starter",
+    "description": "Browser extension starter kit (boilerplate) with Typescript, ESBuild and E2E tests",
     "homepage_url": "https://github.com/justiceo/xtension",
-    "version": "22.04.03",
+    "version": "23.1.21",
     "manifest_version": 3,
+    "default_locale": "en",
+    "author": "Justice Ogbonna",
+    "short_name": "Browser Extension Starter",
     "permissions": [
         "contextMenus",
         "storage"
@@ -18,7 +21,7 @@
             "32": "assets/logo-32x32.png"
         },
         "default_title": "Chrome Extension Starter",
-        "default_popup": "popup.html"
+        "default_popup": "popup/popup.html"
     },
     "content_scripts": [
         {

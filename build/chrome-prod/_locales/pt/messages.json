@@ -1,0 +1,10 @@
+{
+    "appName": {
+        "message": "Extensão do navegador iniciante",
+        "description": "The name of the extension"
+    },
+    "appDesc": {
+        "message": "Boilerplate de extensão Chrome e Firefox em TypeScript com testes E2E e serviços públicos como geração de ícones, I18N automática e compilações rápidas usando ESBUILD",
+        "description": "The description of your extension"
+    }
+}

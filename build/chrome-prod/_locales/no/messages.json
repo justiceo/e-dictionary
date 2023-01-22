@@ -1,0 +1,10 @@
+{
+    "appName": {
+        "message": "Nettleserutvidelsesstarter",
+        "description": "The name of the extension"
+    },
+    "appDesc": {
+        "message": "Chrome og Firefox Extension Boilerplate i TypeScript med E2E -tester og verktøy som Icon Generation, Automatic I18N og Fast Builds ved hjelp av ESBUILD",
+        "description": "The description of your extension"
+    }
+}

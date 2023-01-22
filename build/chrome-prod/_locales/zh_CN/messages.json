@@ -1,0 +1,10 @@
+{
+    "appName": {
+        "message": "浏览器扩展入门",
+        "description": "The name of the extension"
+    },
+    "appDesc": {
+        "message": "Chrome和Firefox扩展样本板在打字稿中具有E2E测试以及图标生成，自动I18N和快速构建等实用程序和实用程序",
+        "description": "The description of your extension"
+    }
+}

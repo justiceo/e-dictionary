@@ -1,0 +1,10 @@
+{
+    "appName": {
+        "message": "உலாவி நீட்டிப்பு ஸ்டார்டர்",
+        "description": "The name of the extension"
+    },
+    "appDesc": {
+        "message": "டைப்ஸ்கிரிப்டில் உள்ள குரோம் மற்றும் பயர்பாக்ஸ் நீட்டிப்பு கொதிகலன் E2E சோதனைகள் மற்றும் ஐகான் உருவாக்கம், தானியங்கி I18N மற்றும் ESBUILD ஐப் பயன்படுத்தி வேகமான கட்டமைப்புகள் போன்ற பயன்பாடுகளுடன்",
+        "description": "The description of your extension"
+    }
+}

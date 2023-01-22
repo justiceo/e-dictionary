@@ -1,0 +1,10 @@
+{
+    "appName": {
+        "message": "Trình duyệt mở rộng khởi động",
+        "description": "The name of the extension"
+    },
+    "appDesc": {
+        "message": "Bột nhủ mở rộng Chrome và Firefox trong TypeScript với các thử nghiệm và tiện ích E2E như tạo biểu tượng, tự động i18N và các bản dựng nhanh bằng cách sử dụng Esbuild",
+        "description": "The description of your extension"
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "appName": {
+        "message": "Starter Peluasan Pelayar",
+        "description": "The name of the extension"
+    },
+    "appDesc": {
+        "message": "Chrome dan Firefox Extension Boilerplate dalam TypeScript dengan ujian dan utiliti E2E seperti generasi ikon, i18n automatik dan cepat membina menggunakan esbuild",
+        "description": "The description of your extension"
+    }
+}

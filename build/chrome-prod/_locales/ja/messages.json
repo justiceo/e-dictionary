@@ -1,0 +1,10 @@
+{
+    "appName": {
+        "message": "ブラウザ拡張スターター",
+        "description": "The name of the extension"
+    },
+    "appDesc": {
+        "message": "ESBUILDを使用して、E2Eテスト、アイコン生成、自動I18N、高速ビルドなどのE2Eテストとユーティリティを備えたTypeScriptのChromeおよびFirefox拡張ボイラープレート",
+        "description": "The description of your extension"
+    }
+}

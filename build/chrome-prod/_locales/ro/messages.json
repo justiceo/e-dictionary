@@ -1,0 +1,10 @@
+{
+    "appName": {
+        "message": "Starter de extensie a browserului",
+        "description": "The name of the extension"
+    },
+    "appDesc": {
+        "message": "Plăcă de cazan de extensie cromată și Firefox în TypeScript cu teste E2E și utilități precum generarea de pictograme, I18N automat și Builds Fast folosind EsBuild",
+        "description": "The description of your extension"
+    }
+}

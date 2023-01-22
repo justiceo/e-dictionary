@@ -1,0 +1,10 @@
+{
+    "appName": {
+        "message": "Стартер расширения браузера",
+        "description": "The name of the extension"
+    },
+    "appDesc": {
+        "message": "Корерпластин с разгибанием Chrome и Firefox в TypeScript с E2E -тестами и утилитами, такими как генерация значков, автоматические i18N и Fast Builds с использованием Esbuild",
+        "description": "The description of your extension"
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "appName": {
+        "message": "Starter ya Upanuzi wa Kivinjari",
+        "description": "The name of the extension"
+    },
+    "appDesc": {
+        "message": "Boilerplate ya Upanuzi wa Chrome na Firefox katika TypeScript na vipimo vya E2E na huduma kama kizazi cha icon, moja kwa moja i18n na hujengwa haraka kwa kutumia Esbuild",
+        "description": "The description of your extension"
+    }
+}

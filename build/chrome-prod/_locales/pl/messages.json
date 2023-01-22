@@ -1,0 +1,10 @@
+{
+    "appName": {
+        "message": "Rozszerzenie rozszerzenia przeglądarki",
+        "description": "The name of the extension"
+    },
+    "appDesc": {
+        "message": "Chrome i Firefox Extension Boiler w TypeScript z testami i narzędziami E2E, takimi jak generowanie ikon, automatyczne i18N i szybkie kompilacje za pomocą ESBuild",
+        "description": "The description of your extension"
+    }
+}
