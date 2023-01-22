@@ -44,11 +44,14 @@ class Build {
       case "start":
         this.launchBrowser();
         break;
+      case "watch":
+        this.watch();
+        break;
       case "test":
         this.test();
         break;
       default:
-        this.buildExtension();
+        this.packageExtension().then((out) => console.log(out));
     }
   }
 
@@ -128,12 +131,44 @@ class Build {
         minify: this.isProd,
         sourcemap: !this.isProd,
         outdir: this.outDir,
-        //target: ["chrome58", "firefox57", "safari11", "edge16"],
+        target: ["chrome107"], // https://en.wikipedia.org/wiki/Google_Chrome_version_history
       })
       .catch((err) => {
         console.error(err);
-        process.exit(1);
       });
+  }
+
+  async watch() {
+    const buildAndCatchError = async (event, filename) => {
+      try {
+        await this.buildExtension();
+        // TODO: Fire event to reload browser.
+
+        console.log(
+          `Successfully rebuilt extension due to: ${event} on ${filename}`
+        );
+      } catch (e) {
+        console.error("Error building extension: ", e);
+      }
+    }
+
+    await buildAndCatchError("initial invocation", "all files");
+    console.log("Built extension and listening for changes...");
+    // The watch+serve APIs on esbuild are still evolving and a bit too rapid for the use-case here.
+    // In v0.16 (current) - esbuild.build has a watch option
+    // In v0.17 (next) - watch and serve are moved to a new context API.
+    // It is not yet clear how to monitor changes to HTML and other non-entrypoint files.
+    // The NodeJs API is unstable as well, specifically it's known to fire duplicate events, which explains the timeouts below.
+    let fsTimeout = null;
+    fs.watch("src", { recursive: true }, (event, filename) => {
+      if (fsTimeout) {
+        return;
+      }
+      fsTimeout = setTimeout(async () => {
+        fsTimeout = null;
+        await buildAndCatchError(event, filename);
+      }, 100);
+    });
   }
 
   // Generate manifest
@@ -144,14 +179,7 @@ class Build {
       let rawdata = fs.readFileSync("src/manifest.json");
       let manifest = JSON.parse(rawdata);
 
-      const browserManifest = {};
-      for (const [key, value] of Object.entries(manifest)) {
-        if (!key.startsWith("__")) {
-          browserManifest[key] = value;
-        } else if (key.startsWith(`__${this.browser}__`)) {
-          browserManifest[key.replace(`__${this.browser}__`, "")] = value;
-        }
-      }
+      const browserManifest = this.removeBrowserPrefixesForManifest(manifest);
 
       const formattedJson = JSON.stringify(browserManifest, null, 4);
       fs.writeFile(this.outDir + "manifest.json", formattedJson, (err) => {
@@ -162,6 +190,23 @@ class Build {
         }
       });
     });
+  }
+
+  removeBrowserPrefixesForManifest(obj) {
+    const cleanedObj = {};
+    for (let [key, value] of Object.entries(obj)) {
+      // Recursively apply this check on values.
+      if (typeof value === "object" && !Array.isArray(value)) {
+        value = this.removeBrowserPrefixesForManifest(value);
+      }
+
+      if (!key.startsWith("__")) {
+        cleanedObj[key] = value;
+      } else if (key.startsWith(`__${this.browser}__`)) {
+        cleanedObj[key.replace(`__${this.browser}__`, "")] = value;
+      }
+    }
+    return cleanedObj;
   }
 
   // Generate icons
@@ -227,12 +272,14 @@ class Build {
   }
 
   // Package extension.
-  zipDir() {
+  async packageExtension() {
+    await this.buildExtension();
     const zipFile = `${this.outputBase}/${this.browser}-${
       this.isProd ? "prod" : "dev"
     }.zip`;
     return new Promise((resolve, reject) => {
-      exec(`zip -r ${zipFile}  ${this.outDir}`, (error, stdout, stderr) => {
+      // Step into the directory to zip to avoid including directory in zip (for firefox).
+      exec(`cd ${this.outDir} && zip -r archive .`, (error, stdout, stderr) => {
         if (error) {
           reject(`zip error: ${error.message}`);
           return;
@@ -278,22 +325,11 @@ class Build {
     });
   }
 
-  // TODO: Watch.
-  buildExtension() {
-    return this.clean(this.outDir).then(() => {
-      console.log(`Deleted ${this.outDir}`);
-
-      Promise.all([this.bundleScripts(), this.copyAssets()]).then(() => {
-        console.log("Successfully built extension");
-
-        this.generateIcons();
-        this.generateManifest().then(() => {
-          this.zipDir().then((zipOut) => {
-            console.log(zipOut);
-          });
-        });
-      });
-    });
+  async buildExtension() {
+    await this.clean(this.outDir);
+    await this.bundleScripts();
+    await this.generateManifest();
+    await this.copyAssets();
   }
 
   async launchBrowser() {
@@ -322,11 +358,6 @@ class Build {
       // Build and run tests.
       this.buildAndExecuteTests();
     });
-  }
-
-  watch() {
-    // For any changes in src/ rebuild the whole thing.
-    // https://esbuild.github.io/api/#watch
   }
 }
 
