@@ -2,6 +2,7 @@
   "name": "xtension",
   "version": "1.0.0",
   "description": "Chrome and Firefox extension starter with Typescript, ESBuild and E2E tests",
+  "homepage": "https://justiceo.github.io/xtension",
   "scripts": {
     "build": "node tools/esbuild.js",
     "test": "node tools/esbuild.js test",
