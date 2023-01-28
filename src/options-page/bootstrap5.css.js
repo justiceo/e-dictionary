@@ -13,7 +13,10 @@ input[type="checkbox"] {
 .collapse {
   margin-top: 15px;
 }
-
+.container {
+  min-width: 400px;
+  min-height: 400px;
+}
 `;
 
 export const bootstrapCSS = css `@charset "UTF-8";
