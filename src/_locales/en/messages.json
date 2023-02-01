@@ -3,8 +3,12 @@
         "message": "Browser Extension Starter",
         "description": "The name of the extension"
     },
+    "appShortName": {
+        "message": "B.E.S",
+        "description": "The short-version name of the extension name"
+    },
     "appDesc": {
-        "message": "Chrome and Firefox extension boilerplate in Typescript with E2E tests and utilities like icon generation, automatic i18n and fast builds using ESBuild",
+        "message": "Browser extension boilerplate in Typescript with E2E tests and utilities like icon generation, automatic i18n and fast builds using ESBuild",
         "description": "The description of your extension"
     }
 }
