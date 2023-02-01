@@ -3,8 +3,12 @@
         "message": "Стартер за разширение на браузъра",
         "description": "The name of the extension"
     },
+    "appShortName": {
+        "message": "B.E.S",
+        "description": "The short-version name of the extension name"
+    },
     "appDesc": {
-        "message": "Chrome и Firefox Extension Bokerplate в TypeScrip",
+        "message": "Котел за разширение на браузъра в TypeScript с E2E тестове и помощни програми като генериране на икони, автоматичен I18N и бързо изграждане с помощта на Esbuild",
         "description": "The description of your extension"
     }
 }

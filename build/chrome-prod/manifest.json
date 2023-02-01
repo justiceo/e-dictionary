@@ -1,12 +1,12 @@
 {
-    "name": "Browser Extension Starter",
-    "description": "Browser extension starter kit (boilerplate) with Typescript, ESBuild and E2E tests",
+    "name": "__MSG_appName__",
+    "description": "__MSG_appDesc__",
+    "short_name": "__MSG_appShortName_",
     "homepage_url": "https://github.com/justiceo/xtension",
     "version": "23.1.21",
     "manifest_version": 3,
     "default_locale": "en",
     "author": "Justice Ogbonna",
-    "short_name": "Browser Extension Starter",
     "permissions": [
         "contextMenus",
         "storage"

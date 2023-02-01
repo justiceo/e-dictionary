@@ -3,8 +3,12 @@
         "message": "બ્રાઉઝર એક્સ્ટેંશન સ્ટાર્ટર",
         "description": "The name of the extension"
     },
+    "appShortName": {
+        "message": "B.E.S.",
+        "description": "The short-version name of the extension name"
+    },
     "appDesc": {
-        "message": "ઇ 2 ઇ પરીક્ષણો અને આઇકોન જનરેશન, સ્વચાલિત આઇ 18 એન અને એસબિલ્ડનો ઉપયોગ કરીને ઝડપી બિલ્ડ્સ જેવી ઉપયોગિતાઓ સાથે ટાઇપસ્ક્રિપ્ટમાં ક્રોમ અને ફાયરફોક્સ એક્સ્ટેંશન બોઈલરપ્લેટ",
+        "message": "ઇ 2 ઇ પરીક્ષણો અને આઇકોન જનરેશન, સ્વચાલિત આઇ 18 એન અને એસબિલ્ડનો ઉપયોગ કરીને ઝડપી બિલ્ડ્સ જેવી ઉપયોગિતાઓ સાથે ટાઇપસ્ક્રિપ્ટમાં બ્રાઉઝર એક્સ્ટેંશન બોઈલરપ્લેટ",
         "description": "The description of your extension"
     }
 }

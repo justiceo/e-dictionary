@@ -3,8 +3,12 @@
         "message": "Tarayıcı uzantısı başlatıcı",
         "description": "The name of the extension"
     },
+    "appShortName": {
+        "message": "S OL",
+        "description": "The short-version name of the extension name"
+    },
     "appDesc": {
-        "message": "E2E Testleri ile TypeScript'te Chrome ve Firefox Extension Bolarplate Icon Nesil, Otomatik I18N ve ESBUILD kullanarak hızlı yapılar gibi yardımcı programlar ile",
+        "message": "E2E Testleri ve Icon Nesil, Otomatik I18N ve ESBUILD kullanarak hızlı yapılar gibi TypeScript'te tarayıcı uzantısı Boilerplate",
         "description": "The description of your extension"
     }
 }

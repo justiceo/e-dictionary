@@ -3,8 +3,12 @@
         "message": "Webbläsarförlängningsstarter",
         "description": "The name of the extension"
     },
+    "appShortName": {
+        "message": "VARA S",
+        "description": "The short-version name of the extension name"
+    },
     "appDesc": {
-        "message": "Chrome och Firefox -förlängningspannplatta i typskript med E2E -test och verktyg som ikongenerering, automatisk i18n och snabba byggnader med Esbuild",
+        "message": "Webbläsarförlängningspannplatta i typskript med E2E -test och verktyg som ikongenerering, automatisk I18N och snabba byggnader med ESBUILD",
         "description": "The description of your extension"
     }
 }

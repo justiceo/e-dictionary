@@ -3,8 +3,12 @@
         "message": "Starter de extensie a browserului",
         "description": "The name of the extension"
     },
+    "appShortName": {
+        "message": "B.E.S",
+        "description": "The short-version name of the extension name"
+    },
     "appDesc": {
-        "message": "Plăcă de cazan de extensie cromată și Firefox în TypeScript cu teste E2E și utilități precum generarea de pictograme, I18N automat și Builds Fast folosind EsBuild",
+        "message": "Plăcuță de extensie a browserului în TypeScript cu teste E2E și utilități precum generarea pictogramei, I18N automat și Builds Fast folosind EsBuild",
         "description": "The description of your extension"
     }
 }

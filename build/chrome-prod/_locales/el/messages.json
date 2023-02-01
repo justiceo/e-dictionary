@@ -3,8 +3,12 @@
         "message": "Εκκινητής επέκτασης του προγράμματος περιήγησης",
         "description": "The name of the extension"
     },
+    "appShortName": {
+        "message": "B.E.S",
+        "description": "The short-version name of the extension name"
+    },
     "appDesc": {
-        "message": "Το Chrome και το Firefox Extension Boilerplate στο TypeScript με δοκιμές E2E και επιχειρήσεις κοινής ωφέλειας, όπως η δημιουργία εικονιδίων, αυτόματη I18N και Fast Builds χρησιμοποιώντας το Esbuild",
+        "message": "Επέκταση του προγράμματος περιήγησης Boilerplate στο TypeScript με δοκιμές E2E και επιχειρήσεις κοινής ωφέλειας όπως η δημιουργία εικονιδίων, αυτόματη I18N και Fast Builds χρησιμοποιώντας το ESBUILD",
         "description": "The description of your extension"
     }
 }

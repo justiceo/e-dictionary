@@ -3,8 +3,12 @@
         "message": "ബ്ര browser സർ വിപുലീകരണ സ്റ്റാർട്ടർ",
         "description": "The name of the extension"
     },
+    "appShortName": {
+        "message": "B.E.",
+        "description": "The short-version name of the extension name"
+    },
     "appDesc": {
-        "message": "ഇ 2e ടെസ്റ്റുകളും യൂട്ടിലിറ്റികളും ഉള്ള ടൈപ്പ്ക്രിപ്റ്റിലെ ക്രോം, ഫയർഫോക്സ് വിപുലീകരണം, ഐക്കൺ ജനറേഷൻ, esbuild ഉപയോഗിച്ച് ഓട്ടോമാറ്റിക് I18n, ഫാസ്റ്റ് ബിൽഡുകൾ",
+        "message": "ഇബ്രെസ്ക്രിപ്റ്റിലെ ബ്ര browser സർ വിപുലീകരണത്തിലെ സ്പെസോമർ വിപുലീകരണം, ഐക്കൺ ജനറേഷൻ, ഐക്കൺ ജനറേഷൻ, ഓട്ടോമാറ്റിക് I18N, esbuild ഉപയോഗിച്ച് വേഗത്തിലുള്ള ബിൽഡുകൾ",
         "description": "The description of your extension"
     }
 }

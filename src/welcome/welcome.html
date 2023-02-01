@@ -4,22 +4,25 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-  <title>Welcome - Browser Extension Starter</title>
+  <title translate-key="appName">Welcome - Browser Extension Starter</title>
   <link rel="stylesheet" href="./style.css">
   <script type="module" src="./my-element.js"></script>
 </head>
 
 <body>
+  <style>
+    div { color: red; }
+  </style>
   <div class="container">
 
     <div class="header">
       <img class="logo" alt="logo" src="../assets/icon.png" />
-      <h1>Browser Extension Starter</h1>
-      <p>Chrome and Firefox extension boilerplate in Typescript with E2E tests and utilities like icon generation,
+      <h1 translate-key="appName">Browser Extension Starter</h1>
+      <p translate-key="appDesc">Chrome and Firefox extension boilerplate in Typescript with E2E tests and utilities like icon generation,
         automatic i18n and fast builds using ESBuild.</p>
 
-      <a href="https://justiceo.github.io/xtension/" target="_blank" class="button">Homepage</a>
-      <a href="https://github.com/justiceo/xtension" target="_blank" class="button light">View on GitHub</a>
+      <a href="__Manifest__homepage_url" target="_blank" class="button">Homepage</a>
+      <a href="__Manifest__github_url" target="_blank" class="button light">View on GitHub</a>
     </div>
 
     <h2>Hooray! 🎉</h2>

@@ -3,8 +3,12 @@
         "message": "بداية امتداد المتصفح",
         "description": "The name of the extension"
     },
+    "appShortName": {
+        "message": "ب",
+        "description": "The short-version name of the extension name"
+    },
     "appDesc": {
-        "message": "Chrome و Firefox Extension Boilerplate في TypeScript مع اختبارات E2E والمرافق مثل توليد الأيقونات ، I18N التلقائي والبناء السريع باستخدام Esbuild",
+        "message": "تمديد المتصفح في TypeScript مع اختبارات E2E والمرافق مثل توليد الأيقونات ، و I18N التلقائي والبناء السريع باستخدام Esbuild",
         "description": "The description of your extension"
     }
 }

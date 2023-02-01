@@ -3,8 +3,12 @@
         "message": "Starter preglednika",
         "description": "The name of the extension"
     },
+    "appShortName": {
+        "message": "B.E.S",
+        "description": "The short-version name of the extension name"
+    },
     "appDesc": {
-        "message": "Kotlovska ploča za ekstenziju Chrome i Firefox u TypeScript -u s E2E testovima i uslužnim programima poput stvaranja ikona, automatskog i18n i brzog izrade pomoću EsBuilda",
+        "message": "Kotlovna ploča za proširenje preglednika u TypeScript s E2E testovima i uslužnim programima poput generiranja ikona, automatskog i18n i brze izrade pomoću EsBuilda",
         "description": "The description of your extension"
     }
 }

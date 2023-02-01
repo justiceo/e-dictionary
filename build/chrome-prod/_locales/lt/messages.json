@@ -3,8 +3,12 @@
         "message": "Naršyklės plėtinio starteris",
         "description": "The name of the extension"
     },
+    "appShortName": {
+        "message": "B.E.S",
+        "description": "The short-version name of the extension name"
+    },
     "appDesc": {
-        "message": "„Chrome“ ir „Firefox“ prailginimo katilinė „TypeScript“ su E2E bandymais ir komunalinėmis paslaugomis, tokiomis kaip piktogramų generavimas, automatinis I18N ir greitas kūrimas naudojant „Esbuild“",
+        "message": "Naršyklės prailginimo katilinė „TypeScript“ su E2E testais ir komunalinėmis paslaugomis, tokiomis kaip piktogramų generavimas, automatinis „i18N“ ir „Fast Builds“, naudojant „Esbuild“",
         "description": "The description of your extension"
     }
 }

@@ -3,8 +3,12 @@
         "message": "การเริ่มต้นเบราว์เซอร์",
         "description": "The name of the extension"
     },
+    "appShortName": {
+        "message": "ค. ศ.",
+        "description": "The short-version name of the extension name"
+    },
     "appDesc": {
-        "message": "Chrome และ Firefox Extension Boilerplate ใน typeScript พร้อมการทดสอบ E2E และยูทิลิตี้เช่นการสร้างไอคอน, I18N อัตโนมัติและการสร้าง FAST โดยใช้ ESBUILD",
+        "message": "เบราว์เซอร์ขยายหม้อไอน้ำใน typeScrip",
         "description": "The description of your extension"
     }
 }

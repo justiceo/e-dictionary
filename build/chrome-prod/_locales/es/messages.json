@@ -3,8 +3,12 @@
         "message": "Arrancador de extensión del navegador",
         "description": "The name of the extension"
     },
+    "appShortName": {
+        "message": "B.E.S",
+        "description": "The short-version name of the extension name"
+    },
     "appDesc": {
-        "message": "Corder de extensión Chrome y Firefox en TypeScript con pruebas y utilidades E2E como Generación de Icones, I18N automático y construcciones rápidas utilizando ESBuild",
+        "message": "Extensión del navegador Boilerplate en TypeScript con pruebas de E2E y utilidades como la generación de iconos, i18n automático y construcciones rápidas utilizando ESBuild",
         "description": "The description of your extension"
     }
 }

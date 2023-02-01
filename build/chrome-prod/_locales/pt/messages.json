@@ -3,8 +3,12 @@
         "message": "Extensão do navegador iniciante",
         "description": "The name of the extension"
     },
+    "appShortName": {
+        "message": "B.E.S",
+        "description": "The short-version name of the extension name"
+    },
     "appDesc": {
-        "message": "Boilerplate de extensão Chrome e Firefox em TypeScript com testes E2E e serviços públicos como geração de ícones, I18N automática e compilações rápidas usando ESBUILD",
+        "message": "Extensão do navegador Boilerplate em TypeScript com testes E2E e serviços públicos como geração de ícones, I18N automática e compilações rápidas usando ESBuild",
         "description": "The description of your extension"
     }
 }

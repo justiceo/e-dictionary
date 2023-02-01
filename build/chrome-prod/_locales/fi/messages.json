@@ -3,8 +3,12 @@
         "message": "Selaimen laajennuksen aloittaja",
         "description": "The name of the extension"
     },
+    "appShortName": {
+        "message": "B.E.S",
+        "description": "The short-version name of the extension name"
+    },
     "appDesc": {
-        "message": "Chrome- ja Firefox -laajennuskattilalevy tyyppikirjoituksessa E2E -testeillä ja apuohjelmilla, kuten kuvakkeen sukupolvi, automaattinen i18n ja nopea rakennus Esbuildin avulla",
+        "message": "Selaimen laajennuskattilalevy tyyppikirjoituksessa E2E -testeillä ja apuohjelmilla, kuten kuvakkeen sukupolvi, automaattinen i18n ja nopea rakennus esbuildilla",
         "description": "The description of your extension"
     }
 }

@@ -3,8 +3,12 @@
         "message": "Prodlužovací startér prohlížeče",
         "description": "The name of the extension"
     },
+    "appShortName": {
+        "message": "B.E.S",
+        "description": "The short-version name of the extension name"
+    },
     "appDesc": {
-        "message": "Chrome a Firefox Extension Boilerplate v strojopisu s testy E2E a nástroje, jako je generování ikon, automatické i18n a rychlé sestavení pomocí Esbuildu",
+        "message": "Rozšíření prohlížeče kotle v strojopisu s testy E2E a nástroji, jako je generování ikon, automatické i18n a rychlé sestavení pomocí Esbuildu",
         "description": "The description of your extension"
     }
 }

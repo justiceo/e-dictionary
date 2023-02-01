@@ -3,8 +3,12 @@
         "message": "ब्राउज़र एक्सटेंशन स्टार्टर",
         "description": "The name of the extension"
     },
+    "appShortName": {
+        "message": "बी.ई.एस.",
+        "description": "The short-version name of the extension name"
+    },
     "appDesc": {
-        "message": "क्रोम और फ़ायरफ़ॉक्स एक्सटेंशन बॉयलरप्लेट टाइपस्क्रिप्ट में E2E परीक्षणों और ICON जनरेशन, ऑटोमैटिक I18N और फास्ट बिल्ड जैसे Esbuild के साथ टाइपस्क्रिप्ट में",
+        "message": "E2E परीक्षणों के साथ टाइपस्क्रिप्ट में ब्राउज़र एक्सटेंशन बॉयलरप्लेट और आइकन जेनरेशन, ऑटोमैटिक I18N और फास्ट बिल्ड जैसे Esbuild जैसे उपयोगिताओं के साथ",
         "description": "The description of your extension"
     }
 }
