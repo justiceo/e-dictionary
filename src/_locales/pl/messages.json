@@ -3,8 +3,12 @@
         "message": "Rozszerzenie rozszerzenia przeglądarki",
         "description": "The name of the extension"
     },
+    "appShortName": {
+        "message": "BĄDZ S",
+        "description": "The short-version name of the extension name"
+    },
     "appDesc": {
-        "message": "Chrome i Firefox Extension Boiler w TypeScript z testami i narzędziami E2E, takimi jak generowanie ikon, automatyczne i18N i szybkie kompilacje za pomocą ESBuild",
+        "message": "Broowser Extension Boiler w TypeScript z testami i narzędziami E2E, takimi jak generowanie ikon, automatyczne I18N i szybkie kompilacje za pomocą ESBUILD",
         "description": "The description of your extension"
     }
 }

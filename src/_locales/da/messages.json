@@ -3,8 +3,12 @@
         "message": "Browser Extension Starter",
         "description": "The name of the extension"
     },
+    "appShortName": {
+        "message": "B.E.S",
+        "description": "The short-version name of the extension name"
+    },
     "appDesc": {
-        "message": "Chrome og Firefox Extension BoilerPlate i typeskript med E2E -test og værktøjer som ikongenerering, automatisk I18N og hurtige bygninger ved hjælp af essbuild",
+        "message": "Browser Extension BoilerPlate i TypeScript med E2E -tests og værktøjer som ikongenerering, automatisk I18N og hurtige bygninger ved hjælp af essbuild",
         "description": "The description of your extension"
     }
 }

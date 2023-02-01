@@ -3,8 +3,12 @@
         "message": "瀏覽器擴展入門",
         "description": "The name of the extension"
     },
+    "appShortName": {
+        "message": "B.E.S",
+        "description": "The short-version name of the extension name"
+    },
     "appDesc": {
-        "message": "Chrome和Firefox擴展樣本板在打字稿中具有E2E測試以及圖標生成，自動I18N和快速構建等實用程序和實用程序",
+        "message": "帶有E2E測試的打字稿中的瀏覽器擴展名單板以及圖標生成，自動I18N和快速構建的實用程序",
         "description": "The description of your extension"
     }
 }

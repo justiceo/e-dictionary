@@ -3,8 +3,12 @@
         "message": "Inici de l'extensió del navegador",
         "description": "The name of the extension"
     },
+    "appShortName": {
+        "message": "B.E.S",
+        "description": "The short-version name of the extension name"
+    },
     "appDesc": {
-        "message": "Placa de caldera d'extensió Chrome i Firefox a TypeScript amb proves i utilitats E2E com la generació d'icones, automàticament i18N i construccions ràpides mitjançant eSBuild",
+        "message": "Placa d'extensió del navegador a TypeScript amb proves i utilitats E2E com la generació d'icones, automàticament i18N i construccions ràpides mitjançant eSbuild",
         "description": "The description of your extension"
     }
 }

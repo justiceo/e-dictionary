@@ -3,8 +3,12 @@
         "message": "استارت پسوند مرورگر",
         "description": "The name of the extension"
     },
+    "appShortName": {
+        "message": "b.e.s",
+        "description": "The short-version name of the extension name"
+    },
     "appDesc": {
-        "message": "دیگ بخار کروم و Firefox در TypeScript با تست های E2E و برنامه های کاربردی مانند تولید نماد ، Automatic I18N و ساخت سریع با استفاده از ESBuild",
+        "message": "دیگ بخار برنامه افزودنی مرورگر در TypeScript با تست های E2E و برنامه های کاربردی مانند تولید نماد ، Automatic I18N و ساخت سریع با استفاده از Esbuild",
         "description": "The description of your extension"
     }
 }

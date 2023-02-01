@@ -3,8 +3,12 @@
         "message": "బ్రౌజర్ ఎక్స్‌టెన్షన్ స్టార్టర్",
         "description": "The name of the extension"
     },
+    "appShortName": {
+        "message": "B.E.S",
+        "description": "The short-version name of the extension name"
+    },
     "appDesc": {
-        "message": "క్రోమ్ మరియు ఫైర్‌ఫాక్స్ ఎక్స్‌టెన్షన్ బాయిలర్‌ప్లేట్ టైప్‌స్క్రిప్ట్‌లో E2E పరీక్షలు మరియు ఐకాన్ జనరేషన్, ఆటోమేటిక్ I18N మరియు ESBUILD ఉపయోగించి ఫాస్ట్ బిల్డ్‌లు",
+        "message": "బ్రౌజర్ ఎక్స్‌టెన్షన్ బాయిలర్‌ప్లేట్ టైప్‌స్క్రిప్ట్‌లో E2E పరీక్షలు మరియు ఐకాన్ జనరేషన్, ఆటోమేటిక్ I18N మరియు ESBUILD ఉపయోగించి వేగంగా నిర్మించడం వంటి యుటిలిటీస్",
         "description": "The description of your extension"
     }
 }

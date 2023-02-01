@@ -3,8 +3,12 @@
         "message": "Zaganjalnik za razširitev brskalnika",
         "description": "The name of the extension"
     },
+    "appShortName": {
+        "message": "B.E.S",
+        "description": "The short-version name of the extension name"
+    },
     "appDesc": {
-        "message": "Krome in Firefox Extension Boclaplate v TypeScriptu s testi in pripomočki E2E, kot so generiranje ikon, samodejne i18n in hitre sestave z uporabo esbuilda",
+        "message": "Brskalnik Extension Bocle Plota In TypeScript s testi in pripomočki E2E, kot so generiranje ikon, samodejne i18n in hitre sestave z uporabo esbuilda",
         "description": "The description of your extension"
     }
 }

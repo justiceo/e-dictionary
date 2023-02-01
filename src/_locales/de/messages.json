@@ -3,8 +3,12 @@
         "message": "Browser -Erweiterungsstarter",
         "description": "The name of the extension"
     },
+    "appShortName": {
+        "message": "B.E.S.S",
+        "description": "The short-version name of the extension name"
+    },
     "appDesc": {
-        "message": "Chrome und Firefox Extension Boilerplate in Typenkript mit E2E",
+        "message": "Browser -Erweiterungs -Kesselplatte in TypeScript mit E2E -Tests und Dienstprogrammen wie Icon -Generierung, automatischem i18n und schnellen Builds mit ESBuild",
         "description": "The description of your extension"
     }
 }

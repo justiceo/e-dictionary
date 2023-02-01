@@ -3,8 +3,12 @@
         "message": "Pārlūka pagarinājuma starteris",
         "description": "The name of the extension"
     },
+    "appShortName": {
+        "message": "B.e.s",
+        "description": "The short-version name of the extension name"
+    },
     "appDesc": {
-        "message": "Chrome un Firefox pagarinājuma katlu plāksne TypeScript ar E2E testiem un komunālajiem pakalpojumiem, piemēram, ikonu ģenerēšanu, automātisko I18N un ātru veidošanos, izmantojot esbuild",
+        "message": "Pārlūka pagarinājuma katlu plāksne TypeScript ar E2E testiem un komunālajiem pakalpojumiem, piemēram, ikonu ģenerēšanu, automātisko I18N un ātru veidošanos, izmantojot esbuild",
         "description": "The description of your extension"
     }
 }

@@ -3,8 +3,12 @@
         "message": "Starter di estensione del browser",
         "description": "The name of the extension"
     },
+    "appShortName": {
+        "message": "ESSERE S",
+        "description": "The short-version name of the extension name"
+    },
     "appDesc": {
-        "message": "CHROME e Firefox Extension Plaplate in TypeScript con test E2E e utility come la generazione di icone, i18n automatiche e build veloci utilizzando ESBuild",
+        "message": "Browser estensione caldaia in typescript con test E2E e utility come la generazione di icone, i18n automatici e build veloci utilizzando ESBuild",
         "description": "The description of your extension"
     }
 }

@@ -3,8 +3,12 @@
         "message": "ブラウザ拡張スターター",
         "description": "The name of the extension"
     },
+    "appShortName": {
+        "message": "B.E.S",
+        "description": "The short-version name of the extension name"
+    },
     "appDesc": {
-        "message": "ESBUILDを使用して、E2Eテスト、アイコン生成、自動I18N、高速ビルドなどのE2Eテストとユーティリティを備えたTypeScriptのChromeおよびFirefox拡張ボイラープレート",
+        "message": "ESBUILDを使用して、アイコン生成、自動I18N、高速ビルドなど、E2Eテストとユーティリティを使用したタイプスクリプトのブラウザ拡張ボイラープレート",
         "description": "The description of your extension"
     }
 }

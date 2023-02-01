@@ -3,8 +3,12 @@
         "message": "Brauseri pikenduse starter",
         "description": "The name of the extension"
     },
+    "appShortName": {
+        "message": "B.E.S",
+        "description": "The short-version name of the extension name"
+    },
     "appDesc": {
-        "message": "Chrome ja Firefoxi pikendus katlaplaani TypeScriptis koos E2E testide ja kommunaalteenustega, nagu ikoonide genereerimine, automaatne i18n ja kiire ehitamine, kasutades Esbuild",
+        "message": "Brauseri pikenduse katlaplaast E2E -testide ja kommunaalteenuste abil, näiteks ikooni genereerimine, automaatne i18n ja kiire ehitamine, kasutades Esbuild",
         "description": "The description of your extension"
     }
 }

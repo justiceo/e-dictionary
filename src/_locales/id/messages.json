@@ -3,8 +3,12 @@
         "message": "Starter ekstensi browser",
         "description": "The name of the extension"
     },
+    "appShortName": {
+        "message": "B.E.S",
+        "description": "The short-version name of the extension name"
+    },
     "appDesc": {
-        "message": "Boilerplate Ekstensi Chrome dan Firefox di TypeScript dengan tes E2E dan utilitas seperti Icon Generation, Automatic I18N dan Fast Builds Menggunakan EsBuild",
+        "message": "Browser Extension Boilerplate di TypeScript dengan tes E2E dan utilitas seperti Icon Generation, Automatic I18N dan Fast Builds Menggunakan EsBuild",
         "description": "The description of your extension"
     }
 }

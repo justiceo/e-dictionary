@@ -3,8 +3,12 @@
         "message": "Starter ya Upanuzi wa Kivinjari",
         "description": "The name of the extension"
     },
+    "appShortName": {
+        "message": "B.E.S",
+        "description": "The short-version name of the extension name"
+    },
     "appDesc": {
-        "message": "Boilerplate ya Upanuzi wa Chrome na Firefox katika TypeScript na vipimo vya E2E na huduma kama kizazi cha icon, moja kwa moja i18n na hujengwa haraka kwa kutumia Esbuild",
+        "message": "Upanuzi wa Kivinjari Boilerplate katika TypeScript na Vipimo vya E2E na Huduma Kama Kizazi cha Icon, moja kwa moja I18N na Huunda haraka Kutumia Esbuild",
         "description": "The description of your extension"
     }
 }

@@ -3,8 +3,12 @@
         "message": "Démarreur d'extension du navigateur",
         "description": "The name of the extension"
     },
+    "appShortName": {
+        "message": "B.E.S",
+        "description": "The short-version name of the extension name"
+    },
     "appDesc": {
-        "message": "Chrome et Firefox Extension Plateplate en typeScript avec des tests E2E et des services publics comme la génération d'icônes, les constructions automatiques I18N et Fast Using Esbuild",
+        "message": "Extension du navigateur Plate-ciel en dactylographie avec des tests E2E et des services publics comme la génération d'icônes, les constructions automatiques et rapides en utilisant Esbuild",
         "description": "The description of your extension"
     }
 }

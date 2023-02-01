@@ -3,8 +3,12 @@
         "message": "Starter Peluasan Pelayar",
         "description": "The name of the extension"
     },
+    "appShortName": {
+        "message": "B.E.S",
+        "description": "The short-version name of the extension name"
+    },
     "appDesc": {
-        "message": "Chrome dan Firefox Extension Boilerplate dalam TypeScript dengan ujian dan utiliti E2E seperti generasi ikon, i18n automatik dan cepat membina menggunakan esbuild",
+        "message": "Boilerplate Peluasan Pelayar dalam TypeScript dengan ujian dan utiliti E2E seperti generasi ikon, i18n automatik dan cepat membina menggunakan esbuild",
         "description": "The description of your extension"
     }
 }

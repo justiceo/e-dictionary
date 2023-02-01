@@ -3,8 +3,12 @@
         "message": "Starter של סיומת דפדפן",
         "description": "The name of the extension"
     },
+    "appShortName": {
+        "message": "B.E.S",
+        "description": "The short-version name of the extension name"
+    },
     "appDesc": {
-        "message": "לוחית הדוד של Chrome ו- Firefox בתסריט עם בדיקות E2E ושירותים כמו ייצור אייקונים, אוטומטית i18n ובניית מהירה באמצעות Esbuild",
+        "message": "לוחית הדפדפן של סיומת דפדפן ב- TypeScript עם בדיקות E2E וכלי עזר כמו ייצור אייקונים, I18N אוטומטי ובניית מהירה באמצעות ESBUILD",
         "description": "The description of your extension"
     }
 }
