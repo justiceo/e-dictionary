@@ -1,24 +1,5 @@
 import {  css } from "lit";
 
-export const enhancedBootstrapCSS = css`
-input[type="checkbox"] {
-  /* Double-sized Checkboxes */
-  -ms-transform: scale(1.4); /* IE */
-  -moz-transform: scale(1.4); /* FF */
-  -webkit-transform: scale(1.4); /* Safari and Chrome */
-  -o-transform: scale(1.4); /* Opera */
-  padding: 10px;
-}
-
-.collapse {
-  margin-top: 15px;
-}
-.container {
-  min-width: 400px;
-  min-height: 400px;
-}
-`;
-
 export const bootstrapCSS = css `@charset "UTF-8";
 /*!
  * Bootstrap v5.0.2 (https://getbootstrap.com/)

@@ -2,7 +2,7 @@ import "@webcomponents/webcomponentsjs"; // Polyfill for customElements in conte
 import { LitElement, css, html, TemplateResult } from "lit";
 import { customElement } from "lit/decorators.js";
 import bootstrap from "./bootstrap.bundle.min.js";
-import { bootstrapCSS, enhancedBootstrapCSS } from "./bootstrap5.css.js";
+import { bootstrapCSS } from "./bootstrap5.css.js";
 
 @customElement("options-element")
 export class OptionsElement extends LitElement {
@@ -10,7 +10,23 @@ export class OptionsElement extends LitElement {
   
   static styles = css`
     ${bootstrapCSS}
-    ${enhancedBootstrapCSS}
+    
+    input[type="checkbox"] {
+      /* Double-sized Checkboxes */
+      -ms-transform: scale(1.4); /* IE */
+      -moz-transform: scale(1.4); /* FF */
+      -webkit-transform: scale(1.4); /* Safari and Chrome */
+      -o-transform: scale(1.4); /* Opera */
+      padding: 10px;
+    }
+    
+    .collapse {
+      margin-top: 15px;
+    }
+    .container {
+      min-width: 400px;
+      min-height: 400px;
+    }
   `;
 
   constructor(configItems: any[]) {
