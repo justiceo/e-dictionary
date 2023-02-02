@@ -1,5 +1,5 @@
 
-import { OptionsElement } from '../options-page/options-element';
+import { OptionsElement } from '../utils/options-element';
 
 const optionsEl = new OptionsElement([  {
   id: "disable-extension-on-site",

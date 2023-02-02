@@ -1,5 +1,5 @@
 import './options.css'
-import { OptionsElement } from './options-element';
+import { OptionsElement } from '../utils/options-element';
 
 class OptionsPage {
   render(options) {
