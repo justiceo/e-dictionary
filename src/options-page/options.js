@@ -4,7 +4,7 @@ import { OptionsElement } from './options-element';
 class OptionsPage {
   render(options) {
     console.log("rendering options: ", options);
-    const optionsEl = new OptionsElement();
+    const optionsEl = new OptionsElement(options);
     document.body.appendChild(optionsEl);
   }
 
@@ -54,6 +54,6 @@ const config = [
     description: "The detail information about the textarea here.",
   },
 ];
-let op = new OptionsPage(config);
-op.render();
+let op = new OptionsPage();
+op.render(config);
 
