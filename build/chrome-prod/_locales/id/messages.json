@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Browser Extension Boilerplate di TypeScript dengan tes E2E dan utilitas seperti Icon Generation, Automatic I18N dan Fast Builds Menggunakan EsBuild",
+        "message": "Contoh ekstensi browser. Naskah, tes e2e, pembuatan ikon, i18n otomatis dan esbuild",
         "description": "The description of your extension"
     }
 }

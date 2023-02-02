@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "帶有E2E測試的打字稿中的瀏覽器擴展名單板以及圖標生成，自動I18N和快速構建的實用程序",
+        "message": "瀏覽器擴展示例。 打字稿，E2E測試，圖標生成，自動I18N和ESBUILD",
         "description": "The description of your extension"
     }
 }

@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Upanuzi wa Kivinjari Boilerplate katika TypeScript na Vipimo vya E2E na Huduma Kama Kizazi cha Icon, moja kwa moja I18N na Huunda haraka Kutumia Esbuild",
+        "message": "Mfano wa Upanuzi wa Kivinjari. Vipimo vya Typescript, E2E, Kizazi cha Icon, moja kwa moja I18N na EsBuild",
         "description": "The description of your extension"
     }
 }

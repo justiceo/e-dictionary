@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Browser Extension BoilerPlate i TypeScript med E2E -tests og værktøjer som ikongenerering, automatisk I18N og hurtige bygninger ved hjælp af essbuild",
+        "message": "Eksempel på browserudvidelse. TypeScript, E2E Tests, Icon Generation, Automatic I18N og Esbuild",
         "description": "The description of your extension"
     }
 }

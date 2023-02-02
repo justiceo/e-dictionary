@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Browser extension boilerplate in Typescript with E2E tests and utilities like icon generation, automatic i18n and fast builds using ESBuild",
+        "message": "Browser extension example. Typescript, E2E tests, icon generation, automatic i18n and ESBuild",
         "description": "The description of your extension"
     }
 }

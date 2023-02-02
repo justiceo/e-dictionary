@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Удлинитель браузера в TypeScript с тестами и утилитами E2E, такими как генерация значков, автоматические I18N и Fast Builds с использованием EsBuild",
+        "message": "Пример расширения браузера. TypeScript, E2E -тесты, генерация значков, автоматический i18n и Esbuild",
         "description": "The description of your extension"
     }
 }

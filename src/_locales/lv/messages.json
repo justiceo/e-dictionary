@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Pārlūka pagarinājuma katlu plāksne TypeScript ar E2E testiem un komunālajiem pakalpojumiem, piemēram, ikonu ģenerēšanu, automātisko I18N un ātru veidošanos, izmantojot esbuild",
+        "message": "Pārlūka pagarinājuma piemērs. TypeScript, E2E testi, ikonu ģenerēšana, automātiskā I18N un esbuild",
         "description": "The description of your extension"
     }
 }

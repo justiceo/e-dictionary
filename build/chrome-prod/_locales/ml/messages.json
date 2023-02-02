@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "ഇബ്രെസ്ക്രിപ്റ്റിലെ ബ്ര browser സർ വിപുലീകരണത്തിലെ സ്പെസോമർ വിപുലീകരണം, ഐക്കൺ ജനറേഷൻ, ഐക്കൺ ജനറേഷൻ, ഓട്ടോമാറ്റിക് I18N, esbuild ഉപയോഗിച്ച് വേഗത്തിലുള്ള ബിൽഡുകൾ",
+        "message": "ബ്ര browser സർ വിപുലീകരണ ഉദാഹരണം. ടൈപ്പ്സ്ക്രിപ്റ്റ്, E2E ടെസ്റ്റുകൾ, ഐക്കൺ ജനറേഷൻ, ഓട്ടോമാറ്റിക് I18N, ESBUILD",
         "description": "The description of your extension"
     }
 }

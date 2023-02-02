@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "לוחית הדפדפן של סיומת דפדפן ב- TypeScript עם בדיקות E2E וכלי עזר כמו ייצור אייקונים, I18N אוטומטי ובניית מהירה באמצעות ESBUILD",
+        "message": "דוגמא להארכת דפדפן. Typescript, בדיקות E2E, ייצור אייקונים, אוטומטית I18N ו- ESBUILD",
         "description": "The description of your extension"
     }
 }

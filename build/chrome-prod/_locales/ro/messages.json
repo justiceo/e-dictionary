@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Plăcuță de extensie a browserului în TypeScript cu teste E2E și utilități precum generarea pictogramei, I18N automat și Builds Fast folosind EsBuild",
+        "message": "Exemplu de extensie a browserului. Typescript, teste E2E, generarea pictogramei, automat I18N și EsBuild",
         "description": "The description of your extension"
     }
 }

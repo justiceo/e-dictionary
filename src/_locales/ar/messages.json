@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "تمديد المتصفح في TypeScript مع اختبارات E2E والمرافق مثل توليد الأيقونات ، و I18N التلقائي والبناء السريع باستخدام Esbuild",
+        "message": "مثال تمديد المتصفح. TypeScript ، اختبارات E2E ، توليد الرمز ، I18N التلقائي و ESBUILD",
         "description": "The description of your extension"
     }
 }

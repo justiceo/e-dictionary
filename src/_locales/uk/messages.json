@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Розширення браузера Котла в TypeScript з тестами E2E та утилітами, такими як Generation Icon, Automatic I18N та Fast Builds за допомогою ESBUILD",
+        "message": "Приклад розширення браузера. TypeScript, E2E тести, генерація піктограм, автоматичний I18N та Esbuild",
         "description": "The description of your extension"
     }
 }

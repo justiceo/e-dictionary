@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Browser -Erweiterungs -Kesselplatte in TypeScript mit E2E -Tests und Dienstprogrammen wie Icon -Generierung, automatischem i18n und schnellen Builds mit ESBuild",
+        "message": "Beispiel für Browsererweiterung. TypeScript, E2E -Tests, Icon -Generierung, automatische I18N und Esbuild",
         "description": "The description of your extension"
     }
 }

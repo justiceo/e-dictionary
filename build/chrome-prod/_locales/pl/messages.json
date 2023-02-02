@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Broowser Extension Boiler w TypeScript z testami i narzędziami E2E, takimi jak generowanie ikon, automatyczne I18N i szybkie kompilacje za pomocą ESBUILD",
+        "message": "Przykład rozszerzenia przeglądarki. Testy TypeScript, E2E, generowanie ikon, automatyczne I18N i ESBUILD",
         "description": "The description of your extension"
     }
 }

@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Kotlovna ploča za proširenje preglednika u TypeScript s E2E testovima i uslužnim programima poput generiranja ikona, automatskog i18n i brze izrade pomoću EsBuilda",
+        "message": "Primjer proširenja preglednika. TypeScript, E2E testovi, stvaranje ikona, automatski i18n i esbuild",
         "description": "The description of your extension"
     }
 }

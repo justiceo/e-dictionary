@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "A böngésző kiterjesztési kazánlapja TypeScript -ben E2E tesztekkel és segédprogramokkal, mint például az ikongenerálás, az automatikus I18N és a Fast Builds Esbuild használatával",
+        "message": "Böngésző kiterjesztési példa. TypeScript, E2E tesztek, ikongenerálás, automatikus I18N és Esbuild",
         "description": "The description of your extension"
     }
 }

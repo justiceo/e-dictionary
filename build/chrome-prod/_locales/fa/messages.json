@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "دیگ بخار برنامه افزودنی مرورگر در TypeScript با تست های E2E و برنامه های کاربردی مانند تولید نماد ، Automatic I18N و ساخت سریع با استفاده از Esbuild",
+        "message": "مثال پسوند مرورگر. TypeScript ، تست های E2E ، تولید نماد ، Automatic I18N و Esbuild",
         "description": "The description of your extension"
     }
 }

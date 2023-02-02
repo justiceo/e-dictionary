@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Котел за разширение на браузъра в TypeScript с E2E тестове и помощни програми като генериране на икони, автоматичен I18N и бързо изграждане с помощта на Esbuild",
+        "message": "Пример за разширение на браузъра. TypeScript, E2E тестове, генериране на икони, автоматично I18N и Esbuild",
         "description": "The description of your extension"
     }
 }

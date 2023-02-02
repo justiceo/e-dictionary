@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Trình duyệt Phần mở rộng Boilerplate trong TypeScript với các thử nghiệm và tiện ích E2E như tạo biểu tượng, tự động i18n và các bản dựng nhanh bằng cách sử dụng Esbuild",
+        "message": "Ví dụ mở rộng trình duyệt. TypeScript, E2E Tests, Icon Generation, Automatic I18N và Esbuild",
         "description": "The description of your extension"
     }
 }

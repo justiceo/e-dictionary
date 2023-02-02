@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Nettleserutvidelse kjeleplate i TypeScript med E2E -tester og verktøy som Icon Generation, Automatic I18N og Fast Builds ved hjelp av Esbuild",
+        "message": "Eksempel på nettleserutvidelse. TypeScript, E2E Tests, Icon Generation, Automatic I18N og Esbuild",
         "description": "The description of your extension"
     }
 }

@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "아이콘 생성, 자동 i18N 및 Esbuild를 사용한 빠른 빌드와 같은 E2E 테스트 및 유틸리티가있는 타입 스크립트의 브라우저 확장 보일러 플레이트",
+        "message": "브라우저 확장 예제. TypeScript, E2E 테스트, 아이콘 생성, 자동 I18N 및 Esbuild",
         "description": "The description of your extension"
     }
 }

@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Boilerplate Peluasan Pelayar dalam TypeScript dengan ujian dan utiliti E2E seperti generasi ikon, i18n automatik dan cepat membina menggunakan esbuild",
+        "message": "Contoh peluasan penyemak imbas. TypeScript, Ujian E2E, Generasi Ikon, I18N Automatik dan Esbuild",
         "description": "The description of your extension"
     }
 }

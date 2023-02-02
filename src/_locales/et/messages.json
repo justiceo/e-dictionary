@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Brauseri pikenduse katlaplaast E2E -testide ja kommunaalteenuste abil, näiteks ikooni genereerimine, automaatne i18n ja kiire ehitamine, kasutades Esbuild",
+        "message": "Brauseri laienduse näide. TypeScript, E2E testid, ikoonide genereerimine, automaatne i18n ja esbuild",
         "description": "The description of your extension"
     }
 }

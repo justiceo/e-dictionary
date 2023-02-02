@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Selaimen laajennuskattilalevy tyyppikirjoituksessa E2E -testeillä ja apuohjelmilla, kuten kuvakkeen sukupolvi, automaattinen i18n ja nopea rakennus esbuildilla",
+        "message": "Selaimen laajennusesimerkki. TYPLEKSTRIA, E2E -testit, kuvakkeen sukupolvi, automaattinen i18n ja Esbuild",
         "description": "The description of your extension"
     }
 }

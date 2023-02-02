@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "আই 2 ই টেস্ট এবং আইকন জেনারেশন, স্বয়ংক্রিয় i18n এবং ESBUILD ব্যবহার করে দ্রুত বিল্ডগুলির মতো ইউটিলিটিগুলির সাথে টাইপস্ক্রিপ্টে ব্রাউজার এক্সটেনশন বয়লারপ্লেট",
+        "message": "ব্রাউজার এক্সটেনশন উদাহরণ। টাইপস্ক্রিপ্ট, ই 2 ই পরীক্ষা, আইকন জেনারেশন, স্বয়ংক্রিয় আই 18 এন এবং এসবিল্ড",
         "description": "The description of your extension"
     }
 }

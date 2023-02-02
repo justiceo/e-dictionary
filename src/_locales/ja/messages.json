@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "ESBUILDを使用して、アイコン生成、自動I18N、高速ビルドなど、E2Eテストとユーティリティを使用したタイプスクリプトのブラウザ拡張ボイラープレート",
+        "message": "ブラウザ拡張機能の例。 タイプスクリプト、E2Eテスト、アイコン生成、自動I18NおよびESBUILD",
         "description": "The description of your extension"
     }
 }

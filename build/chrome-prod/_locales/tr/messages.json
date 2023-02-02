@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "E2E Testleri ve Icon Nesil, Otomatik I18N ve ESBUILD kullanarak hızlı yapılar gibi TypeScript'te tarayıcı uzantısı Boilerplate",
+        "message": "Tarayıcı Uzatma Örneği. TypeScript, E2E testleri, simge üretimi, otomatik i18n ve esbuild",
         "description": "The description of your extension"
     }
 }

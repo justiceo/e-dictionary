@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Rozšírenie prehliadača kotla v TypeScript s testmi E2E a nástrojmi, ako je generovanie ikon, automatické i18n a rýchle zostavy pomocou ESBuild",
+        "message": "Príklad rozšírenia prehliadača. TypeScript, E2E testy, generovanie ikon, automatické i18n a Esbuild",
         "description": "The description of your extension"
     }
 }

@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Extension du navigateur Plate-ciel en dactylographie avec des tests E2E et des services publics comme la génération d'icônes, les constructions automatiques et rapides en utilisant Esbuild",
+        "message": "Exemple d'extension du navigateur. TypeScript, tests E2E, génération d'icônes, I18N automatique et Esbuild",
         "description": "The description of your extension"
     }
 }

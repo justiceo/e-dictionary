@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "እንደ አዶ ትውልድ በሚመስሉ የኢ.ሲ.ዲ. ፈተናዎች እና መገልገያዎች በ AOSSCRARES ውስጥ የአሳሽ ቅጥያ ቦይለር ቅጥያ አውቶማቲክ i18n እና ፈጣን መገንባት",
+        "message": "የአሳሽ ቅጥያ ምሳሌ. AlyCript, EE2E ሙከራዎች, አዶ ትውልድ, አውቶማቲክ i18n እና ESBEADED",
         "description": "The description of your extension"
     }
 }

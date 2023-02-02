@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "เบราว์เซอร์ขยายหม้อไอน้ำใน typeScrip",
+        "message": "ตัวอย่างส่วนขยายเบราว์เซอร์ TypeScript, การทดสอบ E2E, การสร้างไอคอน, I18N อัตโนมัติและ ESBUILD",
         "description": "The description of your extension"
     }
 }

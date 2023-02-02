@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "బ్రౌజర్ ఎక్స్‌టెన్షన్ బాయిలర్‌ప్లేట్ టైప్‌స్క్రిప్ట్‌లో E2E పరీక్షలు మరియు ఐకాన్ జనరేషన్, ఆటోమేటిక్ I18N మరియు ESBUILD ఉపయోగించి వేగంగా నిర్మించడం వంటి యుటిలిటీస్",
+        "message": "బ్రౌజర్ పొడిగింపు ఉదాహరణ. టైప్‌స్క్రిప్ట్, E2E పరీక్షలు, ఐకాన్ జనరేషన్, ఆటోమేటిక్ I18N మరియు ESBUILD",
         "description": "The description of your extension"
     }
 }

@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Browser estensione caldaia in typescript con test E2E e utility come la generazione di icone, i18n automatici e build veloci utilizzando ESBuild",
+        "message": "Esempio di estensione del browser. TypeScript, test E2E, generazione di icona, i18n automatico ed esbuild",
         "description": "The description of your extension"
     }
 }

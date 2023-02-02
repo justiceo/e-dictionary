@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Webbläsarförlängningspannplatta i typskript med E2E -test och verktyg som ikongenerering, automatisk I18N och snabba byggnader med ESBUILD",
+        "message": "Exempel på webbläsarförlängning. TypeScript, E2E -test, ikongenerering, automatisk I18N och ESBUILD",
         "description": "The description of your extension"
     }
 }

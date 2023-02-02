@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Extensión del navegador Boilerplate en TypeScript con pruebas de E2E y utilidades como la generación de iconos, i18n automático y construcciones rápidas utilizando ESBuild",
+        "message": "Ejemplo de extensión del navegador. TypeScript, E2E Pruebas, Generación de Icones, Automático I18N y ESBuild",
         "description": "The description of your extension"
     }
 }

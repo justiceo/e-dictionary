@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Brskalnik Extension Bocle Plota In TypeScript s testi in pripomočki E2E, kot so generiranje ikon, samodejne i18n in hitre sestave z uporabo esbuilda",
+        "message": "Primer razširitve brskalnika. TypeScript, E2E testi, generiranje ikon, avtomatski i18n in esbuild",
         "description": "The description of your extension"
     }
 }

@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Rozšíření prohlížeče kotle v strojopisu s testy E2E a nástroji, jako je generování ikon, automatické i18n a rychlé sestavení pomocí Esbuildu",
+        "message": "Příklad prodloužení prohlížeče. Strojopis, testy E2e, generování ikon, automatický i18n a esbuild",
         "description": "The description of your extension"
     }
 }
