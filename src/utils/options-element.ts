@@ -49,8 +49,8 @@ export class OptionsElement extends LitElement {
           @input="${(e) => this.saveChange(configItem.id, e)}"
           class="form-check-input me-1"
           type="checkbox"
-          value=""
           id="thirdCheckbox"
+          ${configItem.value ? "checked" : ""}
         />
       </li>
     `;
@@ -70,8 +70,8 @@ export class OptionsElement extends LitElement {
             class="form-check-input"
             type="checkbox"
             role="switch"
-            id="flexSwitchCheckChecked"
-            checked
+            id="flexSwitchCheckChecked"            
+          ${configItem.value ? "checked" : ""}
           />
         </div>
       </li>
@@ -108,6 +108,7 @@ export class OptionsElement extends LitElement {
             class="form-range"
             min="0"
             max="5"
+            value="${configItem.value}"
             id="customRange2"
           />
         </div>
@@ -124,6 +125,7 @@ export class OptionsElement extends LitElement {
               >${configItem.description}
           </div>
           <div class="form-check form-switch">
+          V
             <i
               class="bi-caret-down-fill"
               style="font-size: 1.5rem"
@@ -140,6 +142,7 @@ export class OptionsElement extends LitElement {
               class="form-control"
               id="exampleFormControlTextarea1"
               rows="3"
+              value="${configItem.value}"
             ></textarea>
           </div>
         </div>
@@ -161,8 +164,9 @@ export class OptionsElement extends LitElement {
           class="form-select form-select-md"
           aria-label="example"
           style="max-width: 200px"
+          value="${configItem.value}"
         >
-          <option selected>Open this select menu</option>
+          <option>Open this select menu</option>
           <option value="1">One</option>
           <option value="2">Two</option>
           <option value="3">Three</option>
