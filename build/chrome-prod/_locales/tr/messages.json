@@ -1,14 +1,14 @@
 {
     "appName": {
-        "message": "Tarayıcı uzantısı başlatıcı",
+        "message": "Sözlük",
         "description": "The name of the extension"
     },
     "appShortName": {
-        "message": "S OL",
+        "message": "Sözlük",
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Tarayıcı Uzatma Örneği. TypeScript, E2E testleri, simge üretimi, otomatik i18n ve esbuild",
+        "message": "Tam özellikli sözlük uzatma",
         "description": "The description of your extension"
     }
 }

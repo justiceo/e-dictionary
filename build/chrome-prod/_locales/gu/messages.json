@@ -1,14 +1,14 @@
 {
     "appName": {
-        "message": "બ્રાઉઝર એક્સ્ટેંશન સ્ટાર્ટર",
+        "message": "શબ્દકોશ",
         "description": "The name of the extension"
     },
     "appShortName": {
-        "message": "B.E.S.",
+        "message": "શબ્દકોશ",
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "બ્રાઉઝર એક્સ્ટેંશન ઉદાહરણ. ટાઇપસ્ક્રિપ્ટ, E2E પરીક્ષણો, આયકન જનરેશન, સ્વચાલિત I18N અને ESBild",
+        "message": "પૂર્ણ-સુવિધાયુક્ત શબ્દકોશ",
         "description": "The description of your extension"
     }
 }

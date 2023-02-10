@@ -1,14 +1,14 @@
 {
     "appName": {
-        "message": "ब्राउज़र एक्सटेंशन स्टार्टर",
+        "message": "शब्दकोष",
         "description": "The name of the extension"
     },
     "appShortName": {
-        "message": "बी.ई.एस.",
+        "message": "शब्दकोष",
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "ब्राउज़र एक्सटेंशन उदाहरण। टाइपस्क्रिप्ट, E2E परीक्षण, आइकन पीढ़ी, स्वचालित I18N और esbuild",
+        "message": "पूर्ण-विशेषताओं वाले शब्दकोश विस्तार",
         "description": "The description of your extension"
     }
 }

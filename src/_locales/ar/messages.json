@@ -1,14 +1,14 @@
 {
     "appName": {
-        "message": "متصفح تمديد بداية",
+        "message": "قاموس",
         "description": "The name of the extension"
     },
     "appShortName": {
-        "message": "ب",
+        "message": "قاموس",
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "مثال تمديد المتصفح. TypeScript ، اختبارات E2E ، توليد الأيقونات ، I18N التلقائي و ESBUILD",
+        "message": "امتداد القاموس كامل الميزة",
         "description": "The description of your extension"
     }
 }

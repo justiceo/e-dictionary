@@ -1,14 +1,14 @@
 {
     "appName": {
-        "message": "Pārlūka pagarinājuma starteris",
+        "message": "Vārdnīca",
         "description": "The name of the extension"
     },
     "appShortName": {
-        "message": "B.E.S",
+        "message": "Vārdnīca",
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Pārlūka pagarinājuma piemērs. TypeScript, E2E testi, ikonu ģenerēšana, automātiskā I18N un esbuild",
+        "message": "Pilnībā audzēts vārdnīcas pagarinājums",
         "description": "The description of your extension"
     }
 }

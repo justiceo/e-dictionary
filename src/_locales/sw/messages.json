@@ -1,14 +1,14 @@
 {
     "appName": {
-        "message": "Starter ya Upanuzi wa Kivinjari",
+        "message": "Kamusi",
         "description": "The name of the extension"
     },
     "appShortName": {
-        "message": "B.E.S",
+        "message": "Kamusi",
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Mfano wa Upanuzi wa Kivinjari. Vipimo vya Aina, Vipimo vya E2E, Kizazi cha Icon, I18N moja kwa moja na Esbuild",
+        "message": "Upanuzi kamili wa kamusi",
         "description": "The description of your extension"
     }
 }

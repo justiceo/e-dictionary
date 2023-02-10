@@ -1,14 +1,14 @@
 {
     "appName": {
-        "message": "Arrancador de extensión del navegador",
+        "message": "Diccionario",
         "description": "The name of the extension"
     },
     "appShortName": {
-        "message": "B.E.S",
+        "message": "Diccionario",
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Ejemplo de extensión del navegador. TypeScript, E2E Pruebas, Generación de iconos, Automático I18N y ESBuild",
+        "message": "Extensión de diccionario con todas las funciones",
         "description": "The description of your extension"
     }
 }

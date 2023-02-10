@@ -1,14 +1,14 @@
 {
     "appName": {
-        "message": "浏览器扩展入门",
+        "message": "字典",
         "description": "The name of the extension"
     },
     "appShortName": {
-        "message": "B.E.S",
+        "message": "字典",
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "浏览器扩展示例。 打字稿，E2E测试，图标生成，自动I18N和ESBUILD",
+        "message": "全功能词典扩展",
         "description": "The description of your extension"
     }
 }

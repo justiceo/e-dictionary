@@ -1,14 +1,14 @@
 {
     "appName": {
-        "message": "Starter של סיומת דפדפן",
+        "message": "מילון",
         "description": "The name of the extension"
     },
     "appShortName": {
-        "message": "B.E.S",
+        "message": "מילון",
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "דוגמה להרחבת דפדפן. Typescript, בדיקות E2E, ייצור אייקונים, אוטומטית I18N ו- ESBUILD",
+        "message": "סיומת מילון מלאה",
         "description": "The description of your extension"
     }
 }

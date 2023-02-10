@@ -1,14 +1,14 @@
 {
     "appName": {
-        "message": "Browser -Erweiterungsstarter",
+        "message": "Wörterbuch",
         "description": "The name of the extension"
     },
     "appShortName": {
-        "message": "B.E.S.S.",
+        "message": "Wörterbuch",
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Beispiel für Browser -Erweiterung. TypeScript, E2E -Tests, Icon -Generierung, automatische I18N und Esbuild",
+        "message": "Wörterbucherweiterung mit Vollfasz",
         "description": "The description of your extension"
     }
 }

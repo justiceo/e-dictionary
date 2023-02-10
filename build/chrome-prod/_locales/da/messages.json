@@ -1,14 +1,14 @@
 {
     "appName": {
-        "message": "Browser Extension Starter",
+        "message": "Ordbog",
         "description": "The name of the extension"
     },
     "appShortName": {
-        "message": "B.E.S",
+        "message": "Ordbog",
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Eksempel på browserudvidelse. TypeScript, E2E Tests, Icon Generation, Automatic I18N og Esbuild",
+        "message": "Fuldført ordbog udvidelse",
         "description": "The description of your extension"
     }
 }

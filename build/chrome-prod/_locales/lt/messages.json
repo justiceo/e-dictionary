@@ -1,14 +1,14 @@
 {
     "appName": {
-        "message": "Naršyklės išplėtimo starteris",
+        "message": "Žodynas",
         "description": "The name of the extension"
     },
     "appShortName": {
-        "message": "B.E.S",
+        "message": "Žodynas",
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Naršyklės plėtinio pavyzdys. „TypeScript“, „E2E“ testai, piktogramų generavimas, automatinis I18N ir „Esbuild“",
+        "message": "Visiško žodyno pratęsimas",
         "description": "The description of your extension"
     }
 }

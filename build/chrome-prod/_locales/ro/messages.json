@@ -1,14 +1,14 @@
 {
     "appName": {
-        "message": "Starter de extensie a browserului",
+        "message": "Dicţionar",
         "description": "The name of the extension"
     },
     "appShortName": {
-        "message": "B.E.S",
+        "message": "Dicţionar",
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Exemplu de extensie a browserului. Typescript, teste E2E, Generarea pictogramei, I18N automat și EsBuild",
+        "message": "Extensie de dicționar complet",
         "description": "The description of your extension"
     }
 }

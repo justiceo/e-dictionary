@@ -1,14 +1,14 @@
 {
     "appName": {
-        "message": "브라우저 확장 스타터",
+        "message": "사전",
         "description": "The name of the extension"
     },
     "appShortName": {
-        "message": "B.E.S",
+        "message": "사전",
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "브라우저 확장 예제. TypeScript, E2E 테스트, 아이콘 생성, 자동 I18N 및 Esbuild",
+        "message": "완전한 기능 사전 확장",
         "description": "The description of your extension"
     }
 }

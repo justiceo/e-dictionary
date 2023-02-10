@@ -9,9 +9,7 @@
     "author": "Justice Ogbonna",
     "permissions": [
         "contextMenus",
-        "storage",
-        "cookies",
-        "tabs"
+        "storage"
     ],
     "host_permissions": [
         "*://*/*"
@@ -46,16 +44,6 @@
         "48": "assets/logo-48x48.png",
         "128": "assets/logo-128x128.png"
     },
-    "web_accessible_resources": [
-        {
-            "resources": [
-                "assets/logo-24x24.png"
-            ],
-            "matches": [
-                "<all_urls>"
-            ]
-        }
-    ],
     "options_page": "options-page/options.html",
     "background": {
         "service_worker": "background-script/background.js"

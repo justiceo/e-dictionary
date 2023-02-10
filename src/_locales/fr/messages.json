@@ -1,14 +1,14 @@
 {
     "appName": {
-        "message": "Démarreur d'extension du navigateur",
+        "message": "Dictionnaire",
         "description": "The name of the extension"
     },
     "appShortName": {
-        "message": "B.E.S",
+        "message": "Dictionnaire",
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Exemple d'extension du navigateur. TypeScript, tests E2E, génération d'icônes, I18N automatique et Esbuild",
+        "message": "Extension du dictionnaire complet",
         "description": "The description of your extension"
     }
 }

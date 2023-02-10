@@ -1,14 +1,14 @@
 {
     "appName": {
-        "message": "Starter di estensione del browser",
+        "message": "Dizionario",
         "description": "The name of the extension"
     },
     "appShortName": {
-        "message": "ESSERE S",
+        "message": "Dizionario",
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Esempio di estensione del browser. TypeScript, test E2E, generazione di icona, i18n automatico ed esbuild",
+        "message": "Estensione del dizionario completo",
         "description": "The description of your extension"
     }
 }

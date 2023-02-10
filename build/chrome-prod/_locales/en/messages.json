@@ -1,14 +1,14 @@
 {
     "appName": {
-        "message": "Browser Extension Starter",
+        "message": "Dictionary",
         "description": "The name of the extension"
     },
     "appShortName": {
-        "message": "B.E.S",
+        "message": "Dictionary",
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Browser extension example. Typescript, E2E tests, icon generation, automatic i18n and ESBuild",
+        "message": "Full-featured dictionary extension",
         "description": "The description of your extension"
     }
 }

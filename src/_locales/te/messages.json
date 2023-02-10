@@ -1,14 +1,14 @@
 {
     "appName": {
-        "message": "బ్రౌజర్ ఎక్స్‌టెన్షన్ స్టార్టర్",
+        "message": "నిఘంటువు",
         "description": "The name of the extension"
     },
     "appShortName": {
-        "message": "B.E.S",
+        "message": "నిఘంటువు",
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "బ్రౌజర్ పొడిగింపు ఉదాహరణ. టైప్‌స్క్రిప్ట్, E2E పరీక్షలు, ఐకాన్ జనరేషన్, ఆటోమేటిక్ I18N మరియు ESBUILD",
+        "message": "పూర్తి-ఫీచర్ డిక్షనరీ పొడిగింపు",
         "description": "The description of your extension"
     }
 }

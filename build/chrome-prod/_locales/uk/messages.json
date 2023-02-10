@@ -1,14 +1,14 @@
 {
     "appName": {
-        "message": "Стартер для розширення браузера",
+        "message": "Словник",
         "description": "The name of the extension"
     },
     "appShortName": {
-        "message": "B.E.S",
+        "message": "Словник",
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Приклад розширення браузера. TypeScript, E2E тести, генерація значків, автоматичний I18N та Esbuild",
+        "message": "Повнофункціональне розширення словника",
         "description": "The description of your extension"
     }
 }

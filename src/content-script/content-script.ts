@@ -1,5 +1,14 @@
-import { Logger } from "../utils/logger";
+import { Message } from "../shared";
+import { Logger } from "../logger";
 
-// This is necessary for listening to logs from popup and bg.
 const L = new Logger("content-script");
+const onMessage = (
+    msg: Message,
+    _: chrome.runtime.MessageSender,
+    callback: () => void,
+) => {
+  L.debug("received message: ", msg.type);
+  callback();
+};
 
+chrome.runtime.onMessage.addListener(onMessage);

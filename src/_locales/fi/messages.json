@@ -1,14 +1,14 @@
 {
     "appName": {
-        "message": "Selaimen laajennuksen aloittaja",
+        "message": "Sanakirja",
         "description": "The name of the extension"
     },
     "appShortName": {
-        "message": "B.E.S",
+        "message": "Sanakirja",
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Selaimen laajennusesimerkki. TYPLESTI, E2E -testit, kuvakkeen sukupolvi, automaattinen i18n ja Esbuild",
+        "message": "Täysin varustettu sanakirjan laajennus",
         "description": "The description of your extension"
     }
 }

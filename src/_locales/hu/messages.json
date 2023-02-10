@@ -1,14 +1,14 @@
 {
     "appName": {
-        "message": "Böngészőhosszabbító indító",
+        "message": "Szótár",
         "description": "The name of the extension"
     },
     "appShortName": {
-        "message": "B.E.S",
+        "message": "Szótár",
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Böngésző kiterjesztési példa. TypeScript, E2E tesztek, ikongenerálás, automatikus I18N és esbuild",
+        "message": "Teljes funkciós szótárhosszabbítás",
         "description": "The description of your extension"
     }
 }

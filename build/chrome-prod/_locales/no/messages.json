@@ -1,14 +1,14 @@
 {
     "appName": {
-        "message": "Nettleserforlengelsesstarter",
+        "message": "Ordbok",
         "description": "The name of the extension"
     },
     "appShortName": {
-        "message": "B.E.S.",
+        "message": "Ordbok",
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Eksempel på nettleserutvidelse. TypeScript, E2E Tests, Icon Generation, Automatic I18N og Esbuild",
+        "message": "Full-funksjonsordbokforlengelse",
         "description": "The description of your extension"
     }
 }

@@ -1,14 +1,14 @@
 {
     "appName": {
-        "message": "Starter preglednika",
+        "message": "Rječnik",
         "description": "The name of the extension"
     },
     "appShortName": {
-        "message": "B.E.S",
+        "message": "Rječnik",
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Primjer proširenja preglednika. TypeScript, E2E testovi, stvaranje ikona, automatski i18n i esbuild",
+        "message": "Potpuno proširenje rječnika",
         "description": "The description of your extension"
     }
 }

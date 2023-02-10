@@ -15,7 +15,7 @@ interface MenuItem {
  * Prefer arrow method names -
  * https://www.typescriptlang.org/docs/handbook/2/classes.html#arrow-functions.
  */
-class ContextMenu {
+export class ContextMenu {
   RELOAD_ACTION: MenuItem = {
     menu: {
       id: 'audate-reload',
@@ -71,5 +71,3 @@ class ContextMenu {
     });
   }
 }
-
-new ContextMenu().init();

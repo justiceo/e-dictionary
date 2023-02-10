@@ -1,14 +1,14 @@
 {
     "appName": {
-        "message": "ブラウザ拡張スターター",
+        "message": "辞書",
         "description": "The name of the extension"
     },
     "appShortName": {
-        "message": "B.E.S",
+        "message": "辞書",
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "ブラウザ拡張機能の例。 タイプスクリプト、E2Eテスト、アイコン生成、自動I18Nおよびesbuild",
+        "message": "フル機能の辞書拡張機能",
         "description": "The description of your extension"
     }
 }

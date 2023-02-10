@@ -1,14 +1,14 @@
 {
     "appName": {
-        "message": "Εκκινητής επέκτασης του προγράμματος περιήγησης",
+        "message": "Λεξικό",
         "description": "The name of the extension"
     },
     "appShortName": {
-        "message": "B.E.S",
+        "message": "Λεξικό",
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Παράδειγμα επέκτασης του προγράμματος περιήγησης. TypeScript, δοκιμές E2E, δημιουργία εικονιδίων, αυτόματη I18N και ESBUILD",
+        "message": "Επέκταση λεξικού πλήρους λογισμικού",
         "description": "The description of your extension"
     }
 }

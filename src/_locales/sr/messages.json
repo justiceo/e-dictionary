@@ -1,14 +1,14 @@
 {
     "appName": {
-        "message": "Проширење претраживача Стартер",
+        "message": "Речник",
         "description": "The name of the extension"
     },
     "appShortName": {
-        "message": "Б.е.с",
+        "message": "Речник",
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Пример проширења прегледача. Типцрипт, Е2Е тестови, производња икона, аутоматски И18Н и ЕСБУИЛД",
+        "message": "Проширење речника у потпуности",
         "description": "The description of your extension"
     }
 }

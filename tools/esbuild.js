@@ -11,15 +11,13 @@ class Build {
   isProd = false;
   outDir = "build/chrome-dev";
   maybeTask = "build";
-  args;
 
   testSpecs = ["spec/e2e-spec.ts"];
   compiledTestSpecs = ["spec/e2e-spec.js"];
-  originalIconPath = "src/assets/logo.jpeg";
+  originalIconPath = "src/assets/logo.png";
 
   constructor() {
     const args = this.parse(process.argv);
-    this.args = args;
 
     if (args.output_base) {
       this.outputBase = args.output_base;
@@ -40,8 +38,7 @@ class Build {
     }/`;
 
     switch (this.maybeTask) {
-      // Additional options: --src, --icons, --screenshot, --marquee, --tile
-      case "image":
+      case "generateIcons":
         this.generateIcons();
         break;
       case "start":
@@ -53,11 +50,8 @@ class Build {
       case "test":
         this.test();
         break;
-      case "build":
-        this.packageExtension().then((out) => console.log(out));
-        break;
       default:
-        console.error("Unknown task", this.maybeTask)
+        this.packageExtension().then((out) => console.log(out));
     }
   }
 
@@ -130,19 +124,12 @@ class Build {
           "src/background-script/background.ts",
           "src/content-script/content-script.ts",
           "src/popup/popup.ts",
+          "src/welcome/my-element.ts",
           "src/options-page/options.js",
-          "src/utils/translate.ts",
         ],
         bundle: true,
         minify: this.isProd,
         sourcemap: !this.isProd,
-        loader: {
-          ".txt.html": "text",
-          ".txt.css": "text",
-        },
-        banner: {
-          js: `var IS_DEV_BUILD=${!this.isProd};`
-        },
         outdir: this.outDir,
         target: ["chrome107"], // https://en.wikipedia.org/wiki/Google_Chrome_version_history
       })
@@ -224,61 +211,23 @@ class Build {
 
   // Generate icons
   generateIcons() {
-    let src = this.originalIconPath;
-    if (this.args.src) {
-      src = this.args.src;
-    }
-
     return new Promise((resolve, reject) => {
-      Jimp.read(src, (err, icon) => {
+      Jimp.read(this.originalIconPath, (err, icon) => {
         if (err) {
           reject();
         }
 
-        if(!icon) {
-          console.error("Error reading icon: ", src);
-        }
-
-        if (this.args.icons) {
-          [16, 24, 32, 48, 128].forEach((size) => {
-            icon.clone()
-              .resize(size, size)
-              .write(`src/assets/logo-${size}x${size}.png`);
-            icon.clone()
-              .resize(size, size)
-              .greyscale()
-              .write(`src/assets/logo-gray-${size}x${size}.png`);
-          });
-        }
-
-        if (this.args.screenshot) {
-          // save as JPEG to avoid alpha worries.
-          icon.clone()
-            .contain(1280, 800, Jimp.VERTICAL_ALIGN_MIDDLE | Jimp.HORIZONTAL_ALIGN_CENTER)
-            .write(`src/assets/screenshot-contain-1280x800.JPEG`);
-          icon.clone()
-            .cover(1280, 800, Jimp.VERTICAL_ALIGN_MIDDLE | Jimp.HORIZONTAL_ALIGN_CENTER)
-            .write(`src/assets/screenshot-cover-1280x800.JPEG`);
-        }
-
-        if(this.args.tile) {
-          icon.clone()
-            .contain(440, 280, Jimp.VERTICAL_ALIGN_MIDDLE | Jimp.HORIZONTAL_ALIGN_CENTER)
-            .write(`src/assets/tile-contain-440x280.JPEG`);
-          icon.clone()
-            .cover(440, 280, Jimp.VERTICAL_ALIGN_MIDDLE | Jimp.HORIZONTAL_ALIGN_CENTER)
-            .write(`src/assets/tile-cover-440x280.JPEG`);
-        }
-
-        if(this.args.marquee) {
-          icon.clone()
-            .contain(1400, 560, Jimp.VERTICAL_ALIGN_MIDDLE | Jimp.HORIZONTAL_ALIGN_CENTER)
-            .write(`src/assets/marquee-contain-1400x560.JPEG`);
-          icon.clone()
-            .cover(1400, 560, Jimp.VERTICAL_ALIGN_MIDDLE | Jimp.HORIZONTAL_ALIGN_CENTER)
-            .write(`src/assets/marquee-cover-1400x560.JPEG`);
-        }
-
+        [16, 24, 32, 48, 128].forEach((size) => {
+          const colorIcon = icon.clone();
+          colorIcon
+            .resize(size, size)
+            .write(`src/assets/logo-${size}x${size}.png`);
+          const grayIcon = icon.clone();
+          grayIcon
+            .resize(size, size)
+            .greyscale()
+            .write(`src/assets/logo-gray-${size}x${size}.png`);
+        });
         resolve();
       });
     });

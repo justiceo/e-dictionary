@@ -1,14 +1,14 @@
 {
     "appName": {
-        "message": "Zaganjalnik za podaljšanje brskalnika",
+        "message": "Slovar",
         "description": "The name of the extension"
     },
     "appShortName": {
-        "message": "B.E.S",
+        "message": "Slovar",
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Primer razširitve brskalnika. TypeScript, E2E testi, generiranje ikon, avtomatski i18n in esbuild",
+        "message": "Popolna razširitev slovarja",
         "description": "The description of your extension"
     }
 }

@@ -1,14 +1,14 @@
 {
     "appName": {
-        "message": "ಬ್ರೌಸರ್ ವಿಸ್ತರಣೆ ಸ್ಟಾರ್ಟರ್",
+        "message": "ನಿಘಂಟು",
         "description": "The name of the extension"
     },
     "appShortName": {
-        "message": "ಬಿ.ಇ.ಎಸ್",
+        "message": "ನಿಘಂಟು",
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "ಬ್ರೌಸರ್ ವಿಸ್ತರಣಾ ಉದಾಹರಣೆ. ಟೈಪ್‌ಸ್ಕ್ರಿಪ್ಟ್, ಇ 2 ಇ ಪರೀಕ್ಷೆಗಳು, ಐಕಾನ್ ಉತ್ಪಾದನೆ, ಸ್ವಯಂಚಾಲಿತ ಐ 18 ಎನ್ ಮತ್ತು ಎಸ್ಬಿಲ್ಡ್",
+        "message": "ಪೂರ್ಣ-ವೈಶಿಷ್ಟ್ಯದ ನಿಘಂಟು ವಿಸ್ತರಣೆ",
         "description": "The description of your extension"
     }
 }

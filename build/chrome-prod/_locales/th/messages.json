@@ -1,14 +1,14 @@
 {
     "appName": {
-        "message": "การเริ่มต้นเบราว์เซอร์",
+        "message": "พจนานุกรม",
         "description": "The name of the extension"
     },
     "appShortName": {
-        "message": "B.E.S",
+        "message": "พจนานุกรม",
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "ตัวอย่างส่วนขยายเบราว์เซอร์ TypeScript, การทดสอบ E2E, การสร้างไอคอน, I18N อัตโนมัติและ ESBUILD",
+        "message": "การขยายพจนานุกรมเต็มรูปแบบ",
         "description": "The description of your extension"
     }
 }

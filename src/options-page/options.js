@@ -1,20 +1,11 @@
 import './options.css'
-import { SettingsUI } from '../utils/options/settings';
-import '../utils/translate';
-import {WinBox} from '../utils/winbox/winbox';
+import { OptionsElement } from '../utils/options-element';
 
 class OptionsPage {
   render(options) {
     console.log("rendering options: ", options);
-    const optionsEl = new SettingsUI(options);
+    const optionsEl = new OptionsElement(options);
     document.body.appendChild(optionsEl);
-
-    new WinBox("Winbox Title", {
-      width: "400px",
-      height: "400px",
-      shadowel: "test-shadow",
-      html: `<h1>Hello winbox</h1>`
-    });
   }
 
 }

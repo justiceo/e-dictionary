@@ -1,9 +1,7 @@
 
-import { SettingsUI } from '../utils/options/settings';
-import '../utils/feedback/feedback';
-import { RemoteLogger } from '../utils/logger';
+import { OptionsElement } from '../utils/options-element';
 
-const optionsEl = new SettingsUI([ {
+const optionsEl = new OptionsElement([  {
   id: "disable-extension-on-site",
   type: "checkbox",
   title: "Disable extension on this site",
@@ -19,5 +17,3 @@ document.querySelector("#go-to-options").addEventListener("click", () => {
   }
 });
 
-const L = new RemoteLogger("popup");
-L.debug("Init success");

@@ -1,14 +1,14 @@
 {
     "appName": {
-        "message": "ব্রাউজার এক্সটেনশন স্টার্টার",
+        "message": "অভিধান",
         "description": "The name of the extension"
     },
     "appShortName": {
-        "message": "বি.ই.এস.",
+        "message": "অভিধান",
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "ব্রাউজার এক্সটেনশন উদাহরণ। টাইপস্ক্রিপ্ট, ই 2 ই পরীক্ষা, আইকন জেনারেশন, স্বয়ংক্রিয় আই 18 এন এবং এসবিল্ড",
+        "message": "পূর্ণ বৈশিষ্ট্যযুক্ত অভিধান এক্সটেনশন",
         "description": "The description of your extension"
     }
 }

@@ -1,32 +1,32 @@
 {
-  "name": "xtension",
-  "version": "1.0.0",
-  "description": "Browser extension example. Typescript, E2E tests, icon generation, automatic i18n and ESBuild",
-  "homepage": "https://justiceo.github.io/xtension",
+  "name": "dictionary",
+  "version": "22.2.10",
+  "description": "Full-featured dictionary extension",
+  "homepage": "https://justiceo.github.io/dictionary",
   "scripts": {
     "build": "node tools/esbuild.js",
     "test": "node tools/esbuild.js test",
     "start": "node tools/esbuild.js start",
-    "watch": "node tools/esbuild.js watch",
     "start:firefox": "node tools/esbuild.js start --browser=firefox",
-    "generateIcons": "node tools/esbuild.js image --icons",
-    "translate": "node tools/translateMessages.js"
+    "generateIcons": "node tools/esbuild.js generateIcons",
+    "updateTranslations": "node tools/translateMessages.js"
   },
   "author": "Justice Ogbonna",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/justiceo/xtension"
+    "url": "https://github.com/justiceo/dictionary"
   },
   "keywords": [
+    "dictionary",
+    "translate",
+    "synonyms",
     "chrome",
     "firefox",
     "opera",
     "safari",
     "addon",
-    "extension",
-    "starter",
-    "boilerplate"
+    "extension"
   ],
   "devDependencies": {
     "@types/chrome": "^0.0.204",
@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "@sentry/browser": "^7.36.0",
-    "@webcomponents/custom-elements": "^1.5.1"
+    "@webcomponents/webcomponentsjs": "^2.7.0",
+    "lit": "^2.6.0"
   }
 }
