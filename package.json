@@ -1,0 +1,47 @@
+{
+  "name": "dictionary",
+  "version": "22.2.10",
+  "description": "Full-featured dictionary extension",
+  "homepage": "https://justiceo.github.io/dictionary",
+  "scripts": {
+    "build": "node tools/esbuild.js",
+    "test": "node tools/esbuild.js test",
+    "start": "node tools/esbuild.js start",
+    "start:firefox": "node tools/esbuild.js start --browser=firefox",
+    "generateIcons": "node tools/esbuild.js generateIcons",
+    "updateTranslations": "node tools/translateMessages.js"
+  },
+  "author": "Justice Ogbonna",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/justiceo/dictionary"
+  },
+  "keywords": [
+    "dictionary",
+    "translate",
+    "synonyms",
+    "chrome",
+    "firefox",
+    "opera",
+    "safari",
+    "addon",
+    "extension"
+  ],
+  "devDependencies": {
+    "@types/chrome": "^0.0.204",
+    "@types/jasmine": "^4.3.1",
+    "@types/node": "^18.11.14",
+    "@types/puppeteer": "^7.0.4",
+    "esbuild": "0.16.4",
+    "google-translate-api-x": "^10.5.2",
+    "jasmine": "^4.5.0",
+    "jimp": "^0.16.2",
+    "puppeteer": "^19.4.0"
+  },
+  "dependencies": {
+    "@sentry/browser": "^7.36.0",
+    "@webcomponents/webcomponentsjs": "^2.7.0",
+    "lit": "^2.6.0"
+  }
+}

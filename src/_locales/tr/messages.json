@@ -1,0 +1,14 @@
+{
+    "appName": {
+        "message": "Sözlük",
+        "description": "The name of the extension"
+    },
+    "appShortName": {
+        "message": "Sözlük",
+        "description": "The short-version name of the extension name"
+    },
+    "appDesc": {
+        "message": "Tam özellikli sözlük uzatma",
+        "description": "The description of your extension"
+    }
+}

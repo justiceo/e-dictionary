@@ -1,0 +1,14 @@
+{
+    "appName": {
+        "message": "ನಿಘಂಟು",
+        "description": "The name of the extension"
+    },
+    "appShortName": {
+        "message": "ನಿಘಂಟು",
+        "description": "The short-version name of the extension name"
+    },
+    "appDesc": {
+        "message": "ಪೂರ್ಣ-ವೈಶಿಷ್ಟ್ಯದ ನಿಘಂಟು ವಿಸ್ತರಣೆ",
+        "description": "The description of your extension"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "appName": {
+        "message": "사전",
+        "description": "The name of the extension"
+    },
+    "appShortName": {
+        "message": "사전",
+        "description": "The short-version name of the extension name"
+    },
+    "appDesc": {
+        "message": "완전한 기능 사전 확장",
+        "description": "The description of your extension"
+    }
+}

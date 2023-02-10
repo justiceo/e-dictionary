@@ -1,0 +1,14 @@
+{
+    "appName": {
+        "message": "فرهنگ لغت",
+        "description": "The name of the extension"
+    },
+    "appShortName": {
+        "message": "فرهنگ لغت",
+        "description": "The short-version name of the extension name"
+    },
+    "appDesc": {
+        "message": "پسوند فرهنگ لغت کامل",
+        "description": "The description of your extension"
+    }
+}

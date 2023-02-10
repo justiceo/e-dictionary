@@ -1,0 +1,14 @@
+{
+    "appName": {
+        "message": "字典",
+        "description": "The name of the extension"
+    },
+    "appShortName": {
+        "message": "字典",
+        "description": "The short-version name of the extension name"
+    },
+    "appDesc": {
+        "message": "全功能词典扩展",
+        "description": "The description of your extension"
+    }
+}

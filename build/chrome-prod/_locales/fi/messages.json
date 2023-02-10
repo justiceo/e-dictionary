@@ -1,0 +1,14 @@
+{
+    "appName": {
+        "message": "Sanakirja",
+        "description": "The name of the extension"
+    },
+    "appShortName": {
+        "message": "Sanakirja",
+        "description": "The short-version name of the extension name"
+    },
+    "appDesc": {
+        "message": "Täysin varustettu sanakirjan laajennus",
+        "description": "The description of your extension"
+    }
+}

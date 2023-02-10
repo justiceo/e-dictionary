@@ -1,0 +1,14 @@
+{
+    "appName": {
+        "message": "Wörterbuch",
+        "description": "The name of the extension"
+    },
+    "appShortName": {
+        "message": "Wörterbuch",
+        "description": "The short-version name of the extension name"
+    },
+    "appDesc": {
+        "message": "Wörterbucherweiterung mit Vollfasz",
+        "description": "The description of your extension"
+    }
+}

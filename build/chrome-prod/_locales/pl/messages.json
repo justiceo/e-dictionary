@@ -1,0 +1,14 @@
+{
+    "appName": {
+        "message": "Słownik",
+        "description": "The name of the extension"
+    },
+    "appShortName": {
+        "message": "Słownik",
+        "description": "The short-version name of the extension name"
+    },
+    "appDesc": {
+        "message": "Rozszerzenie słownika w pełni",
+        "description": "The description of your extension"
+    }
+}

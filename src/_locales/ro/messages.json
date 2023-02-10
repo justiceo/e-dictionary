@@ -1,0 +1,14 @@
+{
+    "appName": {
+        "message": "Dicţionar",
+        "description": "The name of the extension"
+    },
+    "appShortName": {
+        "message": "Dicţionar",
+        "description": "The short-version name of the extension name"
+    },
+    "appDesc": {
+        "message": "Extensie de dicționar complet",
+        "description": "The description of your extension"
+    }
+}

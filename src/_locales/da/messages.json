@@ -1,0 +1,14 @@
+{
+    "appName": {
+        "message": "Ordbog",
+        "description": "The name of the extension"
+    },
+    "appShortName": {
+        "message": "Ordbog",
+        "description": "The short-version name of the extension name"
+    },
+    "appDesc": {
+        "message": "Fuldført ordbog udvidelse",
+        "description": "The description of your extension"
+    }
+}

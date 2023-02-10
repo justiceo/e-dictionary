@@ -1,0 +1,14 @@
+{
+    "appName": {
+        "message": "Lexikon",
+        "description": "The name of the extension"
+    },
+    "appShortName": {
+        "message": "Lexikon",
+        "description": "The short-version name of the extension name"
+    },
+    "appDesc": {
+        "message": "Fullständig ordboksförlängning",
+        "description": "The description of your extension"
+    }
+}

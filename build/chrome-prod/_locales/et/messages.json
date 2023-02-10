@@ -1,0 +1,14 @@
+{
+    "appName": {
+        "message": "Sõnaraamat",
+        "description": "The name of the extension"
+    },
+    "appShortName": {
+        "message": "Sõnaraamat",
+        "description": "The short-version name of the extension name"
+    },
+    "appDesc": {
+        "message": "Täisfunktsionaalne sõnaraamatu pikendus",
+        "description": "The description of your extension"
+    }
+}

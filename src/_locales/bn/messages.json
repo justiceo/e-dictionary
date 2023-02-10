@@ -1,0 +1,14 @@
+{
+    "appName": {
+        "message": "অভিধান",
+        "description": "The name of the extension"
+    },
+    "appShortName": {
+        "message": "অভিধান",
+        "description": "The short-version name of the extension name"
+    },
+    "appDesc": {
+        "message": "পূর্ণ বৈশিষ্ট্যযুক্ত অভিধান এক্সটেনশন",
+        "description": "The description of your extension"
+    }
+}

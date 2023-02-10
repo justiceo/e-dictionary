@@ -1,0 +1,14 @@
+{
+    "appName": {
+        "message": "Vārdnīca",
+        "description": "The name of the extension"
+    },
+    "appShortName": {
+        "message": "Vārdnīca",
+        "description": "The short-version name of the extension name"
+    },
+    "appDesc": {
+        "message": "Pilnībā audzēts vārdnīcas pagarinājums",
+        "description": "The description of your extension"
+    }
+}

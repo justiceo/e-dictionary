@@ -1,0 +1,14 @@
+{
+    "appName": {
+        "message": "Kamus",
+        "description": "The name of the extension"
+    },
+    "appShortName": {
+        "message": "Kamus",
+        "description": "The short-version name of the extension name"
+    },
+    "appDesc": {
+        "message": "Lanjutan kamus penuh",
+        "description": "The description of your extension"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "appName": {
+        "message": "พจนานุกรม",
+        "description": "The name of the extension"
+    },
+    "appShortName": {
+        "message": "พจนานุกรม",
+        "description": "The short-version name of the extension name"
+    },
+    "appDesc": {
+        "message": "การขยายพจนานุกรมเต็มรูปแบบ",
+        "description": "The description of your extension"
+    }
+}
