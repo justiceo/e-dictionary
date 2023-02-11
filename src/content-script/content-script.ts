@@ -2,6 +2,8 @@ import { Message } from "../shared";
 import { Logger } from "../logger";
 import { Previewr } from "./previewr";
 
+import './content-script.css';
+
 const L = new Logger("content-script");
 
 class Listener {

@@ -1,3 +1,5 @@
+import WinBox from "winbox/src/js/winbox";
+import 'winbox/dist/css/winbox.min.css'; 
 import { Logger } from "../logger";
 
 export class Previewr {
@@ -36,10 +38,32 @@ export class Previewr {
   async handleMessage(message) {
     if (message.action === "define") {
       this.logger.log("Defining ", message);
-      return;
     } else if (message.action === "verbose-define") {
       this.logger.log("HarD Defining: ", message);
-      return;
     }
+
+    const winboxOptions = {
+        //icon: chrome.runtime.getURL("assets/logo-24x24.png"),
+        x: "right",
+        y: "50px",
+        width: "300px",
+        height: "100px",
+        class: ["no-max", "no-full", "no-min"],
+        index: await this.getMaxZIndex(),
+        html: message.data
+      };
+    let dialog = new WinBox("Define " + message.data, winboxOptions);
+  }
+
+  getMaxZIndex() {
+    return new Promise((resolve: (arg0: number) => void) => {
+      const z = Math.max(
+        ...Array.from(document.querySelectorAll("body *"), (el) =>
+          parseFloat(window.getComputedStyle(el).zIndex)
+        ).filter((zIndex) => !Number.isNaN(zIndex)),
+        0
+      );
+      resolve(z);
+    });
   }
 }
