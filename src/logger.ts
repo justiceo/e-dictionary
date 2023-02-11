@@ -1,10 +1,12 @@
 import * as Sentry from '@sentry/browser';
+import { BrowserTracing } from "@sentry/tracing";
 
 Sentry.init({
-  dsn: '__DSN__',
+  dsn: 'https://b899cc8fbe2b412c82a5355e82e1842f@o526305.ingest.sentry.io/4504658475876352',
+  integrations: [new BrowserTracing()],
   tracesSampleRate: 0.1,
-  release: 'xtension@23.01.10',
-  environment: 'PROD',
+  release: 'dictionary@23.2.10',
+  environment: 'DEV',
 });
 
 /**
