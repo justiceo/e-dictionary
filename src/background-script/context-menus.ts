@@ -18,7 +18,7 @@ interface MenuItem {
 export class ContextMenu {
   RELOAD_ACTION: MenuItem = {
     menu: {
-      id: 'audate-reload',
+      id: 'reload-extension',
       title: 'Reload Extension',
       visible: true,
       contexts: ['action'],
@@ -27,9 +27,25 @@ export class ContextMenu {
       chrome.runtime.reload();
     },
   };
+  DEFINE_ACTION: MenuItem = {
+    menu: {
+      id: 'define-selection',
+      title: 'Define word',
+      visible: true,
+      contexts: ['selection'],
+    },
+    handler: (data: chrome.contextMenus.OnClickData) => {
+      if (!data.selectionText) {
+        console.warn('No selection', data);
+        return;
+      }
+      this.sendMessage({ action: 'verbose-define', data: data.selectionText });
+    },
+  };
 
   browserActionContextMenu: MenuItem[] = [
     this.RELOAD_ACTION,
+    this.DEFINE_ACTION,
   ];
 
   init = () => {
