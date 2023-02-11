@@ -1,25 +1,20 @@
 import { Message } from "../shared";
 import { Logger } from "../logger";
+import { Previewr } from "./previewr";
 
 const L = new Logger("content-script");
-const onMessage = (
-  msg: Message,
-  _: chrome.runtime.MessageSender,
-  callback: () => void
-) => {
-  L.debug("received message: ", msg.type);
-  callback();
-};
-
-chrome.runtime.onMessage.addListener(onMessage);
-console.log("init - dictionary");
 
 class Listener {
   showTimeout?: number;
 
   start() {
-    console.log("#start");
     document.onmouseup = (e) => this.deferredMaybeShow(e);
+
+    chrome.runtime.onMessage.addListener((request, sender, callback) => {
+      L.debug("Re-posting message for DOM: ", request);
+      this.sendMessage(request.action, request.data);
+      callback("ok");
+    });
   }
 
   deferredMaybeShow(e: MouseEvent): void {
@@ -105,3 +100,4 @@ class Listener {
 }
 
 (new Listener()).start();
+(new Previewr()).init();
