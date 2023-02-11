@@ -96,3 +96,10 @@ node tools/esbuild test
 1. Open firefox and navigate to `about:debugging#/runtime/this-firefox`.
 2. Click the "Load Temporary Add-on" button.
 3. Browse the `build/firefox-dev` directory and select the `manifest.json` file.
+
+
+### Data Source considerations
+
+* Tried https://dictionaryapi.dev/, it's based on low-quality wikitionary data.
+* Consider Oxford and Merriam Webster, rate limit issues.
+* Consider scraping definitions off of Google, this would be prone to breakage everytime their CSS rules changes (which happens often). 

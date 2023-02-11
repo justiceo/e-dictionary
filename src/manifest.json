@@ -8,8 +8,16 @@
   "version": "23.2.10",
   "manifest_version": 3,
   "default_locale": "en",
-  "author": "Justice Ogbonna",
-  "permissions": ["contextMenus", "storage"],
+  "author": "Justice Ogbonna",  "permissions": ["storage", "declarativeNetRequest", "contextMenus"],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "assets/rules.json"
+      }
+    ]
+  },
   "host_permissions": ["*://*/*"],
   "action": {
     "default_icon": {

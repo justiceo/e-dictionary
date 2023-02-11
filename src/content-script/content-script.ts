@@ -1,6 +1,8 @@
 import { Message } from "../shared";
 import { Logger } from "../logger";
 import { Previewr } from "./previewr";
+import { IFrameHelper } from "./iframe-helper";
+
 
 import './content-script.css';
 
@@ -11,6 +13,9 @@ class Listener {
 
   start() {
     document.onmouseup = (e) => this.deferredMaybeShow(e);
+
+    const iframeHelper = new IFrameHelper();
+    iframeHelper.registerListeners();
 
     chrome.runtime.onMessage.addListener((request, sender, callback) => {
       L.debug("Re-posting message for DOM: ", request);
