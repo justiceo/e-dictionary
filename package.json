@@ -1,6 +1,6 @@
 {
   "name": "dictionary",
-  "version": "22.2.10",
+  "version": "23.2.10",
   "description": "Full-featured dictionary extension",
   "homepage": "https://justiceo.github.io/dictionary",
   "scripts": {
@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "@sentry/browser": "^7.36.0",
+    "@sentry/tracing": "^7.37.1",
     "@webcomponents/webcomponentsjs": "^2.7.0",
     "lit": "^2.6.0"
   }

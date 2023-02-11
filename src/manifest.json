@@ -5,7 +5,7 @@
   "short_name": "__MSG_appShortName_",
   "homepage_url": "https://github.com/justiceo/xtension",
   "__comment:version__": "Firefox does not support leading zeros in versions",
-  "version": "23.1.21",
+  "version": "23.2.10",
   "manifest_version": 3,
   "default_locale": "en",
   "author": "Justice Ogbonna",
