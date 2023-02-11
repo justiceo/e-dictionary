@@ -66,6 +66,10 @@ export class IFrameHelper {
   }
 
   hideAllExcept(el) {
+    if(!el) {
+      return;
+    }
+
     let ns = el.nextElementSibling;
     while(ns) {
         let nns = ns.nextElementSibling;
@@ -83,8 +87,6 @@ export class IFrameHelper {
         }
         ps = pps;
     }
-    if(el.tagName != "BODY") {
-        this.hideAllExcept(el.parentElement)
-    }
+    this.hideAllExcept(el.parentElement)
 }
 }
