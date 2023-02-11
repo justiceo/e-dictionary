@@ -130,15 +130,16 @@ export class Previewr {
     this.url = url;
 
     const winboxOptions = {
-      icon: this.headerIconUrlBase + url.hostname,
+      icon: chrome.runtime.getURL("assets/logo-24x24.png"),
       x: "right",
       y: "50px",
       right: 10,
-      width: "55%",
-      height: "80%",
-      class: ["no-max", "no-full"],
+      width: "30%",
+      height: "500px",
+      class: ["no-max", "no-full", "no-min"],
       index: await this.getMaxZIndex(),
       url: url,
+      template: template,
 
       onclose: () => {
         this.navStack = [];
@@ -149,7 +150,7 @@ export class Previewr {
 
     if (!this.dialog) {
       this.logger.debug("creating new dialog");
-      this.dialog = new WinBox(url.hostname, winboxOptions);
+      this.dialog = new WinBox("Dictionary", winboxOptions);
 
       this.dialog.addControl({
         index: 2,
@@ -178,8 +179,6 @@ export class Previewr {
       this.logger.debug("restoring dialog");
       this.dialog.restore();
       this.dialog.setUrl(url.href);
-      this.dialog.setTitle(url.hostname);
-      this.dialog.setIcon(this.headerIconUrlBase + url.hostname);
     }
 
   }
