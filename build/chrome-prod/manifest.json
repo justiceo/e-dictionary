@@ -3,14 +3,24 @@
     "description": "__MSG_appDesc__",
     "short_name": "__MSG_appShortName_",
     "homepage_url": "https://github.com/justiceo/xtension",
-    "version": "23.1.21",
+    "version": "23.2.12",
     "manifest_version": 3,
     "default_locale": "en",
     "author": "Justice Ogbonna",
     "permissions": [
-        "contextMenus",
-        "storage"
+        "storage",
+        "declarativeNetRequest",
+        "contextMenus"
     ],
+    "declarative_net_request": {
+        "rule_resources": [
+            {
+                "id": "ruleset_1",
+                "enabled": true,
+                "path": "assets/rules.json"
+            }
+        ]
+    },
     "host_permissions": [
         "*://*/*"
     ],
@@ -20,8 +30,7 @@
             "24": "assets/logo-24x24.png",
             "32": "assets/logo-32x32.png"
         },
-        "default_title": "__MSG_appName__",
-        "default_popup": "popup/popup.html"
+        "default_title": "__MSG_appName__"
     },
     "content_scripts": [
         {
@@ -35,7 +44,8 @@
             ],
             "css": [
                 "content-script/content-script.css"
-            ]
+            ],
+            "run_at": "document_start"
         }
     ],
     "icons": {
@@ -44,7 +54,16 @@
         "48": "assets/logo-48x48.png",
         "128": "assets/logo-128x128.png"
     },
-    "options_page": "options-page/options.html",
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "assets/logo-24x24.png"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
+        }
+    ],
     "background": {
         "service_worker": "background-script/background.js"
     }
