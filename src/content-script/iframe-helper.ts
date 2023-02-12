@@ -2,7 +2,7 @@ import { Logger } from "../logger";
 
 // This script is executed inside the preview (i.e. document is iframe).
 export class IFrameHelper {
-  iframeName = "essentialkit.com/dictFrame"; 
+  iframeName = "essentialkit_dict_frame"; 
   selector = "div[jsname=x3Eknd]";
   logger = new Logger("iframe-helper");
   constructor() {
@@ -33,7 +33,14 @@ export class IFrameHelper {
         return;
       }
 
-      // TODO: Hanlde multiple defs case. Sample query is "firm".
+      const body = document.querySelector("body.srp") as HTMLBodyElement|null;
+      if(body) {
+        body.style.setProperty("--center-width", "350px");
+        body.style.overflowX = "hidden";
+      }
+
+      // TODO: Handle multiple defs case. Sample query is "firm".
+      // Handle search box visible sometimes, query is "principal"=>"denoting".
       this.hideAllExcept(maybeDict[0]);
       this.sendMessage({
         action: "loaded-and-cleaned",
@@ -107,7 +114,5 @@ export class IFrameHelper {
     }
     this.hideAllExcept(el.parentElement);
 
-    // Listen for mutations and re-apply. The footer is showing cause of this.
-    // https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver
 }
 }
