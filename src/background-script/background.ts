@@ -23,3 +23,24 @@ const onInstalled = (details: chrome.runtime.InstalledDetails) => {
   });
 };
 chrome.runtime.onInstalled.addListener(onInstalled);
+
+const onMessage = (
+  message: any,
+  sender: chrome.runtime.MessageSender,
+  callback: (response?: any) => void
+) => {
+  console.log('Received message: ', message, ' from: ', sender);
+
+  // For now, bounce-back message to the content script.
+  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    if (tabs.length == 0) {
+      console.error('Unexpected state: No active tab');
+      return;
+    }
+    chrome.tabs.sendMessage(tabs[0].id!, message, (response) => {
+      callback(response);
+    });
+  });
+}
+
+chrome.runtime.onMessage.addListener(onMessage);
