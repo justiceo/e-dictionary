@@ -32,7 +32,8 @@
     "matches": ["http://*/*", "https://*/*"],
     "all_frames": true,
     "js": ["content-script/content-script.js"],
-    "css": ["content-script/content-script.css"]
+    "css": ["content-script/content-script.css"],
+    "run_at": "document_start"
   }],
   "icons": {
     "16": "assets/logo-16x16.png",

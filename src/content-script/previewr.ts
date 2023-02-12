@@ -9,6 +9,13 @@ WinBox.prototype.getDom = function () {
   return this.dom;
 };
 
+WinBox.prototype.startLoading = function () {
+  this.dom.querySelector(".loading").display = "block";
+};
+WinBox.prototype.stopLoading = function () {
+  this.dom.querySelector(".loading").display = "none";
+};
+
 const template = document.createElement("div");
 template.innerHTML = `
 <div class=wb-header>
@@ -103,12 +110,18 @@ export class Previewr {
     if (message.action === "define" || message.action === "verbose-define") {
       this.logger.log("Defining ", message);
     } else if (message.action === "loaded-and-cleaned") {
+      // TODO: Reset to actual URL in case of internal navigation within iframe.
+      // this.url = new URL(message.href); 
       this.dialog?.show();
+      this.dialog?.stopLoading();
       return;
     } else if(message.action === "loaded-and-no-def") {
       // If verbose-define, show NO definition found.
       this.dialog?.close();
       return;
+    } else if(message.action === "unload") {
+      console.error("unload handled");
+      this.dialog?.startLoading();
     } else {
       this.logger.warn("Unhandled action: ", message.action);
       return;
@@ -142,7 +155,8 @@ export class Previewr {
       autosize: false,
       class: ["no-max", "no-full", "no-min", "no-resize", "no-move"],
       index: await this.getMaxZIndex(),
-      html: `<iframe name="${iframeName}" src="${url}"></iframe>`,
+      // Simply updating the url without changing the iframe, means the content-script doesn't get re-inserted into the frame, even though it's now out of context.
+      html: `<div class="loading"><span class="bar-animation"></span></div> <iframe name="${iframeName}" src="${url}"></iframe>`,
       template: template,
       hidden: true,
 
@@ -192,6 +206,8 @@ export class Previewr {
       this.dialog.restore();
       this.dialog.setUrl(url.href);
     }
+
+    // TODO: Periodically check and update the z-index.
 
   }
 
