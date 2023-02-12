@@ -20,9 +20,11 @@ export class IFrameHelper {
       return;
     }
 
-    window.addEventListener("load", () => {
+    window.addEventListener("DOMContentLoaded", () => {
+      document.body.style.visibility = "hidden";
       this.focusGoogle();
       this.handleMutations();
+      document.body.style.visibility = "visible";
     });
 
     window.addEventListener("unload", () => {
@@ -85,7 +87,9 @@ export class IFrameHelper {
       }
       ps = pps;
     }
-    this.hideAllExcept(el.parentElement);
+    if(el.tagName !== "BODY") {
+      this.hideAllExcept(el.parentElement);
+    }
   }
   focusGoogle() {
     let maybeDict = document.querySelectorAll(this.selector);

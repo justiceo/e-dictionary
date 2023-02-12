@@ -28,7 +28,7 @@ class Listener {
   deferredMaybeShow(e: MouseEvent): void {
     console.log("#maybeShow")
     // Allow a little time for cancellation.
-    this.showTimeout = window.setTimeout(() => this.maybeShow(e), 100);
+    this.showTimeout = window.setTimeout(() => this.maybeShow(e), 0);
   }
 
   maybeShow(e: MouseEvent): void {
