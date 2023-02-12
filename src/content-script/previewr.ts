@@ -2,22 +2,7 @@ import { Logger } from "../logger";
 import WinBox from "./winbox";
 import "./previewr.css";
 
-const iframeName = "essentialkit.com/dictFrame";
-// Override the #setUrl method to set name attribute on iframe.
-WinBox.prototype.setUrl = function (url, onload) {
-  const node = this.body.firstChild;
-
-  if (node && node.tagName.toLowerCase() === "iframe") {
-    node.src = url;
-  } else {
-    this.body.innerHTML =
-      '<iframe name="' + iframeName + '" src="' + url + '"></iframe>';
-    onload && (this.body.firstChild.onload = onload);
-  }
-
-  return this;
-};
-
+const iframeName = "essentialkit_dict_frame";
 // Export the dialog dom
 WinBox.prototype.getDom = function () {
   return this.dom;
@@ -119,6 +104,10 @@ export class Previewr {
     } else if (message.action === "loaded-and-cleaned") {
       this.dialog?.show();
       return;
+    } else if(message.action === "loaded-and-no-def") {
+      // If verbose-define, show NO definition found.
+      this.dialog?.close();
+      return;
     } else {
       this.logger.warn("Unhandled action: ", message.action);
       return;
@@ -133,7 +122,7 @@ export class Previewr {
   }
 
   async previewUrl(url: URL) {
-    this.logger.log("#previewUrl fake: ", url);
+    this.logger.log("#previewUrl: ", url);
     if(url.href === this.url?.href) {
       return;
     }
@@ -144,11 +133,12 @@ export class Previewr {
       x: "right",
       y: "50px",
       right: 10,
-      width: "30%",
-      height: "500px",
-      class: ["no-max", "no-full", "no-min"],
+      width: "410px",
+      height: "400px",
+      autosize: false,
+      class: ["no-max", "no-full", "no-min", "no-resize", "no-move"],
       index: await this.getMaxZIndex(),
-      url: url,
+      html: `<iframe name="${iframeName}" src="${url}"></iframe>`,
       template: template,
       hidden: true,
 
@@ -186,6 +176,11 @@ export class Previewr {
           }
         },
       });
+
+      // this.setUserAgent(
+      //   document.querySelector('iframe').contentWindow, 
+      //   'Aakash Chakravarthy Mobile Agent'
+      // );
     } else {
       this.logger.debug("restoring dialog");
       this.dialog.restore();
@@ -224,4 +219,22 @@ export class Previewr {
       resolve(z);
     });
   }
+
+  setUserAgent(window, userAgent) {
+    if (window.navigator.userAgent != userAgent) {
+      var userAgentProp = {
+        get: function() {
+          return userAgent;
+        }
+      };
+      try {
+        Object.defineProperty(window.navigator, 'userAgent', userAgentProp);
+      } catch (e) {
+        window.navigator = Object.create(navigator, {
+          userAgent: userAgentProp
+        });
+      }
+    }
+  }
 }
+
