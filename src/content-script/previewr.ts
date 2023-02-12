@@ -1,5 +1,6 @@
 import { Logger } from "../logger";
 import WinBox from "./winbox";
+import { computePosition, flip, offset, shift } from "@floating-ui/dom";
 import "./previewr.css";
 
 const iframeName = "essentialkit_dict_frame";
@@ -115,24 +116,27 @@ export class Previewr {
 
     try {
       let newUrl = new URL(`https://www.google.com/search?q=${this.cue}+${message.data}&hl=${this.hl}`);
-      return this.previewUrl(newUrl);
+      return this.previewUrl(newUrl, message.point);
     } catch (e) {
       this.logger.log("Error creating url: ", e);
     }
   }
 
-  async previewUrl(url: URL) {
+  async previewUrl(url: URL, point?: DOMRect) {
     this.logger.log("#previewUrl: ", url);
     if(url.href === this.url?.href) {
       return;
     }
     this.url = url;
 
+    let pos = {x: 0, y: 0, placement: "top"}
+    if(point) {
+      pos = await this.getPos(point!);
+    }
     const winboxOptions = {
       icon: chrome.runtime.getURL("assets/logo-24x24.png"),
-      x: "right",
-      y: "50px",
-      right: 10,
+      x: pos.x,
+      y: pos.y,
       width: "410px",
       height: "400px",
       autosize: false,
@@ -235,6 +239,36 @@ export class Previewr {
         });
       }
     }
+  }
+
+  async getPos(rect: DOMRect) {
+    const virtualEl = {
+      getBoundingClientRect() {
+        return rect;
+      }
+    }
+    const div = document.createElement("div");
+    // These dimensions need to match that of the dialog precisely.
+    div.style.width = "410px";
+    div.style.height = "400px";
+    div.style.position = "fixed";
+    div.style.visibility = "hidden";
+    document.body.appendChild(div);
+    return computePosition(virtualEl, div, {
+      placement: "top",
+      strategy: "fixed", // If you use "fixed", x, y would change to clientX/Y.
+      middleware: [
+        offset(12), // Space between mouse and tooltip.
+        flip(),
+        shift({ padding: 5 }), // Space from the edge of the browser.
+      ],
+    }).then(({ x, y, placement, middlewareData }) => {
+      return {
+        x: x,
+        y: y,
+        placement: placement
+      }
+    });
   }
 }
 
