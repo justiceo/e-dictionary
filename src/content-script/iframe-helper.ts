@@ -62,7 +62,7 @@ export class IFrameHelper {
 
   sendMessage(message: any) {
     console.debug("#sendMessage", message);
-    chrome.runtime.sendMessage({ application: "better-previews", ...message });
+    chrome.runtime.sendMessage({ application: "dictionary", ...message });
   }
 
   hideAllExcept(el) {
@@ -87,6 +87,9 @@ export class IFrameHelper {
         }
         ps = pps;
     }
-    this.hideAllExcept(el.parentElement)
+    this.hideAllExcept(el.parentElement);
+
+    // Listen for mutations and re-apply. The footer is showing cause of this.
+    // https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver
 }
 }
