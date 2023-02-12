@@ -40,6 +40,7 @@
     "puppeteer": "^19.4.0"
   },
   "dependencies": {
+    "@floating-ui/dom": "^1.2.0",
     "@sentry/browser": "^7.36.0",
     "@sentry/tracing": "^7.37.1",
     "@webcomponents/webcomponentsjs": "^2.7.0",

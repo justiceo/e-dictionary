@@ -19,7 +19,8 @@ class Listener {
 
     chrome.runtime.onMessage.addListener((request, sender, callback) => {
       L.debug("Re-posting message for DOM: ", request);
-      this.sendMessage(request.action, request.data);
+      // TODO: Grab last mouse location and use it for point.
+      this.sendMessage(request.action, request.data, request.point);
       callback("ok");
     });
   }
@@ -49,7 +50,7 @@ class Listener {
     console.debug("Selected: ", selectedText);
     const actionsToShow = [];
     if (this.shouldDefine(e, selectedText)) {
-      this.sendMessage("define", selectedText);
+      this.sendMessage("define", selectedText, boundingRect);
     }
   }
 
@@ -97,10 +98,10 @@ class Listener {
 
   hideAll() {}
 
-  sendMessage(action: string, data: any) {
+  sendMessage(action: string, data: any, point: any) {
     console.log("Sending message: ", action, data);
     window.postMessage(
-      { application: "dictionary", action: action, data: data },
+      { application: "dictionary", action: action, data: data, point: point },
       window.location.origin
     );
   }
