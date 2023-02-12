@@ -187,6 +187,8 @@ export class Previewr {
       // );
     } else {
       this.logger.debug("restoring dialog");
+      this.dialog.dom.style.left = pos.x + "px";
+      this.dialog.dom.style.top = pos.y + "px";
       this.dialog.restore();
       this.dialog.setUrl(url.href);
     }
