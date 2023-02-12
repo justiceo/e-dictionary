@@ -59,6 +59,9 @@ export class Previewr {
   url?: URL;
   navStack: URL[] = [];
   displayReaderMode = false;
+  currentSelection?: string;
+  cue = "define";
+  hl = "en";
 
   /* This function inserts an Angular custom element (web component) into the DOM. */
   init() {
@@ -111,22 +114,29 @@ export class Previewr {
   }
 
   async handleMessage(message) {
-    if (message.action === "define") {
+    if (message.action === "define" || message.action === "verbose-define") {
       this.logger.log("Defining ", message);
-    } else if (message.action === "verbose-define") {
-      this.logger.log("HarD Defining: ", message);
+    } else if (message.action === "loaded-and-cleaned") {
+      this.dialog?.show();
+      return;
+    } else {
+      this.logger.warn("Unhandled action: ", message.action);
+      return;
     }
 
     try {
-      let newUrl = new URL("https://www.google.com/search?q=define+love");
+      let newUrl = new URL(`https://www.google.com/search?q=${this.cue}+${message.data}&hl=${this.hl}`);
       return this.previewUrl(newUrl);
     } catch (e) {
-      console.log("error: ", e);
+      this.logger.log("Error creating url: ", e);
     }
   }
 
   async previewUrl(url: URL) {
     this.logger.log("#previewUrl fake: ", url);
+    if(url.href === this.url?.href) {
+      return;
+    }
     this.url = url;
 
     const winboxOptions = {
@@ -140,6 +150,7 @@ export class Previewr {
       index: await this.getMaxZIndex(),
       url: url,
       template: template,
+      hidden: true,
 
       onclose: () => {
         this.navStack = [];

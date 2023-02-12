@@ -1,6 +1,10 @@
+import { Logger } from "../logger";
+
 // This script is executed inside the preview (i.e. document is iframe).
 export class IFrameHelper {
   iframeName = "essentialkit.com/dictFrame"; 
+  selector = "div[jsname=x3Eknd]";
+  logger = new Logger("iframe-helper");
   constructor() {
     /*
      * Favicon URL request, Window.Title request, apply custom CSS.
@@ -18,13 +22,27 @@ export class IFrameHelper {
    
 
     window.addEventListener("load", () => {
+      const maybeDict = document.querySelectorAll(this.selector);
+      if(maybeDict.length == 0) {
+        this.logger.error("No match for selector, ", this.selector);
+        this.sendMessage({
+          action: "loaded-and-no-def",
+          href: document.location.href,
+          sourceFrame: this.getFrameName(),
+        });
+        return;
+      }
+
+      // TODO: Hanlde multiple defs case. Sample query is "firm".
+      this.hideAllExcept(maybeDict[0]);
       this.sendMessage({
-        action: "load",
+        action: "loaded-and-cleaned",
         href: document.location.href,
         sourceFrame: this.getFrameName(),
       });
 
-      this.hideAllExcept(document.querySelector("div[jsname=x3Eknd]"))
+      // TODO: Use mutation observer for a more efficient mechanism to detect changes and hide them.
+      setInterval(() => this.hideAllExcept(maybeDict[0]), 500);
     });
 
     window.addEventListener("unload", () => {
@@ -61,7 +79,7 @@ export class IFrameHelper {
   }
 
   sendMessage(message: any) {
-    console.debug("#sendMessage", message);
+    this.logger.debug("#sendMessage", message);
     chrome.runtime.sendMessage({ application: "dictionary", ...message });
   }
 
