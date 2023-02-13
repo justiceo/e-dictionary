@@ -31,7 +31,7 @@ export class Previewr {
   currentSelection?: string;
   cue = "define";
   hl = "en";
-  engineConfig = getEngineConfig("DuckDuckGo");
+  engineConfig = getEngineConfig();
 
   /* This function inserts an Angular custom element (web component) into the DOM. */
   init() {

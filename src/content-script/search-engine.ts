@@ -1,11 +1,12 @@
 
-export function getEngineConfig(engine: string) {
+const engine = "DuckDuckGo"
+export function getEngineConfig() {
     const cue = "define";
     const config= {
         Google: {
             name: "Google",
             selector: "div[jsname=x3Eknd]",            
-            url: (word) => `https://www.google.com/search/?q=${cue}+${word}`,
+            url: (word) => `https://www.google.com/search?q=${cue}+${word}`,
             applyCss: () => {
                 const body = document.querySelector("body.srp") as HTMLBodyElement | null;
                 if (body) {
