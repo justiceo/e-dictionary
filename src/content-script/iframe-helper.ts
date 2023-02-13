@@ -5,7 +5,7 @@ import { getEngineConfig } from "./search-engine";
 export class IFrameHelper {
   iframeName = "essentialkit_dict_frame";
   logger = new Logger("iframe-helper");
-  config = getEngineConfig("DuckDuckGo");
+  config = getEngineConfig();
   constructor() {
     /*
      * Favicon URL request, Window.Title request, apply custom CSS.
@@ -17,7 +17,7 @@ export class IFrameHelper {
     if (!this.inIframe()) {
       return;
     }
-    if (this.getFrameName() !== this.iframeName) {
+    if (this.getFrameName() !== this.iframeName) { 
       return;
     }
 
