@@ -2,14 +2,11 @@ import { Message } from "../shared";
 import { Logger } from "../logger";
 import { Previewr } from "./previewr";
 import { IFrameHelper } from "./iframe-helper";
-
-
 import './content-script.css';
-
-const L = new Logger("content-script");
 
 class Listener {
   showTimeout?: number;
+  logger = new Logger("content-script");
 
   start() {
     document.onmouseup = (e) => this.deferredMaybeShow(e);
@@ -18,7 +15,7 @@ class Listener {
     iframeHelper.registerListeners();
 
     chrome.runtime.onMessage.addListener((request, sender, callback) => {
-      L.debug("Re-posting message for DOM: ", request);
+      this.logger.debug("Re-posting message for DOM: ", request);
       // TODO: Grab last mouse location and use it for point.
       this.sendMessage(request.action, request.data, request.point);
       callback("ok");
@@ -26,14 +23,11 @@ class Listener {
   }
 
   deferredMaybeShow(e: MouseEvent): void {
-    console.log("#maybeShow")
     // Allow a little time for cancellation.
     this.showTimeout = window.setTimeout(() => this.maybeShow(e), 0);
   }
 
   maybeShow(e: MouseEvent): void {
-    console.log("#maybeShow")
-
     // Filter out empty/irrelevant selections.
     if (typeof window.getSelection == "undefined") {
       return;
@@ -47,15 +41,13 @@ class Listener {
     const selectedText = selection.toString().trim();
     const range = selection.getRangeAt(0);
     const boundingRect = range.getBoundingClientRect();
-    console.debug("Selected: ", selectedText);
-    const actionsToShow = [];
+    this.logger.debug("Selected: ", selectedText);
     if (this.shouldDefine(e, selectedText)) {
       this.sendMessage("define", selectedText, boundingRect);
     }
   }
 
   shouldDefine(e: MouseEvent, selectedText: string): boolean {
-    console.log("#shouldDefine: ", selectedText)
     const isQuerySize = (text: string) => {
       return text.length > 0 && text.length < 100;
     };
@@ -99,11 +91,9 @@ class Listener {
   hideAll() {}
 
   sendMessage(action: string, data: any, point: any) {
-    console.log("Sending message: ", action, data);
-    window.postMessage(
-      { application: "dictionary", action: action, data: data, point: point },
-      window.location.origin
-    );
+    const mssg = { application: "dictionary", action: action, data: data, point: point };
+    this.logger.debug("Sending message: ", mssg);
+    window.postMessage(mssg, window.location.origin);
   }
 }
 
