@@ -34,7 +34,12 @@ export function getEngineConfig(engine: string) {
                         display: block !important;
                     }
                 `;
-                document.body.appendChild(style);                
+                document.body.appendChild(style);
+
+                // Remove links to avoid navigating away.
+                document.body.querySelectorAll("a").forEach(a => {
+                    a.parentElement?.replaceChild(document.createTextNode(a.textContent!), a);
+                })                
             },
         }
     }
