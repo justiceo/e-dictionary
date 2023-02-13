@@ -11,10 +11,12 @@ WinBox.prototype.getDom = function () {
 };
 
 WinBox.prototype.startLoading = function () {
-  this.dom.querySelector(".loading").display = "block";
+  this.dom.querySelector(".loading").style.display = "block";
+  this.dom.querySelector("[name=essentialkit_dict_frame]").style.visibility = "hidden";
 };
 WinBox.prototype.stopLoading = function () {
-  this.dom.querySelector(".loading").display = "none";
+  this.dom.querySelector(".loading").style.display = "none";
+  this.dom.querySelector("[name=essentialkit_dict_frame]").style.visibility = "visible";
 };
 
 // This class is responsible to loading/reloading/unloading the angular app into the UI.
@@ -74,7 +76,6 @@ export class Previewr {
           return;
         }
 
-        this.logger.log("#WindowMessage: ", event);
         this.handleMessage(event.data);
       },
       false
@@ -82,8 +83,8 @@ export class Previewr {
   }
 
   async handleMessage(message) {
+    this.logger.debug("#handleMessage: ", message);
     if (message.action === "define" || message.action === "verbose-define") {
-      this.logger.log("Defining ", message);
       try {
         let newUrl = new URL(this.engineConfig["url"](message.data));
         if(newUrl.href === this.url?.href) {
@@ -91,6 +92,9 @@ export class Previewr {
           return;
         }
         this.url = newUrl;
+        if(this.dialog) {
+          this.dialog.startLoading();
+        }
         this.previewUrl(newUrl, message.point);
         return;
       } catch (e) {
@@ -100,7 +104,7 @@ export class Previewr {
       // TODO: Reset to actual URL in case of internal navigation within iframe.
       // this.url = new URL(message.href); 
       this.dialog?.show();
-      // this.dialog?.stopLoading();
+      this.dialog?.stopLoading();
       return;
     } else if(message.action === "loaded-and-no-def") {
       // If verbose-define, show NO definition found.
@@ -108,7 +112,7 @@ export class Previewr {
       return;
     } else if(message.action === "unload") {
       console.error("unload handled");
-      // this.dialog?.startLoading();
+      this.dialog?.startLoading();
     } else {
       this.logger.warn("Unhandled action: ", message.action);
       return;
@@ -144,7 +148,7 @@ export class Previewr {
     };
 
     if (!this.dialog) {
-      this.logger.debug("creating new dialog");
+      this.logger.debug("creating new dialog with options", winboxOptions);
       this.dialog = new WinBox("Dictionary", winboxOptions);
 
     } else {

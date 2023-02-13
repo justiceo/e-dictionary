@@ -18,7 +18,9 @@
   height: 100%;
   display: flex;
   align-items: center;
-  display: none;;
+  display: none;
+  position: relative;
+  top: 50%;
 }
 
 .bar-animation {

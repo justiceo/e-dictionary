@@ -21,11 +21,11 @@ export class IFrameHelper {
       return;
     }
 
+    // Can't use DOMContentLoaded since DDG doesn't put definition markup in initial response.
     window.addEventListener("load", () => {
-      document.body.style.visibility = "hidden";
-      this.focusGoogle();
+      // The DOM has already been rendered at this point.
+      this.focusDictUi();
       this.handleMutations();
-      document.body.style.visibility = "visible";
     });
 
     window.addEventListener("unload", () => {
@@ -92,7 +92,7 @@ export class IFrameHelper {
       this.hideAllExcept(el.parentElement);
     }
   }
-  focusGoogle() {
+  focusDictUi() {
     let maybeDict = document.querySelectorAll(this.config.selector);
     if (maybeDict.length == 0) {
       this.logger.error("No match for selector, ", this.config.selector);
@@ -122,7 +122,7 @@ export class IFrameHelper {
   // TODO: Use mutation observer for a more efficient mechanism to detect changes and hide them.
   handleMutations() {
     setInterval(() => {
-      this.focusGoogle();
+      this.focusDictUi();
     }, 500);
   }
 }
