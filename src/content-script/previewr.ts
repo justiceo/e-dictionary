@@ -2,6 +2,7 @@ import { Logger } from "../logger";
 import WinBox from "./winbox";
 import { computePosition, flip, offset, shift } from "@floating-ui/dom";
 import "./previewr.css";
+import { getEngineConfig } from "./search-engine";
 
 const iframeName = "essentialkit_dict_frame";
 // Export the dialog dom
@@ -20,7 +21,6 @@ WinBox.prototype.stopLoading = function () {
 export class Previewr {
   getExtensionUrl = chrome.runtime.getURL;
   logger = new Logger("previewr");
-  headerIconUrlBase = "https://www.google.com/s2/favicons?domain=";
   dialog?: WinBox;
   isVisible = false;
   url?: URL;
@@ -29,6 +29,7 @@ export class Previewr {
   currentSelection?: string;
   cue = "define";
   hl = "en";
+  engineConfig = getEngineConfig("DuckDuckGo");
 
   /* This function inserts an Angular custom element (web component) into the DOM. */
   init() {
@@ -84,7 +85,7 @@ export class Previewr {
     if (message.action === "define" || message.action === "verbose-define") {
       this.logger.log("Defining ", message);
       try {
-        let newUrl = new URL(`https://www.google.com/search?q=${this.cue}+${message.data}&hl=${this.hl}`);
+        let newUrl = new URL(this.engineConfig["url"](message.data));
         if(newUrl.href === this.url?.href) {
           this.logger.warn("Ignoring update of same URL", newUrl.href);
           return;

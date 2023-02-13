@@ -1,10 +1,11 @@
 import { Logger } from "../logger";
+import { getEngineConfig } from "./search-engine";
 
 // This script is executed inside the preview (i.e. document is iframe).
 export class IFrameHelper {
   iframeName = "essentialkit_dict_frame";
-  selector = "div[jsname=x3Eknd]";
   logger = new Logger("iframe-helper");
+  config = getEngineConfig("DuckDuckGo");
   constructor() {
     /*
      * Favicon URL request, Window.Title request, apply custom CSS.
@@ -20,7 +21,7 @@ export class IFrameHelper {
       return;
     }
 
-    window.addEventListener("DOMContentLoaded", () => {
+    window.addEventListener("load", () => {
       document.body.style.visibility = "hidden";
       this.focusGoogle();
       this.handleMutations();
@@ -92,9 +93,9 @@ export class IFrameHelper {
     }
   }
   focusGoogle() {
-    let maybeDict = document.querySelectorAll(this.selector);
+    let maybeDict = document.querySelectorAll(this.config.selector);
     if (maybeDict.length == 0) {
-      this.logger.error("No match for selector, ", this.selector);
+      this.logger.error("No match for selector, ", this.config.selector);
       this.sendMessage({
         action: "loaded-and-no-def",
         href: document.location.href,
@@ -103,11 +104,7 @@ export class IFrameHelper {
       return;
     }
 
-    const body = document.querySelector("body.srp") as HTMLBodyElement | null;
-    if (body) {
-      body.style.setProperty("--center-width", "350px");
-      body.style.overflowX = "hidden";
-    }
+    this.config["applyCss"]();
 
     // TODO: Handle multiple defs case. Sample query is "firm".
     // Handle search box visible sometimes, query is "principal"=>"denoting".
