@@ -36,7 +36,7 @@ export class Previewr {
   /* This function inserts an Angular custom element (web component) into the DOM. */
   init() {
     if (this.inIframe()) {
-      this.logger.log(
+      this.logger.debug(
         "Not inserting previewr in iframe: ",
         window.location.href
       );
