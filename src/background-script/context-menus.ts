@@ -45,7 +45,7 @@ export class ContextMenu {
 
   browserActionContextMenu: MenuItem[] = [
     this.RELOAD_ACTION,
-    this.DEFINE_ACTION,
+    // this.DEFINE_ACTION,
   ];
 
   init = () => {

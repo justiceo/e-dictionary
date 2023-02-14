@@ -3,7 +3,7 @@
     "description": "__MSG_appDesc__",
     "short_name": "__MSG_appShortName_",
     "homepage_url": "https://github.com/justiceo/xtension",
-    "version": "23.2.12",
+    "version": "23.2.13",
     "manifest_version": 3,
     "default_locale": "en",
     "author": "Justice Ogbonna",

@@ -23,7 +23,7 @@ enum LogLevel {
   DEBUG
 }
 export class Logger {
-  static debugMode = true;
+  static debugMode = false;
 
   tag = "";
 
