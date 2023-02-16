@@ -10,5 +10,13 @@
     "appDesc": {
         "message": "Täisfunktsionaalne sõnaraamatu pikendus",
         "description": "The description of your extension"
+    },
+    "define_cue": {
+        "message": "defineerima",
+        "description": "The search query cue for definition"
+    },
+    "synonyms_cue": {
+        "message": "sünonüümid",
+        "description": "The search query cue for synonyms"
     }
 }

@@ -10,5 +10,13 @@
     "appDesc": {
         "message": "Täysin varustettu sanakirjan laajennus",
         "description": "The description of your extension"
+    },
+    "define_cue": {
+        "message": "määritellä",
+        "description": "The search query cue for definition"
+    },
+    "synonyms_cue": {
+        "message": "synonyymit",
+        "description": "The search query cue for synonyms"
     }
 }

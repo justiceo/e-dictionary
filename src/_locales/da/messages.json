@@ -10,5 +10,13 @@
     "appDesc": {
         "message": "Fuldført ordbog udvidelse",
         "description": "The description of your extension"
+    },
+    "define_cue": {
+        "message": "Definere",
+        "description": "The search query cue for definition"
+    },
+    "synonyms_cue": {
+        "message": "synonymer",
+        "description": "The search query cue for synonyms"
     }
 }

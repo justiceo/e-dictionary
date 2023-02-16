@@ -10,5 +10,13 @@
     "appDesc": {
         "message": "Tam özellikli sözlük uzatma",
         "description": "The description of your extension"
+    },
+    "define_cue": {
+        "message": "tanımlamak",
+        "description": "The search query cue for definition"
+    },
+    "synonyms_cue": {
+        "message": "eş anlamlı",
+        "description": "The search query cue for synonyms"
     }
 }

@@ -10,5 +10,13 @@
     "appDesc": {
         "message": "완전한 기능 사전 확장",
         "description": "The description of your extension"
+    },
+    "define_cue": {
+        "message": "정의하다",
+        "description": "The search query cue for definition"
+    },
+    "synonyms_cue": {
+        "message": "동의어",
+        "description": "The search query cue for synonyms"
     }
 }
