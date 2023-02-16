@@ -12,25 +12,20 @@ WinBox.prototype.getDom = function () {
 
 WinBox.prototype.startLoading = function () {
   this.dom.querySelector(".loading").style.display = "block";
-  this.dom.querySelector("[name=essentialkit_dict_frame]").style.visibility = "hidden";
+  this.dom.querySelector("[name=essentialkit_dict_frame]").style.visibility =
+    "hidden";
 };
 WinBox.prototype.stopLoading = function () {
   this.dom.querySelector(".loading").style.display = "none";
-  this.dom.querySelector("[name=essentialkit_dict_frame]").style.visibility = "visible";
+  this.dom.querySelector("[name=essentialkit_dict_frame]").style.visibility =
+    "visible";
 };
 
 // This class is responsible to loading/reloading/unloading the angular app into the UI.
 export class Previewr {
-  getExtensionUrl = chrome.runtime.getURL;
   logger = new Logger("previewr");
   dialog?: WinBox;
-  isVisible = false;
   url?: URL;
-  navStack: URL[] = [];
-  displayReaderMode = false;
-  currentSelection?: string;
-  cue = "define";
-  hl = "en";
   engineConfig = getEngineConfig();
 
   /* This function inserts an Angular custom element (web component) into the DOM. */
@@ -57,98 +52,115 @@ export class Previewr {
   }
 
   listenForWindowMessages() {
-    window.addEventListener(
-      "message",
-      (event) => {
-        if (event.origin !== window.location.origin) {
-          this.logger.debug(
-            "Ignoring message from different origin",
-            event.origin,
-            event.data
-          );
-          return;
-        }
+    window.addEventListener("message", this.onMessageHandler, false);
+    document.onkeydown = this.onEscHandler;
+  }
 
-        if (event.data.application !== "dictionary") {
-          this.logger.debug(
-            "Ignoring origin messsage not initiated by Better Previews"
-          );
-          return;
-        }
+  onMessageHandler = (event) => {
+    if (event.origin !== window.location.origin) {
+      this.logger.debug(
+        "Ignoring message from different origin",
+        event.origin,
+        event.data
+      );
+      return;
+    }
 
-        this.handleMessage(event.data);
-      },
-      false
-    );
+    if (event.data.application !== "dictionary") {
+      this.logger.debug(
+        "Ignoring origin messsage not initiated by Better Previews"
+      );
+      return;
+    }
 
-    document.onkeydown = (evt) => {
-      evt = evt || window.event;
-      var isEscape = false;
-      if ("key" in evt) {
-        isEscape = evt.key === "Escape" || evt.key === "Esc";
-      } else {
-        isEscape = evt.keyCode === 27;
-      }
-      if (isEscape) {
-        this.handleMessage({
-          action: "escape",
-          href: document.location.href,
-          sourceFrame: iframeName,
-        });
-      }
-    };
+    this.handleMessage(event.data);
+  }
+
+  onEscHandler = (evt) => {
+    evt = evt || window.event;
+    var isEscape = false;
+    if ("key" in evt) {
+      isEscape = evt.key === "Escape" || evt.key === "Esc";
+    } else {
+      isEscape = evt.keyCode === 27;
+    }
+    if (isEscape) {
+      this.handleMessage({
+        action: "escape",
+        href: document.location.href,
+        sourceFrame: iframeName,
+      });
+    }
   }
 
   async handleMessage(message) {
     this.logger.debug("#handleMessage: ", message);
-    if (message.action === "define" || message.action === "verbose-define") {
-      try {
-        let newUrl = new URL(this.engineConfig["url"](message.data));
-        if(newUrl.href === this.url?.href) {
-          this.logger.warn("Ignoring update of same URL", newUrl.href);
+    switch (message.action) {
+      case "define":
+      case "verbose-define":
+        try {
+          let newUrl = new URL(this.engineConfig["url"](message.data));
+          if (newUrl.href === this.url?.href) {
+            this.logger.warn("Ignoring update of same URL", newUrl.href);
+            return;
+          }
+          this.url = newUrl;
+          if (this.dialog) {
+            this.dialog.startLoading();
+          }
+          this.previewUrl(newUrl, message.point);
           return;
+        } catch (e) {
+          this.logger.log("Error creating url: ", e);
         }
-        this.url = newUrl;
-        if(this.dialog) {
-          this.dialog.startLoading();
-        }
-        this.previewUrl(newUrl, message.point);
-        return;
-      } catch (e) {
-        this.logger.log("Error creating url: ", e);
-      }
-    } else if (message.action === "loaded-and-cleaned") {
-      // TODO: Reset to actual URL in case of internal navigation within iframe.
-      // this.url = new URL(message.href); 
-      this.dialog?.show();
-      this.dialog?.stopLoading();
-      return;
-    } else if(message.action === "loaded-and-no-def") {
-      // If verbose-define, show NO definition found.
-      this.dialog?.close();
-      return;
-    } else if(message.action === "unload") {
-      console.error("unload handled");
-      this.dialog?.startLoading();
-    } else if(message.action === "escape") {
-      if(this.dialog) {
-        this.dialog.close();
-      }
-      return;
-    } else {
-      this.logger.warn("Unhandled action: ", message.action);
-      return;
+        break;
+      case "loaded-and-cleaned":
+        // TODO: Reset to actual URL in case of internal navigation within iframe.
+        // this.url = new URL(message.href);
+        this.dialog?.show();
+        this.dialog?.stopLoading();
+        break;
+      case "loaded-and-no-def":
+        // TODO: If verbose-define, show NO definition found.
+        this.dialog?.close();
+        break;
+      case "unload":
+        this.dialog?.startLoading();
+        break;
+      case "escape":
+        this.dialog?.close();
+        break;
+      default:
+        this.logger.warn("Unhandled action: ", message.action);
+        break;
     }
   }
 
   async previewUrl(url: URL, point?: DOMRect) {
-    this.logger.log("#previewUrl: ", url);    
+    this.logger.log("#previewUrl: ", url);
+    const winboxOptions = await this.getWinboxOptions(url, point);
 
-    let pos = {x: 0, y: 0, placement: "top"}
-    if(point) {
+    if (!this.dialog) {
+      this.logger.debug("creating new dialog with options", winboxOptions);
+      this.dialog = new WinBox("Dictionary", winboxOptions);
+    } else {
+      this.logger.debug("restoring dialog");
+      this.dialog.dom.style.left = winboxOptions.x + "px";
+      this.dialog.dom.style.top = winboxOptions.y + "px";
+      this.dialog.restore();
+      // TODO: Also reset html to ensure load is fired.
+      this.dialog.setUrl(url.href);
+    }
+
+    // TODO: Periodically check and update the z-index.
+  }
+
+  async getWinboxOptions(url: URL, point?: DOMRect) {
+    let pos = { x: 0, y: 0, placement: "top" };
+    if (point) {
       pos = await this.getPos(point!);
     }
-    const winboxOptions = {
+    return {
       icon: chrome.runtime.getURL("assets/logo-24x24.png"),
       x: pos.x,
       y: pos.y,
@@ -163,28 +175,10 @@ export class Previewr {
       hidden: true,
 
       onclose: () => {
-        this.navStack = [];
         this.url = undefined;
         this.dialog = undefined;
       },
     };
-
-    if (!this.dialog) {
-      this.logger.debug("creating new dialog with options", winboxOptions);
-      this.dialog = new WinBox("Dictionary", winboxOptions);
-
-    } else {
-      this.logger.debug("restoring dialog");
-      this.dialog.dom.style.left = pos.x + "px";
-      this.dialog.dom.style.top = pos.y + "px";
-      this.dialog.restore();
-      // TODO: Show loading animation, which would be hidden after load.
-      // TODO: Also reset html to ensure load is fired.
-      this.dialog.setUrl(url.href);
-    }
-
-    // TODO: Periodically check and update the z-index.
-
   }
 
   /*
@@ -211,29 +205,12 @@ export class Previewr {
     });
   }
 
-  setUserAgent(window, userAgent) {
-    if (window.navigator.userAgent != userAgent) {
-      var userAgentProp = {
-        get: function() {
-          return userAgent;
-        }
-      };
-      try {
-        Object.defineProperty(window.navigator, 'userAgent', userAgentProp);
-      } catch (e) {
-        window.navigator = Object.create(navigator, {
-          userAgent: userAgentProp
-        });
-      }
-    }
-  }
-
   async getPos(rect: DOMRect) {
     const virtualEl = {
       getBoundingClientRect() {
         return rect;
-      }
-    }
+      },
+    };
     const div = document.createElement("div");
     // These dimensions need to match that of the dialog precisely.
     div.style.width = "410px";
@@ -253,9 +230,8 @@ export class Previewr {
       return {
         x: x,
         y: y,
-        placement: placement
-      }
+        placement: placement,
+      };
     });
   }
 }
-
