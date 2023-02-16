@@ -80,6 +80,23 @@ export class Previewr {
       },
       false
     );
+
+    document.onkeydown = (evt) => {
+      evt = evt || window.event;
+      var isEscape = false;
+      if ("key" in evt) {
+        isEscape = evt.key === "Escape" || evt.key === "Esc";
+      } else {
+        isEscape = evt.keyCode === 27;
+      }
+      if (isEscape) {
+        this.handleMessage({
+          action: "escape",
+          href: document.location.href,
+          sourceFrame: iframeName,
+        });
+      }
+    };
   }
 
   async handleMessage(message) {
@@ -113,6 +130,11 @@ export class Previewr {
     } else if(message.action === "unload") {
       console.error("unload handled");
       this.dialog?.startLoading();
+    } else if(message.action === "escape") {
+      if(this.dialog) {
+        this.dialog.close();
+      }
+      return;
     } else {
       this.logger.warn("Unhandled action: ", message.action);
       return;
