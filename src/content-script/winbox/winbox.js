@@ -6,9 +6,9 @@
  * https://github.com/nextapps-de/winbox
  */
 
-import winboxcss from "./winbox.min.css.txt";
+import winboxcss from "./winbox.css.txt";
 import template from "./template.js";
-import { addListener, removeListener, setStyle, setText, getByClass, addClass, removeClass, hasClass, preventEvent } from "winbox/src/js/helper.js";
+import { addListener, removeListener, setStyle, setText, getByClass, addClass, removeClass, hasClass, preventEvent } from "./helper.js";
 
 //const ios = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window["MSStream"];
 
