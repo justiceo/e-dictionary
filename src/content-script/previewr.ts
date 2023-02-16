@@ -1,5 +1,5 @@
 import { Logger } from "../logger";
-import WinBox from "./winbox";
+import WinBox from "./winbox/winbox";
 import { computePosition, flip, offset, shift } from "@floating-ui/dom";
 import "./previewr.css";
 import { getEngineConfig } from "./search-engine";

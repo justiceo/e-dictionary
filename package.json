@@ -44,7 +44,6 @@
     "@sentry/browser": "^7.36.0",
     "@sentry/tracing": "^7.37.1",
     "@webcomponents/webcomponentsjs": "^2.7.0",
-    "lit": "^2.6.0",
-    "winbox": "^0.2.6"
+    "lit": "^2.6.0"
   }
 }
