@@ -9,6 +9,16 @@ import './popup.css';
 //   }
 // });
 
+chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+  if (tabs.length == 0) {
+    console.error('Unexpected state: No active tab');
+    return;
+  }
+  chrome.tabs.sendMessage(tabs[0].id!, {action: "define", data: "hello"}, (response) => {
+    console.log(response);
+  });
+});
+
 const wrapper = document.querySelector(".wrapper");
 const searchInput = wrapper.querySelector("input");
 const volume = wrapper.querySelector(".word i");
