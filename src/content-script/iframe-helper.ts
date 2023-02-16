@@ -35,6 +35,23 @@ export class IFrameHelper {
         sourceFrame: this.getFrameName(),
       });
     });
+
+    document.onkeydown = (evt) => {
+      evt = evt || window.event;
+      var isEscape = false;
+      if ("key" in evt) {
+        isEscape = evt.key === "Escape" || evt.key === "Esc";
+      } else {
+        isEscape = evt.keyCode === 27;
+      }
+      if (isEscape) {
+        this.sendMessage({
+          action: "escape",
+          href: document.location.href,
+          sourceFrame: this.getFrameName(),
+        });
+      }
+    };
   }
 
   inIframe() {
