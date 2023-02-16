@@ -10,5 +10,13 @@
     "appDesc": {
         "message": "ባለሞያ መዝገበ-ቃላት ማራዘሚያ",
         "description": "The description of your extension"
+    },
+    "define_cue": {
+        "message": "ግለጽ",
+        "description": "The search query cue for definition"
+    },
+    "synonyms_cue": {
+        "message": "ተመሳሳይ ቃላት",
+        "description": "The search query cue for synonyms"
     }
 }

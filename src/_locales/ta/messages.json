@@ -10,5 +10,13 @@
     "appDesc": {
         "message": "முழு அம்சமான அகராதி நீட்டிப்பு",
         "description": "The description of your extension"
+    },
+    "define_cue": {
+        "message": "வரையறு",
+        "description": "The search query cue for definition"
+    },
+    "synonyms_cue": {
+        "message": "ஒத்த",
+        "description": "The search query cue for synonyms"
     }
 }

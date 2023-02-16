@@ -1,7 +1,7 @@
 
 const engine = "Google"
 export function getEngineConfig() {
-    const cue = "define";
+    const cue = chrome.i18n.getMessage("define_cue");
     const config= {
         Google: {
             name: "Google",

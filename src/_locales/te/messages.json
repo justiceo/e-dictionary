@@ -10,5 +10,13 @@
     "appDesc": {
         "message": "పూర్తి-ఫీచర్ డిక్షనరీ పొడిగింపు",
         "description": "The description of your extension"
+    },
+    "define_cue": {
+        "message": "నిర్వచించండి",
+        "description": "The search query cue for definition"
+    },
+    "synonyms_cue": {
+        "message": "పర్యాయపదాలు",
+        "description": "The search query cue for synonyms"
     }
 }

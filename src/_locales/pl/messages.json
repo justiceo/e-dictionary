@@ -8,7 +8,15 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Rozszerzenie słownika w pełni",
+        "message": "Rozszerzenie słownika w pełni funkcji",
         "description": "The description of your extension"
+    },
+    "define_cue": {
+        "message": "definiować",
+        "description": "The search query cue for definition"
+    },
+    "synonyms_cue": {
+        "message": "synonimy",
+        "description": "The search query cue for synonyms"
     }
 }
