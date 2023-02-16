@@ -1,5 +1,5 @@
 
-const engine = "DuckDuckGo"
+const engine = "Google"
 export function getEngineConfig() {
     const cue = "define";
     const config= {
@@ -8,11 +8,22 @@ export function getEngineConfig() {
             selector: "div[jsname=x3Eknd]",            
             url: (word) => `https://www.google.com/search?q=${cue}+${word}`,
             applyCss: () => {
-                const body = document.querySelector("body.srp") as HTMLBodyElement | null;
-                if (body) {
-                  body.style.setProperty("--center-width", "350px");
-                  body.style.overflowX = "hidden";
-                }
+                const style = document.createElement("style");
+                style.textContent = `
+                    div[jsname=KM35l], div[jsname=p0q1Sd] {
+                        display: none;
+                    }
+                    body.srp {
+                        overflow-x: hidden;
+                        --center-width: 350px;
+                    }  
+                `;
+                document.body.appendChild(style);
+
+                // Remove links to avoid navigating away.
+                document.body.querySelectorAll("span[role=link]").forEach(a => {
+                    a.parentElement?.replaceChild(document.createTextNode(a.textContent!), a);
+                });
             },
         },
         DuckDuckGo: {
@@ -40,7 +51,7 @@ export function getEngineConfig() {
                 // Remove links to avoid navigating away.
                 document.body.querySelectorAll("a").forEach(a => {
                     a.parentElement?.replaceChild(document.createTextNode(a.textContent!), a);
-                })                
+                });                
             },
         }
     }
