@@ -12,16 +12,20 @@ class Listener {
   start() {
     document.onmouseup = (e) => this.deferredMaybeShow(e);
     document.onmousemove = (e) =>
-      (this.lastMousePosition = {
+      {
+        // Make top space for popup.
+        const y = e.y < 20 ? 20 : e.y;
+        this.lastMousePosition = {
         width: 10,
         height: 10,
         x: e.x,
-        y: e.y,
+        y: y,
         left: e.x,
-        top: e.y,
+        top: y,
         right: e.x + 10,
-        bottom: e.y + 10,
-      } as DOMRect);
+        bottom: y + 10,
+      } as DOMRect;
+    };
 
     const iframeHelper = new IFrameHelper();
     iframeHelper.registerListeners();
