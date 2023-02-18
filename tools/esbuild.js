@@ -242,6 +242,7 @@ class Build {
       "src/popup/popup.html": "popup/popup.html",
       "src/options-page/options.html": "options-page/options.html",
       "src/welcome": "welcome",
+      "node_modules/winbox/dist/winbox.css": "content-script/winbox.css",
     };
 
     return new Promise((resolve, reject) => {
