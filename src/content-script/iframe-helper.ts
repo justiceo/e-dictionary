@@ -138,8 +138,8 @@ export class IFrameHelper {
   // E.g. clicking on querySelectorAll("[data-term-for-update]") elements in definition.
   // TODO: Use mutation observer for a more efficient mechanism to detect changes and hide them.
   handleMutations() {
-    setInterval(() => {
-      this.focusDictUi();
-    }, 500);
+    // setInterval(() => {
+    //   this.focusDictUi();
+    // }, 5000);
   }
 }

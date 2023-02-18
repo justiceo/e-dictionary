@@ -12,13 +12,9 @@ WinBox.prototype.getDom = function () {
 
 WinBox.prototype.startLoading = function () {
   this.dom.querySelector(".loading").style.display = "block";
-  this.dom.querySelector("[name=essentialkit_dict_frame]").style.visibility =
-    "hidden";
 };
 WinBox.prototype.stopLoading = function () {
   this.dom.querySelector(".loading").style.display = "none";
-  this.dom.querySelector("[name=essentialkit_dict_frame]").style.visibility =
-    "visible";
 };
 
 // This class is responsible to loading/reloading/unloading the angular app into the UI.
