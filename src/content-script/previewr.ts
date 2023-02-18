@@ -145,10 +145,10 @@ export class Previewr {
       this.dialog = new WinBox("Dictionary", winboxOptions);
     } else {
       this.logger.debug("restoring dialog");
-      this.dialog.move(winboxOptions.x, winboxOptions.y, /* skipUpdate= */false);
-      this.dialog.restore();
+
       // TODO: Also reset html to ensure load is fired.
       this.dialog.setUrl(url.href);
+      this.dialog.move(winboxOptions.x, winboxOptions.y, /* skipUpdate= */false);
     }
 
     // TODO: Periodically check and update the z-index.

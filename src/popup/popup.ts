@@ -23,7 +23,7 @@ function maybeSendDefinition() {
       console.error('Unexpected state: No active tab');
       return;
     }
-    chrome.tabs.sendMessage(tabs[0].id!, {action: "define", data: text}, (response) => {
+    chrome.tabs.sendMessage(tabs[0].id!, {action: "verbose-define", data: text}, (response) => {
       console.log(response);
       window.close();
     });
