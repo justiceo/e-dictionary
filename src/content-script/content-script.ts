@@ -35,6 +35,10 @@ class Listener {
       if (!request.point) {
         request.point = this.lastMousePosition;
       }
+      if(request.action === "verbose-define") {
+        // Clear any existing selections in order to not conflict.
+        window.getSelection()?.removeAllRanges();
+      }
       this.sendMessage(request.action, request.data, request.point);
       callback("ok");
     });
