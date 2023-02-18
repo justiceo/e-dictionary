@@ -177,6 +177,7 @@ export class Previewr {
       onclose: () => {
         this.url = undefined;
         this.dialog = undefined;
+        document.querySelectorAll("dictionary-preview-window")?.forEach(e => e.remove());
       },
     };
   }
