@@ -1,5 +1,5 @@
 import { Logger } from "../logger";
-import WinBox from "./winbox/winbox";
+import WinBox from "winbox/src/winbox";
 import { computePosition, flip, offset, shift } from "@floating-ui/dom";
 import "./previewr.css";
 import { getEngineConfig } from "./search-engine";
@@ -173,6 +173,9 @@ export class Previewr {
       html: `<iframe name="${iframeName}" src="${url}"></iframe><div class="loading"><span class="bar-animation"></span></div> `,
       // url: url.href, // Update restore when you update this.
       hidden: true,
+      shadowel: "dictionary-preview-window",
+      cssurl: chrome.runtime.getURL("content-script/winbox.css"),
+      framename: iframeName,
 
       onclose: () => {
         this.url = undefined;

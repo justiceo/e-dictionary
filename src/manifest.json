@@ -45,7 +45,11 @@
     {
       "resources": ["assets/logo-24x24.png"],
       "matches": ["<all_urls>"]
-    }    
+    },
+    {
+      "resources": ["content-script/winbox.css"],
+      "matches": ["<all_urls>"]
+    }       
   ],
   "options_page": "options-page/options.html",
   "background": {
