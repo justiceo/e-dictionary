@@ -311,12 +311,7 @@ function WinBox(params, _title){
 
     register(this);
     
-    try {
-        customElements.define("better-preview-window", BFWindow);
-    } catch(e) {
-        console.warn("Error re-defining custom element");
-    }
-    const bfw = document.createElement("better-preview-window");
+    const bfw = document.createElement("dictionary-preview-window");
     const style = document.createElement("style");
     style.textContent = winboxcss;
     bfw.appendChild(style);
