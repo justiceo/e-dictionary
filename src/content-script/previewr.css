@@ -20,11 +20,13 @@
   align-items: center;
   display: none;
   position: relative;
-  top: 50%;
+  background: white;
+  top: 0;
 }
 
 .bar-animation {
   width: 50%;
+  top: 50%;
   height: 3px;
   background: #0055d5;
   position: absolute;
