@@ -103,3 +103,9 @@ node tools/esbuild test
 * Tried https://dictionaryapi.dev/, it's based on low-quality wikitionary data.
 * Consider Oxford and Merriam Webster, rate limit issues.
 * Consider scraping definitions off of Google, this would be prone to breakage everytime their CSS rules changes (which happens often). 
+
+### Screenshot example queries
+* Phrase - a stitch in time saves nine.
+* Non english word. 
+* A colloquial term.
+* A rare english word with nouns and verbs etc. 
