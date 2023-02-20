@@ -10,5 +10,13 @@
     "appDesc": {
         "message": "Upanuzi kamili wa kamusi",
         "description": "The description of your extension"
+    },
+    "define_cue": {
+        "message": "Fafanua",
+        "description": "The search query cue for definition"
+    },
+    "synonyms_cue": {
+        "message": "visawe",
+        "description": "The search query cue for synonyms"
     }
 }

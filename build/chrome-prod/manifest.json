@@ -3,7 +3,7 @@
     "description": "__MSG_appDesc__",
     "short_name": "__MSG_appShortName_",
     "homepage_url": "https://github.com/justiceo/xtension",
-    "version": "23.2.12",
+    "version": "23.2.19",
     "manifest_version": 3,
     "default_locale": "en",
     "author": "Justice Ogbonna",
@@ -30,7 +30,8 @@
             "24": "assets/logo-24x24.png",
             "32": "assets/logo-32x32.png"
         },
-        "default_title": "__MSG_appName__"
+        "default_title": "__MSG_appName__",
+        "default_popup": "popup/popup.html"
     },
     "content_scripts": [
         {
@@ -62,8 +63,17 @@
             "matches": [
                 "<all_urls>"
             ]
+        },
+        {
+            "resources": [
+                "content-script/winbox.css"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
         }
     ],
+    "options_page": "options-page/options.html",
     "background": {
         "service_worker": "background-script/background.js"
     }

@@ -108,4 +108,5 @@ node tools/esbuild test
 * Phrase - a stitch in time saves nine.
 * Non english word. 
 * A colloquial term.
+* Plural form.
 * A rare english word with nouns and verbs etc. 

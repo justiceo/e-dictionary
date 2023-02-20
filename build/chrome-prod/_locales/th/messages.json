@@ -10,5 +10,13 @@
     "appDesc": {
         "message": "การขยายพจนานุกรมเต็มรูปแบบ",
         "description": "The description of your extension"
+    },
+    "define_cue": {
+        "message": "กำหนด",
+        "description": "The search query cue for definition"
+    },
+    "synonyms_cue": {
+        "message": "คำพ้องความหมาย",
+        "description": "The search query cue for synonyms"
     }
 }

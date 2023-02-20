@@ -10,5 +10,13 @@
     "appDesc": {
         "message": "Fullständig ordboksförlängning",
         "description": "The description of your extension"
+    },
+    "define_cue": {
+        "message": "definiera",
+        "description": "The search query cue for definition"
+    },
+    "synonyms_cue": {
+        "message": "synonymer",
+        "description": "The search query cue for synonyms"
     }
 }

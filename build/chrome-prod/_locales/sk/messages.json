@@ -10,5 +10,13 @@
     "appDesc": {
         "message": "Rozšírenie slovníka s plným výkonom",
         "description": "The description of your extension"
+    },
+    "define_cue": {
+        "message": "definovať",
+        "description": "The search query cue for definition"
+    },
+    "synonyms_cue": {
+        "message": "synonymá",
+        "description": "The search query cue for synonyms"
     }
 }

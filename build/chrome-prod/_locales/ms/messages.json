@@ -10,5 +10,13 @@
     "appDesc": {
         "message": "Lanjutan kamus penuh",
         "description": "The description of your extension"
+    },
+    "define_cue": {
+        "message": "Tentukan",
+        "description": "The search query cue for definition"
+    },
+    "synonyms_cue": {
+        "message": "sinonim",
+        "description": "The search query cue for synonyms"
     }
 }

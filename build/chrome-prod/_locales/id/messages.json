@@ -10,5 +10,13 @@
     "appDesc": {
         "message": "Ekstensi kamus berfitur lengkap",
         "description": "The description of your extension"
+    },
+    "define_cue": {
+        "message": "mendefinisikan",
+        "description": "The search query cue for definition"
+    },
+    "synonyms_cue": {
+        "message": "sinonim",
+        "description": "The search query cue for synonyms"
     }
 }

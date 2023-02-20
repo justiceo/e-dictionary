@@ -10,5 +10,13 @@
     "appDesc": {
         "message": "Extensión de diccionario con todas las funciones",
         "description": "The description of your extension"
+    },
+    "define_cue": {
+        "message": "definir",
+        "description": "The search query cue for definition"
+    },
+    "synonyms_cue": {
+        "message": "sinónimas",
+        "description": "The search query cue for synonyms"
     }
 }
