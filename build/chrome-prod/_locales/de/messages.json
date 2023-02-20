@@ -10,5 +10,13 @@
     "appDesc": {
         "message": "Wörterbucherweiterung mit Vollfasz",
         "description": "The description of your extension"
+    },
+    "define_cue": {
+        "message": "definieren",
+        "description": "The search query cue for definition"
+    },
+    "synonyms_cue": {
+        "message": "Synonyme",
+        "description": "The search query cue for synonyms"
     }
 }

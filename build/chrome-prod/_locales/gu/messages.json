@@ -10,5 +10,13 @@
     "appDesc": {
         "message": "પૂર્ણ-સુવિધાયુક્ત શબ્દકોશ",
         "description": "The description of your extension"
+    },
+    "define_cue": {
+        "message": "વ્યાખ્યા કરવી",
+        "description": "The search query cue for definition"
+    },
+    "synonyms_cue": {
+        "message": "મહાવરો",
+        "description": "The search query cue for synonyms"
     }
 }

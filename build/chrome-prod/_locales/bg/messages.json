@@ -10,5 +10,13 @@
     "appDesc": {
         "message": "Пълнофункционално разширение на речника",
         "description": "The description of your extension"
+    },
+    "define_cue": {
+        "message": "дефинирайте",
+        "description": "The search query cue for definition"
+    },
+    "synonyms_cue": {
+        "message": "синоними",
+        "description": "The search query cue for synonyms"
     }
 }

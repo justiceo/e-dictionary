@@ -10,5 +10,13 @@
     "appDesc": {
         "message": "Phần mở rộng từ điển đầy đủ tính năng",
         "description": "The description of your extension"
+    },
+    "define_cue": {
+        "message": "định nghĩa",
+        "description": "The search query cue for definition"
+    },
+    "synonyms_cue": {
+        "message": "Từ đồng nghĩa",
+        "description": "The search query cue for synonyms"
     }
 }

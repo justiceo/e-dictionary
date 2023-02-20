@@ -10,5 +10,13 @@
     "appDesc": {
         "message": "पूर्ण वैशिष्ट्यीकृत शब्दकोष विस्तार",
         "description": "The description of your extension"
+    },
+    "define_cue": {
+        "message": "परिभाषित",
+        "description": "The search query cue for definition"
+    },
+    "synonyms_cue": {
+        "message": "समानार्थी शब्द",
+        "description": "The search query cue for synonyms"
     }
 }

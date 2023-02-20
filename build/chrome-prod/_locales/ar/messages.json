@@ -10,5 +10,13 @@
     "appDesc": {
         "message": "امتداد القاموس كامل الميزة",
         "description": "The description of your extension"
+    },
+    "define_cue": {
+        "message": "يُعرِّف",
+        "description": "The search query cue for definition"
+    },
+    "synonyms_cue": {
+        "message": "المرادفات",
+        "description": "The search query cue for synonyms"
     }
 }

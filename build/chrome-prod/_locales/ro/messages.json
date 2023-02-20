@@ -10,5 +10,13 @@
     "appDesc": {
         "message": "Extensie de dicționar complet",
         "description": "The description of your extension"
+    },
+    "define_cue": {
+        "message": "defini",
+        "description": "The search query cue for definition"
+    },
+    "synonyms_cue": {
+        "message": "sinonime",
+        "description": "The search query cue for synonyms"
     }
 }

@@ -10,5 +10,13 @@
     "appDesc": {
         "message": "フル機能の辞書拡張機能",
         "description": "The description of your extension"
+    },
+    "define_cue": {
+        "message": "定義",
+        "description": "The search query cue for definition"
+    },
+    "synonyms_cue": {
+        "message": "同義語",
+        "description": "The search query cue for synonyms"
     }
 }
