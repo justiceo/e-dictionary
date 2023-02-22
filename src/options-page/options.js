@@ -1,5 +1,6 @@
 import './options.css'
 import { OptionsElement } from '../utils/options-element';
+import '../utils/translate';
 
 class OptionsPage {
   render(options) {
