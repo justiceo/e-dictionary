@@ -2,7 +2,7 @@
     "name": "__MSG_appName__",
     "description": "__MSG_appDesc__",
     "short_name": "__MSG_appShortName_",
-    "homepage_url": "https://github.com/justiceo/xtension",
+    "homepage_url": "https://github.com/justiceo/dictionary",
     "version": "23.2.19",
     "manifest_version": 3,
     "default_locale": "en",
