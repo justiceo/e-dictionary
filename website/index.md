@@ -7,6 +7,13 @@ Chrome and Firefox extension starter kit (boilerplate) for Typescript developmen
 The earlier version of the template used gulp, you can see this version in the "v1-gulp" branch of this repository.
 
 ### Features
+
+* Get definitions for any word in any language.
+* See phonetic pronouciation.
+* Works for all locales.
+* Click speaker button to hear pronouciation of word.
+
+
 * **Automatic Github Pages generation**: Files added in the `gh-pages` sub-directory are branched to create a Github page automatically. This is useful for static pages like help, welcome and feedback pages.
 * **Typescript to Js**: Write your entire chrome extension in Typescript and have it transpiled to JavaScript.
 * **E2E extension test**: Start up a chrome browser with your extension installed, write your tests in Jasmine.
@@ -18,8 +25,8 @@ The earlier version of the template used gulp, you can see this version in the "
 
 1. Download the repo and install dependencies (there are only dev dependencies)
 ```
-git clone http://github.com/justiceo/xtension 
-cd xtension  && npm install  
+git clone http://github.com/justiceo/dictionary 
+cd dictionary  && npm install  
 ```
 
 2. Install Firefox for Puppeteer.
