@@ -138,7 +138,7 @@ export class Previewr {
 
     if (!this.dialog) {
       this.logger.debug("creating new dialog with options", winboxOptions);
-      this.dialog = new WinBox("Dictionary", winboxOptions);
+      this.dialog = new WinBox(chrome.i18n.getMessage("appName"), winboxOptions);
     } else {
       this.logger.debug("restoring dialog");
 
