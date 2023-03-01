@@ -20,7 +20,7 @@
             "24": "assets/logo-24x24.png",
             "32": "assets/logo-32x32.png"
         },
-        "default_title": "Chrome Extension Starter",
+        "default_title": "__MSG_appName__",
         "default_popup": "popup/popup.html"
     },
     "content_scripts": [

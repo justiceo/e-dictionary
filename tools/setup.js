@@ -6,7 +6,7 @@ const config = {
         {
             file: "package.json",
             match: "name",
-        },
+        }, 
     ],
   },
   display_name: {
