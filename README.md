@@ -110,3 +110,6 @@ node tools/esbuild test
 * A colloquial term.
 * Plural form.
 * A rare english word with nouns and verbs etc. 
+
+### Todo
+* Do not show for text selections in editors (docs, medium, office in edit mode)
