@@ -50,6 +50,9 @@ export class Previewr {
   listenForWindowMessages() {
     window.addEventListener("message", this.onMessageHandler, false);
     document.onkeydown = this.onEscHandler;
+    document.onmousedown = this.onEscHandler;
+    document.onscroll = this.onEscHandler;
+    document.onresize = this.onEscHandler;
   }
 
   onMessageHandler = (event) => {
@@ -72,21 +75,13 @@ export class Previewr {
     this.handleMessage(event.data);
   }
 
+  // Close the dialog upon any interaction with containing doc.
   onEscHandler = (evt) => {
-    evt = evt || window.event;
-    var isEscape = false;
-    if ("key" in evt) {
-      isEscape = evt.key === "Escape" || evt.key === "Esc";
-    } else {
-      isEscape = evt.keyCode === 27;
-    }
-    if (isEscape) {
-      this.handleMessage({
-        action: "escape",
-        href: document.location.href,
-        sourceFrame: iframeName,
-      });
-    }
+    this.handleMessage({
+      action: "escape",
+      href: document.location.href,
+      sourceFrame: iframeName,
+    });
   }
 
   async handleMessage(message) {
