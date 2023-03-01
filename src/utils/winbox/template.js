@@ -198,21 +198,21 @@ export const winboxcss = `
     cursor: pointer;
   }
   .wb-min {
-    background-image: url("../../assets/min.svg");
+    background-image: url("${chrome.runtime.getURL("assets/min.svg")}");
     background-size: 14px auto;
     background-position: center calc(50% + 6px);
   }
   .wb-max {
-    background-image: url("../../assets/max.svg");
+    background-image: url("${chrome.runtime.getURL("assets/max.svg")}");
     background-size: 17px auto;
   }
   .wb-close {
-    background-image: url("../../assets/close.svg");
+    background-image: url("${chrome.runtime.getURL("assets/close.svg")}");
     background-size: 15px auto;
     background-position: 5px center;
   }
   .wb-full {
-    background-image: url("../../assets/full.svg");
+    background-image: url("${chrome.runtime.getURL("assets/full.svg")}");
     background-size: 16px auto;
   }
   /*

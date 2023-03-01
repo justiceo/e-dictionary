@@ -32,6 +32,28 @@
     "48": "assets/logo-48x48.png",
     "128": "assets/logo-128x128.png"
   },
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/logo-24x24.png"],
+      "matches": ["<all_urls>"]
+    },
+    {
+      "resources": ["assets/min.svg"],
+      "matches": ["<all_urls>"]
+    },
+    {
+      "resources": ["assets/max.svg"],
+      "matches": ["<all_urls>"]
+    } ,
+    {
+      "resources": ["assets/close.svg"],
+      "matches": ["<all_urls>"]
+    } ,
+    {
+      "resources": ["assets/full.svg"],
+      "matches": ["<all_urls>"]
+    }        
+  ],
   "options_page": "options-page/options.html",
   "background": {
     "service_worker": "background-script/background.js",
