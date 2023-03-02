@@ -12,14 +12,15 @@ enum LogLevel {
   INFO,
   DEBUG,
 }
+declare var IS_DEV_BUILD: boolean;
 export class Logger {
-  static debugMode = true;
-
   tag = "";
 
   constructor(tag: string) {
     this.tag = tag;
-    if(!Logger.debugMode) {
+
+    console.error(tag, ": is_dev_build? ", IS_DEV_BUILD);
+    if(!IS_DEV_BUILD) {
       this.initSentry();
     }
   }
@@ -56,7 +57,7 @@ export class Logger {
       ...messages,
     ];
 
-    if (!Logger.debugMode) {
+    if (!IS_DEV_BUILD) {
       switch (level) {
         case LogLevel.WARNING:
         case LogLevel.INFO:

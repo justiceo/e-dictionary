@@ -134,6 +134,9 @@ class Build {
         bundle: true,
         minify: this.isProd,
         sourcemap: !this.isProd,
+        banner: {
+          js: `var IS_DEV_BUILD=${!this.isProd};`
+        },
         outdir: this.outDir,
         target: ["chrome107"], // https://en.wikipedia.org/wiki/Google_Chrome_version_history
       })
