@@ -19,6 +19,18 @@ export class Logger {
 
   constructor(tag: string) {
     this.tag = tag;
+    if(!Logger.debugMode) {
+      this.initSentry();
+    }
+  }
+
+  initSentry() {
+    Sentry.init({
+      dsn: "https://b1d81a9e5f1546f79885a473ce33128c@o526305.ingest.sentry.io/6244539",
+      tracesSampleRate: 0.1,
+      release: "xtension@23.01.10",
+      environment: "PROD",
+    });
   }
 
   debug(...messages: unknown[]) {
@@ -72,13 +84,4 @@ export class Logger {
       }
     }
   }
-}
-
-if (!Logger.debugMode) {
-  Sentry.init({
-    dsn: "__DSN__",
-    tracesSampleRate: 0.1,
-    release: "xtension@23.01.10",
-    environment: "PROD",
-  });
 }
