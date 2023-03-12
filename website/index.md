@@ -1,4 +1,4 @@
-## ![logo](images/icon-24x24.png) Browser Extension Starter
+## ![logo](images/logo-24x24.png) Browser Extension Starter
 
 Browser extension example. Typescript, E2E tests, icon generation, automatic i18n and ESBuild.
 
