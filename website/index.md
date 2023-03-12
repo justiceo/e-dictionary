@@ -1,6 +1,14 @@
-## ![logo](images/logo-24x24.png) Browser Extension Starter
+## ![logo](images/icon-24x24.png) Browser Extension Starter
 
-Browser extension example. Typescript, E2E tests, icon generation, automatic i18n and ESBuild
+Browser extension example. Typescript, E2E tests, icon generation, automatic i18n and ESBuild.
+
+## Browser Support
+<p style="vertical-align:middle; display:flex"><img style="width:25px" src="images/browser-chrome.png" />&nbsp; Chrome -> &nbsp;<b>Supported</b></p>
+<p style="vertical-align:middle; display:flex"><img style="width:25px"  src="images/browser-firefox.png" />&nbsp; Firefox -> &nbsp;<b>Supported</b>&nbsp;</p>
+<p style="vertical-align:middle; display:flex"><img style="width:25px"  src="images/browser-opera.png" />&nbsp; Opera -> &nbsp;<b>Supported</b></p>
+<p style="vertical-align:middle; display:flex"><img style="width:25px"  src="images/browser-ms-edge.png" />&nbsp; Edge -> &nbsp;<b>Supported</b></p>
+<p style="vertical-align:middle; display:flex"><img style="width:25px"  src="images/browser-brave.png" />&nbsp; Brave -> &nbsp;<b>Supported</b></p>
+<p style="vertical-align:middle; display:flex"><img style="width:25px"  src="images/browser-safari.png" />&nbsp; Safari -> &nbsp;<b style="color:red"/>Not Supported</b></p>
 
 ## Features
 
