@@ -94,6 +94,7 @@ class InlineForm extends HTMLElement {
         star.addEventListener("mouseover", handleMouseOver)
       );
       stars.forEach((star) => star.addEventListener("click", handleStarClick));
+      multiStepForm.addEventListener("mouseleave", resetStarsClass);
     }
 
     jumpButtons.forEach((button) =>
