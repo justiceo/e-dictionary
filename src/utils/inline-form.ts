@@ -46,9 +46,10 @@ class InlineForm extends HTMLElement {
   updateStyle(elem) {
     const shadow = elem.shadowRoot;
     const size = elem.getAttribute("size") ?? "inline";
-    const app = elem.getAttribute("app") ?? chrome.i18n.getMessage("appName");
-    const logo = elem.getAttribute("logo") ?? chrome.runtime.getURL("assets/logo-128x128.png");
-    const storeLink = elem.getAttribute("store") ?? "https://chrome.google.com/webstore/detail/" + chrome.i18n.getMessage("@@extension_id");
+    const app = elem.getAttribute("app-name") ?? chrome.i18n.getMessage("appName");
+    const logo = elem.getAttribute("logo-url") ?? chrome.runtime.getURL("assets/logo-128x128.png");
+    const storeLink = elem.getAttribute("store-link") ?? "https://chrome.google.com/webstore/detail/" + chrome.i18n.getMessage("@@extension_id");
+    const formLink = elem.getAttribute("form-link") ?? "https://formspree.io/f/mayzdndj";
     console.log(`Attributes: size=${size}, app=${app}, logo=${logo}`);
 
     const multiStepForm = shadow.querySelector("[data-multi-step]");
@@ -99,16 +100,19 @@ class InlineForm extends HTMLElement {
       button.addEventListener("click", (event) => {
         currentStep = event.target.getAttribute("data-next-step");
         multiStepForm.setAttribute("data-current-step", currentStep);
+
+        // Handle click on "rate on webstore".
         if (button.id === "rate-on-store") {
           window.open(storeLink);
         }
 
+        // Handle feedback submission.
         if (button.id === "submit-form") {
           const data = {
             feedback: multiStepForm.querySelector("input").value,
             appName: app,
           };
-          fetch("https://formspree.io/f/mayzdndj", {
+          fetch(formLink, {
             method: "POST",
             body: JSON.stringify(data),
           })
@@ -118,6 +122,13 @@ class InlineForm extends HTMLElement {
             .then(function (response) {
               console.log("response 2", response.json());
             });
+        }
+
+        // Auto-close at the end.
+        if(currentStep == 4) {
+          setTimeout(() => {
+            multiStepForm.style.display = "none";
+          }, 1300);
         }
       })
     );
