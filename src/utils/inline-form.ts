@@ -45,10 +45,10 @@ class InlineForm extends HTMLElement {
 
   updateStyle(elem) {
     const shadow = elem.shadowRoot;
-    const size = elem.getAttribute("size");
-    const app = elem.getAttribute("app");
-    const logo = elem.getAttribute("logo");
-    const storeLink = elem.getAttribute("store");
+    const size = elem.getAttribute("size") ?? "inline";
+    const app = elem.getAttribute("app") ?? chrome.i18n.getMessage("appName");
+    const logo = elem.getAttribute("logo") ?? chrome.runtime.getURL("assets/logo-128x128.png");
+    const storeLink = elem.getAttribute("store") ?? "https://chrome.google.com/webstore/detail/" + chrome.i18n.getMessage("@@extension_id");
     console.log(`Attributes: size=${size}, app=${app}, logo=${logo}`);
 
     const multiStepForm = shadow.querySelector("[data-multi-step]");
