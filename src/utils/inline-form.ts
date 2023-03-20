@@ -10,6 +10,7 @@ Usage:
     size="medium">
 </inline-form>
 */
+import '@webcomponents/custom-elements';
 class InlineForm extends HTMLElement {
   constructor() {
     super();
