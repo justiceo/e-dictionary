@@ -219,6 +219,7 @@ const inlineCSS = `
   
   .form {
     width: 100%;
+  font-family: Verdana, sans-serif;
   }
   [data-step],
   .form[data-current-step="4"] .action {
@@ -267,6 +268,8 @@ const inlineCSS = `
   }
   .star {
     cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold
   }
   .star:before {
     content: "☆";
