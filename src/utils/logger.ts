@@ -61,10 +61,10 @@ export class Logger {
       switch (level) {
         case LogLevel.WARNING:
         case LogLevel.INFO:
-          Sentry.captureMessage(messages.join(" "));
+          Sentry.captureMessage(output.join(" "));
           break;
         case LogLevel.ERROR:
-          Sentry.captureException(messages);
+          Sentry.captureException(output.join(" "));
           break;
       }
       return;
