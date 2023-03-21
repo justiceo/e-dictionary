@@ -9,7 +9,7 @@
   "manifest_version": 3,
   "default_locale": "en",
   "author": "Justice Ogbonna",
-  "permissions": ["contextMenus", "storage", "cookies"],
+  "permissions": ["contextMenus", "storage", "cookies", "tabs"],
   "host_permissions": ["*://*/*"],
   "action": {
     "default_icon": {

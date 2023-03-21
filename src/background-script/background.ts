@@ -1,4 +1,5 @@
 import { ContextMenu } from "./context-menus";
+import './icon-updater';
 
 
 new ContextMenu().init();
