@@ -1,6 +1,7 @@
 
 import { OptionsElement } from '../utils/options/options-element';
 import '../utils/feedback/feedback';
+import { RemoteLogger } from '../utils/logger';
 
 const optionsEl = new OptionsElement([  {
   id: "disable-extension-on-site",
@@ -18,3 +19,5 @@ document.querySelector("#go-to-options").addEventListener("click", () => {
   }
 });
 
+const L = new RemoteLogger("popup");
+L.debug("Init success");
