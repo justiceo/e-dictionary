@@ -1,9 +1,9 @@
 
-import { OptionsElement } from '../utils/options/options-element';
+import { SettingsUI } from '../utils/options/settings';
 import '../utils/feedback/feedback';
 import { RemoteLogger } from '../utils/logger';
 
-const optionsEl = new OptionsElement([  {
+const optionsEl = new SettingsUI([ {
   id: "disable-extension-on-site",
   type: "checkbox",
   title: "Disable extension on this site",

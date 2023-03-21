@@ -1,12 +1,12 @@
 import './options.css'
-import { OptionsElement } from '../utils/options/options-element';
+import { SettingsUI } from '../utils/options/settings';
 import '../utils/translate';
 import {WinBox} from '../utils/winbox/winbox';
 
 class OptionsPage {
   render(options) {
     console.log("rendering options: ", options);
-    const optionsEl = new OptionsElement(options);
+    const optionsEl = new SettingsUI(options);
     document.body.appendChild(optionsEl);
 
     new WinBox("Winbox Title", {
