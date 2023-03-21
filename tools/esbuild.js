@@ -134,6 +134,10 @@ class Build {
         bundle: true,
         minify: this.isProd,
         sourcemap: !this.isProd,
+        loader: {
+          ".txt.html": "text",
+          ".txt.css": "text",
+        },
         banner: {
           js: `var IS_DEV_BUILD=${!this.isProd};`
         },

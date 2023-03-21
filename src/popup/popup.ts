@@ -1,6 +1,6 @@
 
 import { OptionsElement } from '../utils/options-element';
-import '../utils/inline-form';
+import '../utils/feedback/feedback';
 
 const optionsEl = new OptionsElement([  {
   id: "disable-extension-on-site",
