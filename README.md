@@ -1,5 +1,7 @@
 # ![logo](src/assets/logo-24x24.png) Browser Extension Starter
 
+[![Xtension](https://circleci.com/gh/justiceo/xtension/tree/main.svg?style=svg)](https://circleci.com/gh/justiceo/xtension/?branch=main)
+
 Browser extension example. Typescript, E2E tests, icon generation, automatic i18n and ESBuild
 
 ![Screenshot](src/assets/screenshot.png "Screenshot")
