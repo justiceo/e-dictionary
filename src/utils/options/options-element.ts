@@ -2,7 +2,7 @@ import "@webcomponents/webcomponentsjs"; // Polyfill for customElements in conte
 import { LitElement, css, html, TemplateResult } from "lit";
 import { customElement } from "lit/decorators.js";
 import bootstrap from "./bootstrap.bundle.min.js";
-import { bootstrapCSS } from "./bootstrap5.css.js";
+import bootstrapCSS from "./bootstrap5.txt.css";
 
 @customElement("options-element")
 export class OptionsElement extends LitElement {

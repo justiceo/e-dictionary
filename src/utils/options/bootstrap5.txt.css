@@ -1,6 +1,4 @@
-import {  css } from "lit";
-
-export const bootstrapCSS = css `@charset "UTF-8";
+@charset "UTF-8";
 /*!
  * Bootstrap v5.0.2 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
@@ -10835,4 +10833,3 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-`

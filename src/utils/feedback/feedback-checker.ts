@@ -1,4 +1,4 @@
-import { Storage } from "./storage";
+import { Storage } from "../storage";
 
 type Updater = {
     <T>(arg: T): T;
@@ -16,7 +16,7 @@ type FeedbackData = {
 }
 
 // Ideally, feedback should be shown after a successful interaction.
-export class Feedback {
+export class FeedbackChecker {
   DAY_MS = 86_400_000;
   MONTH_X2_MS = this.DAY_MS * 30 * 2;
   storage: Storage;

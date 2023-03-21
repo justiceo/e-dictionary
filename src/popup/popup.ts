@@ -1,5 +1,5 @@
 
-import { OptionsElement } from '../utils/options-element';
+import { OptionsElement } from '../utils/options/options-element';
 import '../utils/feedback/feedback';
 
 const optionsEl = new OptionsElement([  {

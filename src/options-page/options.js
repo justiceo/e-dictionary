@@ -1,5 +1,5 @@
 import './options.css'
-import { OptionsElement } from '../utils/options-element';
+import { OptionsElement } from '../utils/options/options-element';
 import '../utils/translate';
 import {WinBox} from '../utils/winbox/winbox';
 
