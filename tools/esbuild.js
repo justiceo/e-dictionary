@@ -127,7 +127,6 @@ class Build {
           "src/background-script/background.ts",
           "src/content-script/content-script.ts",
           "src/popup/popup.ts",
-          "src/welcome/my-element.ts",
           "src/options-page/options.js",
           "src/utils/translate.ts",
         ],

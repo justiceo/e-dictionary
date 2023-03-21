@@ -1,5 +1,5 @@
 import "@webcomponents/webcomponentsjs"; // Polyfill for customElements in content scripts, https://stackoverflow.com/q/42800035.
-import { LitElement, css, html, TemplateResult } from "lit";
+import { LitElement, css,unsafeCSS, html, TemplateResult } from "lit";
 import { customElement } from "lit/decorators.js";
 import bootstrap from "./bootstrap.bundle.min.js";
 import bootstrapCSS from "./bootstrap5.txt.css";
@@ -9,7 +9,7 @@ export class OptionsElement extends LitElement {
   configItems: any[];
   
   static styles = css`
-    ${bootstrapCSS}
+    ${unsafeCSS(bootstrapCSS)}
     
     input[type="checkbox"] {
       /* Double-sized Checkboxes */
