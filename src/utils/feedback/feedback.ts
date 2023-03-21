@@ -23,7 +23,7 @@ class FeedbackForm extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ["size"];
+    return ["size", "app-name", "logo-url", "store-link", "form-link"];
   }
 
   connectedCallback() {

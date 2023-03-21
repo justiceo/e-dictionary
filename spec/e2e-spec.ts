@@ -2,6 +2,7 @@ import * as puppeteer from "puppeteer";
 
 const outDir=process.env.XTENSION_OUTPUT_DIR;
 
+// To test other browsers like brave, opera, provide their executable path - https://stackoverflow.com/a/59484822.
 describe("Browser test suite", () => {
   let browser: puppeteer.Browser;
   beforeAll(async () => {
