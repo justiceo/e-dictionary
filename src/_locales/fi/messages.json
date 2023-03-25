@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Selaimen laajennusesimerkki. TYPLEKSTRIA, E2E -testit, kuvakkeen sukupolvi, automaattinen i18n ja Esbuild",
+        "message": "Selaimen laajennusesimerkki. TYPLESTI, E2E -testit, kuvakkeen sukupolvi, automaattinen i18n ja Esbuild",
         "description": "The description of your extension"
     }
 }

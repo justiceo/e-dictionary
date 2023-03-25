@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "דוגמא להארכת דפדפן. Typescript, בדיקות E2E, ייצור אייקונים, אוטומטית I18N ו- ESBUILD",
+        "message": "דוגמה להרחבת דפדפן. Typescript, בדיקות E2E, ייצור אייקונים, אוטומטית I18N ו- ESBUILD",
         "description": "The description of your extension"
     }
 }

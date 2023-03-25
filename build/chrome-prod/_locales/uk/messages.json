@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Приклад розширення браузера. TypeScript, E2E тести, генерація піктограм, автоматичний I18N та Esbuild",
+        "message": "Приклад розширення браузера. TypeScript, E2E тести, генерація значків, автоматичний I18N та Esbuild",
         "description": "The description of your extension"
     }
 }

@@ -7,9 +7,10 @@
     "build": "node tools/esbuild.js",
     "test": "node tools/esbuild.js test",
     "start": "node tools/esbuild.js start",
+    "watch": "node tools/esbuild.js watch",
     "start:firefox": "node tools/esbuild.js start --browser=firefox",
     "generateIcons": "node tools/esbuild.js image --icons",
-    "updateTranslations": "node tools/translateMessages.js"
+    "translate": "node tools/translateMessages.js"
   },
   "author": "Justice Ogbonna",
   "license": "MIT",

@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Exemple d’extensió del navegador. TypeScript, E2E Proves, Generació d’icones, Automàtic I18N i ESBuild",
+        "message": "Exemple d’extensió del navegador. TypeScript, E2E Proves, Generació d’Icones, I18N automàtic i ESBuild",
         "description": "The description of your extension"
     }
 }

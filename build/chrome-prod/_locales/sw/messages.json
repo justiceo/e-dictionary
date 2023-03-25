@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Mfano wa Upanuzi wa Kivinjari. Vipimo vya Typescript, E2E, Kizazi cha Icon, moja kwa moja I18N na EsBuild",
+        "message": "Mfano wa Upanuzi wa Kivinjari. Vipimo vya Aina, Vipimo vya E2E, Kizazi cha Icon, I18N moja kwa moja na Esbuild",
         "description": "The description of your extension"
     }
 }

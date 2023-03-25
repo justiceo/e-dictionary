@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "ब्राउज़र एक्सटेंशन उदाहरण। टाइपस्क्रिप्ट, E2E परीक्षण, आइकन पीढ़ी, स्वचालित I18N और Esbuild",
+        "message": "ब्राउज़र एक्सटेंशन उदाहरण। टाइपस्क्रिप्ट, E2E परीक्षण, आइकन पीढ़ी, स्वचालित I18N और esbuild",
         "description": "The description of your extension"
     }
 }

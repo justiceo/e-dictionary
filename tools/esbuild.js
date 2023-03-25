@@ -15,7 +15,7 @@ class Build {
 
   testSpecs = ["spec/e2e-spec.ts"];
   compiledTestSpecs = ["spec/e2e-spec.js"];
-  originalIconPath = "src/assets/logo.png";
+  originalIconPath = "src/assets/logo.jpeg";
 
   constructor() {
     const args = this.parse(process.argv);
@@ -53,8 +53,11 @@ class Build {
       case "test":
         this.test();
         break;
-      default:
+      case "build":
         this.packageExtension().then((out) => console.log(out));
+        break;
+      default:
+        console.error("Unknown task", this.maybeTask)
     }
   }
 
@@ -230,6 +233,10 @@ class Build {
       Jimp.read(src, (err, icon) => {
         if (err) {
           reject();
+        }
+
+        if(!icon) {
+          console.error("Error reading icon: ", src);
         }
 
         if (this.args.icons) {

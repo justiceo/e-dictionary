@@ -3,6 +3,7 @@
   "name": "__MSG_appName__",
   "description": "__MSG_appDesc__",
   "short_name": "__MSG_appShortName_",
+  "__comment:homepage_url": "This should be the webstore link, __MSG_@@extension_id__ is not allowed",
   "homepage_url": "https://github.com/justiceo/xtension",
   "__comment:version__": "Firefox does not support leading zeros in versions",
   "version": "23.1.21",

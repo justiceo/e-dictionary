@@ -8,7 +8,7 @@
         "description": "The short-version name of the extension name"
     },
     "appDesc": {
-        "message": "Brauseri laienduse näide. TypeScript, E2E testid, ikoonide genereerimine, automaatne i18n ja esbuild",
+        "message": "Brauseri laienduse näide. TypeScript, E2E testid, ikooni genereerimine, automaatne i18n ja esbuild",
         "description": "The description of your extension"
     }
 }
