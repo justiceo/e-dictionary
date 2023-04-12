@@ -10,8 +10,10 @@ export function getEngineConfig() {
             applyCss: () => {
                 const style = document.createElement("style");
                 style.textContent = `
-                    div[jsname=KM35l], div[jsname=p0q1Sd] {
-                        display: none;
+                    div[jsname=KM35l], div[jsname=p0q1Sd],
+                    .pronunciation_promo__pm-ctnr, .pronunciation_promo__pm-ml, 
+                    #sfooter {
+                        display: none !important;
                     }
                     body.srp {
                         overflow-x: hidden;
@@ -20,10 +22,7 @@ export function getEngineConfig() {
                 `;
                 document.body.appendChild(style);
 
-                // Remove links to avoid navigating away.
-                document.body.querySelectorAll("span[role=link]").forEach(a => {
-                    a.parentElement?.replaceChild(document.createTextNode(a.textContent!), a);
-                });
+                // TODO: Remove links to avoid navigating away.
             },
         },
         DuckDuckGo: {

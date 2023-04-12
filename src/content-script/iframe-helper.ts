@@ -17,7 +17,7 @@ export class IFrameHelper {
     if (!this.inIframe()) {
       return;
     }
-    if (this.getFrameName() !== this.iframeName) { 
+    if (this.getFrameName() !== this.iframeName) {
       return;
     }
 
@@ -25,6 +25,8 @@ export class IFrameHelper {
     window.addEventListener("load", () => {
       // The DOM has already been rendered at this point.
       this.focusDictUi();
+
+      this.handleLinks();
     });
 
     window.addEventListener("unload", () => {
@@ -52,20 +54,19 @@ export class IFrameHelper {
       }
     };
 
-    this.handleLinks();
-
     // Redirect future links/clicks.
     document.addEventListener("click", (e) => this.onClickHandler(e));
   }
 
-
+  // TODO: Move this logic into search-engine#applyCss.
+  // Leaving it for now, since the underline is on <span> not on <a>
   handleLinks() {
-    document.querySelectorAll("a").forEach(link => {
+    document.querySelectorAll("a, [role=link]").forEach((link) => {
       // Clone the links, this removes all existing listeners.
       const newLink = link.cloneNode(true);
       link.parentNode?.replaceChild(newLink, link);
 
-      link.addEventListener("click", e => this.onClickHandler(e))
+      link.addEventListener("click", (e) => this.onClickHandler(e));
     });
   }
 
@@ -141,7 +142,7 @@ export class IFrameHelper {
       }
       ps = pps;
     }
-    if(el.tagName !== "BODY") {
+    if (el.tagName !== "BODY") {
       this.hideAllExcept(el.parentElement);
     }
   }
