@@ -25,7 +25,6 @@ export class IFrameHelper {
     window.addEventListener("load", () => {
       // The DOM has already been rendered at this point.
       this.focusDictUi();
-      this.handleMutations();
     });
 
     window.addEventListener("unload", () => {
@@ -132,14 +131,5 @@ export class IFrameHelper {
       href: document.location.href,
       sourceFrame: this.getFrameName(),
     });
-  }
-
-  // Mutations do not cause a page reload and may result in a jank.
-  // E.g. clicking on querySelectorAll("[data-term-for-update]") elements in definition.
-  // TODO: Use mutation observer for a more efficient mechanism to detect changes and hide them.
-  handleMutations() {
-    // setInterval(() => {
-    //   this.focusDictUi();
-    // }, 5000);
   }
 }

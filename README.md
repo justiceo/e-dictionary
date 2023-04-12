@@ -113,3 +113,8 @@ node tools/esbuild test
 
 ### Todo
 * Do not show for text selections in editors (docs, medium, office in edit mode)
+* Add screenshot for right click, popup, i18n
+* Handle hyperlinks to avoid navigation. Sample query "define hello".
+* Hide learn to pronounce.
+* Display loading UI while loading.
+* Add support for inline-form
