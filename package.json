@@ -45,7 +45,6 @@
     "@sentry/tracing": "^7.37.1",
     "@webcomponents/custom-elements": "^1.6.0",
     "@webcomponents/webcomponentsjs": "^2.7.0",
-    "lit": "^2.6.0",
-    "winbox": "github:justiceo/winbox"
+    "lit": "^2.6.0"
   }
 }
