@@ -8,9 +8,9 @@ To update in REPL mode, see https://codepen.io/justiceo/pen/mdGGPxY.
 
 Usage:
 <feedback-form
-    app="Extension"
-    logo="https://upload.wikimedia.org/wikipedia/commons/4/4f/SVG_Logo.svg" 
-    store="http://example.com"            
+    app-name="Extension"
+    logo-url="https://upload.wikimedia.org/wikipedia/commons/4/4f/SVG_Logo.svg" 
+    store-link="http://example.com"            
     size="medium">
 </feedback-form>
 */
