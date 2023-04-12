@@ -50,7 +50,6 @@ export class Previewr {
   listenForWindowMessages() {
     window.addEventListener("message", this.onMessageHandler, false);
     document.onkeydown = this.onEscHandler;
-    document.onmousedown = this.onEscHandler;
     document.onscroll = this.onEscHandler;
     document.onresize = this.onEscHandler;
   }
