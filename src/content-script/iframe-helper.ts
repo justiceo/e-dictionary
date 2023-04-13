@@ -25,8 +25,6 @@ export class IFrameHelper {
     window.addEventListener("load", () => {
       // The DOM has already been rendered at this point.
       this.focusDictUi();
-
-      this.handleLinks();
     });
 
     window.addEventListener("unload", () => {
@@ -53,43 +51,7 @@ export class IFrameHelper {
         });
       }
     };
-
-    // Redirect future links/clicks.
-    document.addEventListener("click", (e) => this.onClickHandler(e));
   }
-
-  // TODO: Move this logic into search-engine#applyCss.
-  // Leaving it for now, since the underline is on <span> not on <a>
-  handleLinks() {
-    document.querySelectorAll("a, [role=link]").forEach((link) => {
-      // Clone the links, this removes all existing listeners.
-      const newLink = link.cloneNode(true);
-      link.parentNode?.replaceChild(newLink, link);
-
-      link.addEventListener("click", (e) => this.onClickHandler(e));
-    });
-  }
-
-  onClickHandler = (event) => {
-    var targetEl: any = this.getLinkTarget(event);
-    if (!targetEl || !targetEl.href) {
-      return;
-    }
-    if ((targetEl.href as string).startsWith("#")) {
-      // This is common for internal/fragment navigation.
-      return;
-    }
-    event.stopImmediatePropagation();
-    event.preventDefault();
-    this.logger.debug("Prevented click propagation and posting navigate");
-    this.sendMessage({
-      action: "define",
-      data: targetEl.innerText,
-      href: targetEl.href,
-      source: window.location.href,
-      sourceFrame: this.getFrameName(),
-    });
-  };
 
   inIframe() {
     try {

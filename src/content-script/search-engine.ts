@@ -22,7 +22,15 @@ export function getEngineConfig() {
                 `;
                 document.body.appendChild(style);
 
-                // TODO: Remove links to avoid navigating away.
+                document.body.querySelectorAll("a, [role=link]").forEach(a => {
+                    if(!a.parentElement) return;
+
+                    // Remove the underline from the wrapping style element.
+                    a.parentElement.style.textDecoration = "none";
+
+                    // Remove the hyperlink.
+                    a.parentElement.replaceChild(document.createTextNode(a.textContent!), a);
+                });
             },
         },
         DuckDuckGo: {

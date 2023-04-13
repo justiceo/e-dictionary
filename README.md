@@ -114,5 +114,4 @@ node tools/esbuild test
 ### Todo
 * Do not show for text selections in editors (docs, medium, office in edit mode)
 * Add screenshot for right click, popup, i18n
-* Add support for inline-form
-* Handle back nav or remove links completely (preferred). See https://stackoverflow.com/a/8681618
+* Add support for inline-feedback.
