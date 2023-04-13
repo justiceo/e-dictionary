@@ -11,31 +11,31 @@ Logo inspo - https://www.veryicon.com/icons/business/colorful-office-icons/book-
   <tr style="text-align: center">
     <td valign="center">
       <a align="center" href="https://chrome.google.com/webstore/">
-        <img src="src/assets/chrome-logo.png" alt="Chrome web store" width="50" />
+        <img src="src/assets/browser-chrome.png" alt="Chrome web store" width="50" />
         <p align="center">Chrome Web Store</p>
       </a>
     </td>
     <td valign="center">
       <a href="https://addons.mozilla.org/firefox/extensions/">
-        <img src="src/assets/firefox-logo.png" alt="Firefox add-ons" width="50" />
+        <img src="src/assets/browser-firefox.png" alt="Firefox add-ons" width="50" />
         <p align="center">Firefox Add-ons</p>
       </a>
     </td>
         <td valign="center">
       <a href="https://addons.opera.com/en/extensions/">
-        <img src="src/assets/opera-logo.png" alt="Opera add-ons" width="50"/>
+        <img src="src/assets/browser-opera.png" alt="Opera add-ons" width="50"/>
         <p align="center">Opera Add-ons</p>
       </a>
     </td>
         <td valign="center">
       <a href="https://microsoftedge.microsoft.com/addons">
-        <img src="src/assets/ms-edge-logo.png" alt="MS Edge add-ons" width="50" />
+        <img src="src/assets/browser-ms-edge.png" alt="MS Edge add-ons" width="50" />
         <p align="center">Ms Edge Add-ons</p>
       </a>
     </td>
         <td valign="center">
       <a href="https://apps.apple.com/app/apple-store/">
-        <img src="src/assets/safari-logo.png" alt="Safari add-ons" width="50" />
+        <img src="src/assets/browser-safari.png" alt="Safari add-ons" width="50" />
         <p align="center">Safari Extensions</p>
       </a>
     </td>
