@@ -1,5 +1,5 @@
 import { Message } from "../shared";
-import { Logger } from "../logger";
+import { Logger } from "../utils/logger";
 import { Previewr } from "./previewr";
 import { IFrameHelper } from "./iframe-helper";
 import "./content-script.css";

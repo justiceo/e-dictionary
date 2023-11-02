@@ -1,4 +1,4 @@
-import { Logger } from "../logger";
+import { Logger } from "../utils/logger";
 import { getEngineConfig } from "./search-engine";
 
 // This script is executed inside the preview (i.e. document is iframe).

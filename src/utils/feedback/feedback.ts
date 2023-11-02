@@ -4,7 +4,7 @@ import markup from "./feedback.txt.html";
 // @ts-ignore: This CSS is loaded as plain text.
 import css from "./feedback.txt.css";
 import { i18n } from "../i18n";
-import { Logger } from "../logger";
+import { Logger } from "../utils/logger";
 
 /* A simple inline form that supports three sizes: inline, small and medium.
 
