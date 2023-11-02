@@ -1,4 +1,6 @@
+/// <reference types="chrome"/>
 import * as Sentry from "@sentry/browser";
+import manifest from "../manifest.json";
 
 /**
  * Simple util for logging to console.
@@ -13,14 +15,15 @@ enum LogLevel {
   DEBUG,
 }
 declare var IS_DEV_BUILD: boolean;
+const EXTENSION_NAME = manifest.__package_name__;
+
 export class Logger {
   tag = "";
 
-  constructor(tag: string) {
-    this.tag = tag;
+  constructor(tag: string|Object) {
+    this.tag = EXTENSION_NAME + "." + (typeof tag === 'string' ? tag : tag.constructor.name);
 
-    console.error(tag, ": is_dev_build? ", IS_DEV_BUILD);
-    if(!IS_DEV_BUILD) {
+    if (!IS_DEV_BUILD) {
       this.initSentry();
     }
     this.listenForBgLogs();
@@ -28,26 +31,34 @@ export class Logger {
 
   initSentry() {
     Sentry.init({
-      dsn: "https://b1d81a9e5f1546f79885a473ce33128c@o526305.ingest.sentry.io/6244539",
+      dsn: manifest.__sentry_dsn__,
       tracesSampleRate: 0.1,
-      release: "xtension@23.01.10",
+      release: EXTENSION_NAME + "@" + manifest.version,
       environment: "PROD",
     });
   }
 
   listenForBgLogs() {
     chrome.runtime.onMessage.addListener((message, sender) => {
-      if(sender.id !== chrome.runtime.id || message.action != "log") {
+      if (sender.id !== chrome.runtime.id || message.action != "log") {
         return;
       }
-      this.internalLogTagOverride(message.data.level, message.data.tag, ...message.data.messages)
+      this.internalLogTagOverride(
+        message.data.level,
+        message.data.tag,
+        ...message.data.messages
+      );
     });
   }
 
-  debug = (...messages: unknown[]) => this.internalLog(LogLevel.DEBUG, ...messages);
-  log = (...messages: unknown[]) => this.internalLog(LogLevel.INFO, ...messages); 
-  warn = (...messages: unknown[]) => this.internalLog(LogLevel.WARNING, ...messages);
-  error = (...messages: unknown[]) => this.internalLog(LogLevel.ERROR, ...messages);
+  debug = (...messages: unknown[]) =>
+    this.internalLog(LogLevel.DEBUG, ...messages);
+  log = (...messages: unknown[]) =>
+    this.internalLog(LogLevel.INFO, ...messages);
+  warn = (...messages: unknown[]) =>
+    this.internalLog(LogLevel.WARNING, ...messages);
+  error = (...messages: unknown[]) =>
+    this.internalLog(LogLevel.ERROR, ...messages);
 
   internalLog(level: LogLevel, ...messages: unknown[]) {
     this.internalLogTagOverride(level, this.tag, ...messages);
@@ -65,7 +76,6 @@ export class Logger {
     if (!IS_DEV_BUILD) {
       switch (level) {
         case LogLevel.WARNING:
-        case LogLevel.INFO:
           Sentry.captureMessage(output.join(" "));
           break;
         case LogLevel.ERROR:
@@ -96,21 +106,28 @@ export class Logger {
 export class RemoteLogger {
   tag = "";
 
-  constructor(tag: string) {
-    this.tag = tag;
+  constructor(tag: string|Object) {
+    this.tag = EXTENSION_NAME + "." + (typeof tag === 'string' ? tag : tag.constructor.name);
   }
 
-  debug = (...messages: unknown[]) => this.internalLog(LogLevel.DEBUG, ...messages);
-  log = (...messages: unknown[]) => this.internalLog(LogLevel.INFO, ...messages); 
-  warn = (...messages: unknown[]) => this.internalLog(LogLevel.WARNING, ...messages);
-  error = (...messages: unknown[]) => this.internalLog(LogLevel.ERROR, ...messages);
+  debug = (...messages: unknown[]) =>
+    this.internalLog(LogLevel.DEBUG, ...messages);
+  log = (...messages: unknown[]) =>
+    this.internalLog(LogLevel.INFO, ...messages);
+  warn = (...messages: unknown[]) =>
+    this.internalLog(LogLevel.WARNING, ...messages);
+  error = (...messages: unknown[]) =>
+    this.internalLog(LogLevel.ERROR, ...messages);
 
   internalLog(level: LogLevel, ...messages: unknown[]): void {
-    chrome.tabs.query({active: true, currentWindow: true}, tabs => {
-      if(tabs.length !== 1) {
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+      if (tabs.length !== 1) {
         return;
       }
-      chrome.tabs.sendMessage(tabs[0].id!, {action: "log", data: {level: level, tag: this.tag, messages: messages}});
+      chrome.tabs.sendMessage(tabs[0].id!, {
+        action: "log",
+        data: { level: level, tag: this.tag, messages: messages },
+      });
     });
   }
 }

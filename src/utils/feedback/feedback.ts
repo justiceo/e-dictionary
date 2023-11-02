@@ -1,6 +1,10 @@
-import '@webcomponents/custom-elements';
-import markup from './feedback.txt.html';
-import css from './feedback.txt.css';
+import "@webcomponents/custom-elements";
+// @ts-ignore: This HTML is loaded as plain text.
+import markup from "./feedback.txt.html";
+// @ts-ignore: This CSS is loaded as plain text.
+import css from "./feedback.txt.css";
+import { i18n } from "../i18n";
+import { Logger } from "../logger";
 
 /* A simple inline form that supports three sizes: inline, small and medium.
 
@@ -15,6 +19,8 @@ Usage:
 </feedback-form>
 */
 class FeedbackForm extends HTMLElement {
+  logger = new Logger(this);
+  progressHandler;
   constructor() {
     super();
 
@@ -22,20 +28,24 @@ class FeedbackForm extends HTMLElement {
     this.attachShadow({ mode: "open" }); // sets and returns 'this.shadowRoot'
   }
 
+  setProgressHandler(fn) {
+    this.progressHandler = fn;
+  }
+
   static get observedAttributes() {
     return ["size", "app-name", "logo-url", "store-link", "form-link"];
   }
 
   connectedCallback() {
-    console.log("Custom form element added to page.");
+    this.logger.debug("Feedback form added to page.");
     this.updateStyle(this);
   }
   disconnectedCallback() {
-    console.log("Custom square element removed from page.");
+    this.logger.debug("Feedback form removed from page.");
   }
 
   adoptedCallback() {
-    console.log("Custom square element moved to new page.");
+    this.logger.debug("Feedback form moved to new page.");
   }
 
   updateStyle(elem) {
@@ -50,11 +60,16 @@ class FeedbackForm extends HTMLElement {
     shadow.append(style, documentFragment);
 
     const size = elem.getAttribute("size") ?? "inline";
-    const app = elem.getAttribute("app-name") ?? chrome.i18n.getMessage("appName");
-    const logo = elem.getAttribute("logo-url") ?? chrome.runtime.getURL("assets/logo-128x128.png");
-    const storeLink = elem.getAttribute("store-link") ?? "https://chrome.google.com/webstore/detail/" + chrome.i18n.getMessage("@@extension_id");
-    const formLink = elem.getAttribute("form-link") ?? "https://formspree.io/f/mayzdndj";
-    console.log(`Attributes: size=${size}, app=${app}, logo=${logo}`);
+    const app = elem.getAttribute("app-name") ?? i18n("appName");
+    const logo =
+      elem.getAttribute("logo-url") ??
+      chrome.runtime.getURL("assets/logo-24x24.png");
+    const storeLink =
+      elem.getAttribute("store-link") ??
+      "https://chrome.google.com/webstore/detail/" + i18n("@@extension_id");
+    const formLink =
+      elem.getAttribute("form-link") ?? "https://formspree.io/f/mayzdndj";
+    this.logger.debug(`Attributes: size=${size}, app=${app}, logo=${logo}`);
 
     const multiStepForm = shadow.querySelector("[data-multi-step]");
     multiStepForm.classList.remove("inline", "small", "medium");
@@ -88,6 +103,9 @@ class FeedbackForm extends HTMLElement {
 
       const handleStarClick = (event) => {
         const starIndex = event.target.getAttribute("data-star-index");
+        if (this.progressHandler) {
+          this.progressHandler("started", starIndex);
+        }
 
         currentStep = starIndex < 5 ? 3 : 2;
 
@@ -111,28 +129,32 @@ class FeedbackForm extends HTMLElement {
           window.open(storeLink);
         }
 
+        // TODO: Fix this section to send comprehensive and correct data.
+        const data = {
+          feedback: multiStepForm.querySelector("input").value,
+          appName: app,
+        };
+
         // Handle feedback submission.
         if (button.id === "submit-form") {
-          const data = {
-            feedback: multiStepForm.querySelector("input").value,
-            appName: app,
-          };
           fetch(formLink, {
             method: "POST",
             body: JSON.stringify(data),
           })
             .then(function (response) {
-              return console.log("response", response.json());
+              return this.logger.debug("response", response.json());
             })
             .then(function (response) {
-              console.log("response 2", response.json());
+              this.logger.debug("response 2", response.json());
             });
         }
 
         // Auto-close at the end.
-        if(currentStep == 4) {
+        if (currentStep == 4) {
           setTimeout(() => {
-            multiStepForm.style.display = "none";
+            if (this.progressHandler) {
+              this.progressHandler("completed", data);
+            }
           }, 1300);
         }
       })
