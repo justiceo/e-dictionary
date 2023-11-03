@@ -1,11 +1,8 @@
 import './options.css'
-import { OptionsElement } from '../utils/options-element';
 
 class OptionsPage {
   render(options) {
-    console.log("rendering options: ", options);
-    const optionsEl = new OptionsElement(options);
-    document.body.appendChild(optionsEl);
+    console.log("todo: rendering options: ", options);
   }
 
 }
