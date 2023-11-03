@@ -66,7 +66,7 @@ export class Previewr {
 
     if (event.data.application !== "dictionary") {
       this.logger.debug(
-        "Ignoring origin messsage not initiated by Better Previews"
+        "Ignoring origin messsage not initiated by Dictionary"
       );
       return;
     }
@@ -161,7 +161,7 @@ export class Previewr {
       // Simply updating the url without changing the iframe, means the content-script doesn't get re-inserted into the frame, even though it's now out of context.
       html: `<iframe name="${iframeName}" src="${url}"></iframe><div class="loading"><span class="bar-animation"></span></div> `,
       // url: url.href, // Update restore when you update this.
-      hidden: true,
+      hidden: false,
       shadowel: "dictionary-preview-window",
       cssurl: chrome.runtime.getURL("content-script/winbox.css"),
       framename: iframeName,
