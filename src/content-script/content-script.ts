@@ -1,7 +1,6 @@
 import { Logger } from "../utils/logger";
 import "./previewr";
 import "./iframe-helper";
-import "./content-script.css";
 
 class Listener {
   showTimeout?: number;
