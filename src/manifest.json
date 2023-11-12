@@ -6,7 +6,7 @@
   "homepage_url": "https://chrome.google.com/webstore/detail/dictionary/nhbchcfeodkcblfpdjdhelcfbefefmag",
   "__package_name__": "dictionary",
   "__comment:version__": "Firefox does not support leading zeros in versions",
-  "version": "23.5.19",
+  "version": "23.11.11",
   "__sentry_dsn__": "https://b1d81a9e5f1546f79885a473ce33128c@o526305.ingest.sentry.io/6244539",
   "manifest_version": 3,
   "default_locale": "en",
