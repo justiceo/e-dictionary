@@ -3,8 +3,9 @@ import { WinBox } from "../utils/winbox/winbox";
 import { computePosition, flip, offset, shift } from "@floating-ui/dom";
 import "./previewr.css";
 import { getEngineConfig } from "./search-engine";
+import manifest from "../manifest.json";
 
-const iframeName = "essentialkit_dict_frame";
+const iframeName = manifest.__package_name__ + "/mainframe";
 // Export the dialog dom
 WinBox.prototype.getDom = function () {
   return this.dom;
@@ -161,7 +162,7 @@ export class Previewr {
       // Simply updating the url without changing the iframe, means the content-script doesn't get re-inserted into the frame, even though it's now out of context.
       html: `<iframe name="${iframeName}" src="${url}"></iframe><div class="loading"><span class="bar-animation"></span></div> `,
       // url: url.href, // Update restore when you update this.
-      hidden: false,
+      hidden: true,
       shadowel: "dictionary-preview-window",
       cssurl: chrome.runtime.getURL("content-script/winbox.css"),
       framename: iframeName,
@@ -228,3 +229,5 @@ export class Previewr {
     });
   }
 }
+
+new Previewr().init();

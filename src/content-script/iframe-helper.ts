@@ -1,9 +1,10 @@
 import { Logger } from "../utils/logger";
 import { getEngineConfig } from "./search-engine";
+import manifest from "../manifest.json";
 
 // This script is executed inside the preview (i.e. document is iframe).
 export class IFrameHelper {
-  iframeName = "essentialkit_dict_frame";
+  iframeName = manifest.__package_name__ + "/mainframe";
   logger = new Logger("iframe-helper");
   config = getEngineConfig();
   constructor() {
@@ -133,3 +134,5 @@ export class IFrameHelper {
     });
   }
 }
+const iframeHelper = new IFrameHelper();
+iframeHelper.registerListeners();
